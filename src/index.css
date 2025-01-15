@@ -7,8 +7,17 @@
 /*----------- Атомы */
 @import 'stylesheets/components/atoms/A_Link.scss';
 @import 'stylesheets/components/atoms/A_Logo.scss';
+@import 'stylesheets/components/atoms/A_SearchButton.scss';
+@import 'stylesheets/components/atoms/A_PostCover.scss';
+@import 'stylesheets/components/atoms/A_Tag.scss';
+@import 'stylesheets/components/atoms/A_Button.scss';
+@import 'stylesheets/components/atoms/A_SocialButton.scss';
 
 /*----------- Молекулы */
+@import 'stylesheets/components/molecules/M_SearchBar.scss';
+@import 'stylesheets/components/molecules/M_ArticleHead.scss';
 
 /*----------- Организмы */
 @import 'stylesheets/components/organisms/O_Footer.scss';
+@import 'stylesheets/components/organisms/O_Header.scss';
+@import 'stylesheets/components/organisms/O_ArticleCover.scss';

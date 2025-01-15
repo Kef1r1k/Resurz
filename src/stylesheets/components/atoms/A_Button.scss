@@ -1,0 +1,41 @@
+.A_Button {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 135%;
+  cursor: pointer;
+
+  &.primary {
+    color: var(--white);
+    background: var(--black);
+
+    &:hover {
+      background: var(--black-hover);
+    }
+    &:active {
+      background: var(--black-pressed);
+    }
+  }
+
+  &.secondary {
+    border: 2px solid var(--black);
+    color: var(--black);
+
+    &:hover {
+      color: var(--white);
+      border: 2px solid var(--black-hover);
+      background: var(--black-hover);
+    }
+    &:active {
+      color: var(--white);
+      border: 2px solid var(--black-pressed);
+      background: var(--black-pressed);
+    }
+  }
+}

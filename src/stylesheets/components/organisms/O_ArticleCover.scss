@@ -1,0 +1,12 @@
+.O_ArticleCover {
+  position: relative;
+  width: 1420px;
+  display: flex;
+  align-items: center;
+  grid-column: 1/13;
+
+  .A_PostCover {
+    position: absolute;
+    right: 0;
+  }
+}

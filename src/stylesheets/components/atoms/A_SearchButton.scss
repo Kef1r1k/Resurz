@@ -1,0 +1,28 @@
+.A_SearchButton {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./images/search.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  filter: invert(20%) sepia(0%) saturate(0%) hue-rotate(111deg) brightness(98%)
+    contrast(95%);
+
+  &:hover {
+    filter: invert(29%) sepia(69%) saturate(0%) hue-rotate(218deg)
+      brightness(99%) contrast(98%);
+  }
+
+  &:active {
+    filter: invert(0%) sepia(0%) saturate(13%) hue-rotate(235deg)
+      brightness(105%) contrast(105%);
+  }
+
+  &.neutral {
+    filter: invert(64%) sepia(0%) saturate(1478%) hue-rotate(186deg)
+      brightness(94%) contrast(90%);
+  }
+}

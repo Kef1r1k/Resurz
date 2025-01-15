@@ -1,0 +1,66 @@
+.A_Tag {
+  display: flex;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background: var(--white);
+  border: 1px solid var(--stroke-gray);
+  color: var(--gray);
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 135%;
+
+  &:hover {
+    border: 1px solid var(--black-hover);
+    color: var(--black-hover);
+  }
+
+  &:active {
+    border: 1px solid var(--black-pressed);
+    color: var(--black-pressed);
+  }
+
+  &.selected {
+    border: 1px solid var(--black);
+    background: var(--black);
+    color: var(--white);
+  }
+}
+
+.A_Tag.suetulya {
+  background: var(--white);
+  border: 1px solid var(--dark-orange);
+  color: var(--dark-orange);
+
+  &.selected {
+    background: var(--dark-orange);
+    border: 1px solid var(--dark-orange);
+    color: var(--white);
+  }
+}
+
+.A_Tag.toksinka {
+  background: var(--white);
+  border: 1px solid var(--dark-green);
+  color: var(--dark-green);
+
+  &.selected {
+    background: var(--dark-green);
+    border: 1px solid var(--dark-green);
+    color: var(--white);
+  }
+}
+
+.A_Tag.poteryasha {
+  background: var(--white);
+  border: 1px solid var(--dark-purple);
+  color: var(--dark-purple);
+
+  &.selected {
+    background: var(--dark-purple);
+    border: 1px solid var(--dark-purple);
+    color: var(--white);
+  }
+}

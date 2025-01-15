@@ -125,7 +125,7 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/articles/article_template.html',
       filename: './articles/article_template.html',
-      chunks: ['article']
+      chunks: ['index']
     }),
 
     // Interviews pages
@@ -134,7 +134,7 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/interviews/interview_template.html',
       filename: './interviews/interview_template.html',
-      chunks: ['article']
+      chunks: ['index']
     }),
 
     // Errors

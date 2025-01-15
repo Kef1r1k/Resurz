@@ -1,0 +1,26 @@
+.O_Header {
+  width: 1420px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid var(--stroke-gray);
+  background: var(--white);
+  grid-column: 1/13;
+
+  .W_Header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+
+    .C_HeaderLinks {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+}

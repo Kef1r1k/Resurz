@@ -1,0 +1,34 @@
+.M_ArticleHead {
+  width: 1180px;
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 32px;
+  border: 1px solid var(--stroke-gray);
+  background: var(--white);
+
+  h1 {
+    width: 768px;
+  }
+
+  .C_Tags {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .W_ShareButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+
+    .C_SocialButtons {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+}
