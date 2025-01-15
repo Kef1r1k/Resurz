@@ -1,0 +1,41 @@
+.O_Footer {
+  width: 100vw;
+  height: auto;
+  padding: 48px 0px;
+  margin-top: 136px;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .W_Footer {
+    width: 1420px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .W_FooterLinks {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .A_Link {
+        color: var(--white);
+
+        &.active {
+          border-bottom: 1px solid var(--white);
+        }
+
+        &:hover {
+          color: var(--white);
+          border-bottom: 1px solid var(--white);
+        }
+
+        &:active {
+          color: var(--white);
+          border-bottom: 1px solid var(--white);
+        }
+      }
+    }
+  }
+}

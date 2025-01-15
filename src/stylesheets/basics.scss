@@ -8,30 +8,69 @@ body {
 }
 
 body {
+  color: var(--black);
   font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
 
-.images {
-  display: flex;
+p {
+  font-family: 'Inter';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
 
-  * {
-    width: 24px;
-    height: 24px;
-    margin: 0 10px;
+  &.s {
+    font-size: 20px;
   }
 
-  .image {
-    &#bgPNG {
-      background-image: url('images/image.png');
-    }
-
-    &#bgJPG {
-      background-image: url('images/image.jpg');
-    }
-
-    &#bgSVG {
-      background-image: url('images/image.svg');
-    }
+  &.xs {
+    font-size: 16px;
   }
+}
+
+b {
+  font-weight: 600;
+}
+
+h1 {
+  font-family: 'Involve';
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%;
+}
+
+h2 {
+  font-family: 'Involve';
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -1.7px;
+}
+
+h3 {
+  font-family: 'Involve';
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%;
+}
+
+h4 {
+  font-family: 'Inter';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+h5 {
+  font-family: 'Inter';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.6px;
 }

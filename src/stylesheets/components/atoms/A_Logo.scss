@@ -1,0 +1,16 @@
+.A_Logo {
+  width: 138px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  text-decoration: none;
+
+  &.black {
+    background-image: url('./images/logo.svg');
+  }
+
+  &.white {
+    background-image: url('./images/logo_white.svg');
+  }
+}

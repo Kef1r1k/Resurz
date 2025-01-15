@@ -8,8 +8,7 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    page: './src/page.jsx'
+    index: './src/index.js'
   },
   output: {
     filename: '[name].js',
@@ -75,7 +74,7 @@ module.exports = {
       chunkFilename: '[id].css'
     }),
 
-    // Landing page
+    // Main page
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
@@ -84,16 +83,101 @@ module.exports = {
       chunks: ['index']
     }),
 
-    // Internal pages
+    // About
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
-      template: './src/pages/page.html',
-      filename: './pages/page.html',
-      chunks: ['page']
+      template: './src/about.html',
+      filename: './about.html',
+      chunks: ['index']
+    }),
+
+    // Articles
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/articles.html',
+      filename: './articles.html',
+      chunks: ['index']
+    }),
+
+    // Interviews
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/interviews.html',
+      filename: './interviews.html',
+      chunks: ['index']
+    }),
+
+    // Contract generator
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/contract_generator.html',
+      filename: './contract_generator.html',
+      chunks: ['index']
+    }),
+
+    // Articles pages
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/articles/article_template.html',
+      filename: './articles/article_template.html',
+      chunks: ['article']
+    }),
+
+    // Interviews pages
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/interviews/interview_template.html',
+      filename: './interviews/interview_template.html',
+      chunks: ['article']
+    }),
+
+    // Errors
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/errors/404.html',
+      filename: './errors/404.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/errors/400.html',
+      filename: './errors/400.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/errors/500.html',
+      filename: './errors/500.html',
+      chunks: ['index']
     }),
 
     // Partials
+    new HtmlWebpackPartialsPlugin([
+      {
+        path: path.join(__dirname, './src/partials/header.html'),
+        location: 'header',
+        template_filename: '*',
+        priority: 'replace'
+      }
+    ]),
+
+    new HtmlWebpackPartialsPlugin([
+      {
+        path: path.join(__dirname, './src/partials/footer.html'),
+        location: 'footer',
+        template_filename: '*',
+        priority: 'replace'
+      }
+    ]),
     new HtmlWebpackPartialsPlugin([
       {
         path: path.join(__dirname, './src/partials/analytics.html'),

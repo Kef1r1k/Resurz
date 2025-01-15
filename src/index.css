@@ -4,7 +4,11 @@
 @import 'stylesheets/basics.scss';
 @import 'stylesheets/index.scss';
 
-@import 'stylesheets/components/quarks.scss';
-@import 'stylesheets/components/atoms.scss';
-@import 'stylesheets/components/molecules.scss';
-@import 'stylesheets/components/organisms.scss';
+/*----------- Атомы */
+@import 'stylesheets/components/atoms/A_Link.scss';
+@import 'stylesheets/components/atoms/A_Logo.scss';
+
+/*----------- Молекулы */
+
+/*----------- Организмы */
+@import 'stylesheets/components/organisms/O_Footer.scss';
