@@ -1,8 +1,9 @@
 .O_ArticleCover {
-  position: relative;
   width: 1420px;
+  margin-bottom: 48px;
   display: flex;
   align-items: center;
+  position: relative;
   grid-column: 1/13;
 
   .A_PostCover {

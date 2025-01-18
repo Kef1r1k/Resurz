@@ -1,5 +1,5 @@
 .O_Footer {
-  width: 100vw;
+  width: 100%;
   height: auto;
   padding: 48px 0px;
   margin-top: 136px;
@@ -36,12 +36,19 @@
           border-bottom: 1px solid var(--white);
         }
       }
+    }
+  }
 
-      .A_SocialButton {
-        border: none;
-        background-color: var(--white);
-        filter: none;
-      }
+  .A_SocialButton.tg {
+    background-size: 48px 48px;
+    border: none;
+
+    &:hover {
+      filter: none;
+    }
+
+    &:active {
+      filter: none;
     }
   }
 }

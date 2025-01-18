@@ -12,10 +12,17 @@
 @import 'stylesheets/components/atoms/A_Tag.scss';
 @import 'stylesheets/components/atoms/A_Button.scss';
 @import 'stylesheets/components/atoms/A_SocialButton.scss';
+@import 'stylesheets/components/atoms/A_ArticleDate.scss';
+@import 'stylesheets/components/atoms/A_TextContents.scss';
+@import 'stylesheets/components/atoms/A_ContentLink.scss';
+@import 'stylesheets/components/atoms/A_ToggleButton.scss';
 
 /*----------- Молекулы */
 @import 'stylesheets/components/molecules/M_SearchBar.scss';
 @import 'stylesheets/components/molecules/M_ArticleHead.scss';
+@import 'stylesheets/components/molecules/M_ArticleQuote.scss';
+@import 'stylesheets/components/molecules/M_ArticleContents.scss';
+@import 'stylesheets/components/molecules/M_ArticleCard.scss';
 
 /*----------- Организмы */
 @import 'stylesheets/components/organisms/O_Footer.scss';

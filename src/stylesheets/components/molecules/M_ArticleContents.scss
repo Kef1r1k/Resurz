@@ -1,0 +1,27 @@
+.M_ArticleContents {
+  width: 460px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: sticky;
+  top: 104px;
+  border-radius: 24px;
+  border: 1px solid var(--stroke-gray);
+  background: var(--white);
+
+  .W_Hint {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .C_ContentLinks {
+    display: flex;
+    padding-left: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

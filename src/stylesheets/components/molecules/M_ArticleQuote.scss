@@ -1,0 +1,37 @@
+.M_ArticleQuote {
+  width: 1420px;
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  border-radius: 24px;
+
+  &.suetulya {
+    color: var(--dark-orange);
+    background: rgba(255, 218, 56, 0.3);
+  }
+
+  &.poteryasha {
+    color: var(--dark-purple);
+    background: rgba(255, 198, 253, 0.4);
+  }
+
+  &.toksinka {
+    color: var(--dark-green);
+    background: rgba(171, 231, 58, 0.3);
+  }
+
+  .Q_Image {
+    width: 176px;
+    height: 176px;
+    flex-shrink: 0;
+  }
+
+  .W_Test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}

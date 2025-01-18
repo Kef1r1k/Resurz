@@ -1,8 +1,22 @@
 .A_PostCover {
+  &.large {
+    width: 820px;
+    height: 460px;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
   &.medium {
     width: 580px;
     height: 326px;
     border-radius: 24px;
+    overflow: hidden;
+  }
+
+  &.small {
+    width: 460px;
+    height: 258px;
+    border-radius: 16px;
     overflow: hidden;
   }
 }

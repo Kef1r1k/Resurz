@@ -13,6 +13,11 @@
     background-image: url('./images/tg.svg');
   }
 
+  &.tg.white {
+    background-image: url('./images/tg-white.svg');
+    filter: none;
+  }
+
   &.vk {
     background-image: url('./images/vk.svg');
   }

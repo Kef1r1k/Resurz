@@ -17,6 +17,11 @@ body {
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
 p {
   font-family: 'Inter';
   font-size: 24px;
@@ -94,5 +99,41 @@ h5 {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+  }
+}
+
+.C_Articles {
+  width: 1420px;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 48px 20px;
+  flex-wrap: wrap;
+}
+
+.article {
+  .M_ArticleContents {
+    grid-column: 9 / 13;
+  }
+
+  .A_TextContents,
+  .recommendation {
+    grid-column: 1 / 8;
+  }
+
+  .M_ArticleQuote,
+  .A_PostCover.large {
+    margin-bottom: 64px;
+  }
+
+  .M_ArticleQuote,
+  .A_PostCover.large,
+  .A_ArticleDate,
+  .C_Articles {
+    grid-column: 1/ 13;
+  }
+
+  .C_Articles {
+    margin-top: 32px;
   }
 }

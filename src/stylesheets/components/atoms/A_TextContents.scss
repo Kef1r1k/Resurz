@@ -1,0 +1,12 @@
+.A_TextContents {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-bottom: 56px;
+
+  .W_TextBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,43 @@
+.A_ContentLink {
+  display: flex;
+  max-width: 376px;
+  padding-bottom: 4px;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 135%;
+  transition: all 0.3s;
+
+  &.suetulya {
+    color: var(--dark-orange);
+    border-bottom: 1px solid var(--dark-orange);
+  }
+
+  &.poteryasha {
+    color: var(--dark-purple);
+    border-bottom: 1px solid var(--dark-purple);
+  }
+
+  &.toksinka {
+    color: var(--dark-green);
+    border-bottom: 1px solid var(--dark-green);
+  }
+
+  &:hover {
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
+  }
+
+  &:active {
+    color: var(--black-pressed);
+    border-bottom: 1px solid var(--black-pressed);
+  }
+}
+
+.A_ContentLink:before {
+  content: '•';
+  margin-right: 8px;
+}
