@@ -24,3 +24,9 @@
     width: 358px;
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_ArticleCard {
+    width: 328px;
+  }
+}

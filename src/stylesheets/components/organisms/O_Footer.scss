@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--white);
 
   .W_Footer {
     width: 1420px;
@@ -72,6 +73,26 @@
 
       .W_FooterLinks {
         gap: 24px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .O_Footer {
+    margin-top: 100px;
+
+    .W_Footer {
+      width: 328px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      .W_FooterLinks {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        gap: unset;
       }
     }
   }

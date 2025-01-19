@@ -70,3 +70,25 @@
     }
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_ArticleQuote {
+    width: 100%;
+    padding: 24px 0px;
+    justify-content: center;
+    gap: 0px;
+    border-radius: 0px;
+
+    .Q_Image {
+      display: none;
+    }
+
+    h4 {
+      max-width: 328px;
+    }
+
+    .W_Test {
+      gap: 16px;
+    }
+  }
+}

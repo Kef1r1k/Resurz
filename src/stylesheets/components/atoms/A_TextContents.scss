@@ -1,4 +1,5 @@
 .A_TextContents {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -18,6 +19,17 @@
 
     .W_TextBlock {
       gap: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .A_TextContents {
+    gap: 40px;
+    margin-bottom: 40px;
+
+    .W_TextBlock {
+      gap: 16px;
     }
   }
 }

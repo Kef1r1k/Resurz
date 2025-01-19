@@ -37,3 +37,22 @@
     }
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .O_ArticleCover {
+    width: 100%;
+    margin-bottom: 24px;
+    flex-direction: column;
+
+    .A_PostCover {
+      position: absolute;
+      right: auto;
+      z-index: -1;
+    }
+
+    .M_ArticleHead {
+      position: relative;
+      margin-top: 144px;
+    }
+  }
+}

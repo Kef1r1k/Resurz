@@ -11,12 +11,33 @@
   input {
     width: 348px;
     display: none;
+    padding: 0;
+    border: none;
     color: var(--black);
     font-family: 'Inter';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 135%;
+    -webkit-appearance: none;
+  }
+
+  input,
+  select,
+  textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 0;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    -webkit-appearance: none;
+    border: none;
+    appearance: none;
+    padding: 0;
   }
 
   &.active {
@@ -52,6 +73,23 @@
     input {
       width: 149px;
       font-size: 16px;
+    }
+
+    &.active {
+      padding: 16px 16px;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_SearchBar {
+    padding: 16px;
+    gap: 16px;
+
+    input {
+      width: 168px;
+      font-size: 14px;
+      display: inline-block;
     }
 
     &.active {

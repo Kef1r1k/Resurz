@@ -23,6 +23,10 @@
       gap: 32px;
     }
   }
+
+  .A_BurgerButton {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
@@ -43,6 +47,21 @@
       .C_HeaderLinks {
         gap: 12px;
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .O_Header {
+    width: 328px;
+    grid-column: 1 / 5;
+
+    .W_Header {
+      display: none;
+    }
+
+    .A_BurgerButton {
+      display: block;
     }
   }
 }

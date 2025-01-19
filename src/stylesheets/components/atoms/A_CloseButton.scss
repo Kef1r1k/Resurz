@@ -1,0 +1,12 @@
+.A_CloseButton {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  border: 1px solid var(--stroke-gray);
+  background: var(--white);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-image: url('./images/cross.svg');
+}
