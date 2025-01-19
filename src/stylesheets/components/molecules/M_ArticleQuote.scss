@@ -35,3 +35,38 @@
     gap: 24px;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .M_ArticleQuote {
+    width: 1018px;
+    gap: 32px;
+    border-radius: 16px;
+
+    .Q_Image {
+      width: 128px;
+      height: 128px;
+    }
+
+    .W_Test {
+      gap: 16px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .M_ArticleQuote {
+    width: 730px;
+    padding: 24px 32px;
+    gap: 24px;
+    border-radius: 16px;
+
+    .Q_Image {
+      width: 128px;
+      height: 128px;
+    }
+
+    .W_Test {
+      gap: 16px;
+    }
+  }
+}

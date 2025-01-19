@@ -39,5 +39,19 @@
 
 .A_ContentLink:before {
   content: '•';
-  margin-right: 8px;
+  // margin-right: 8px;
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_ContentLink {
+    max-width: 290px;
+    gap: 6px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_ContentLink {
+    max-width: 550px;
+  }
 }

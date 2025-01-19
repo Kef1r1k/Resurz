@@ -14,3 +14,10 @@
     background-image: url('./images/logo_white.svg');
   }
 }
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_Logo {
+    width: 96px;
+    height: 28px;
+  }
+}

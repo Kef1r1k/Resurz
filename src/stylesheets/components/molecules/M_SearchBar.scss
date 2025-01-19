@@ -27,3 +27,35 @@
     }
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .M_SearchBar {
+    padding: 16px;
+    gap: 16px;
+
+    input {
+      width: 238px;
+      font-size: 16px;
+    }
+
+    &.active {
+      padding: 16px 24px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .M_SearchBar {
+    padding: 16px;
+    gap: 12px;
+
+    input {
+      width: 149px;
+      font-size: 16px;
+    }
+
+    &.active {
+      padding: 16px 16px;
+    }
+  }
+}

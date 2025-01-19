@@ -20,3 +20,47 @@
     overflow: hidden;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .A_PostCover {
+    &.large {
+      width: 588px;
+      height: 330px;
+      border-radius: 16px;
+    }
+
+    &.medium {
+      width: 416px;
+      height: 232px;
+      border-radius: 16px;
+    }
+
+    &.small {
+      width: 330px;
+      height: 185px;
+      border-radius: 12px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_PostCover {
+    &.large {
+      width: 606px;
+      height: 340px;
+      border-radius: 16px;
+    }
+
+    &.medium {
+      width: 606px;
+      height: 338px;
+      border-radius: 24px;
+    }
+
+    &.small {
+      width: 358px;
+      height: 200px;
+      border-radius: 12px;
+    }
+  }
+}

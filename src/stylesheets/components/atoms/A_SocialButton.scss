@@ -8,6 +8,7 @@
   border: 1px solid var(--black-pressed);
   filter: invert(64%) sepia(0%) saturate(1478%) hue-rotate(186deg)
     brightness(94%) contrast(90%);
+  transition: all 0.3s;
 
   &.tg {
     background-image: url('./images/tg.svg');

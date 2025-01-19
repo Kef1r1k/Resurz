@@ -11,3 +11,29 @@
     right: 0;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .O_ArticleCover {
+    width: 1018px;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .O_ArticleCover {
+    width: 730px;
+    margin-bottom: 40px;
+    flex-direction: column;
+
+    .A_PostCover {
+      position: absolute;
+      right: auto;
+      z-index: -1;
+    }
+
+    .M_ArticleHead {
+      position: relative;
+      margin-top: 282px;
+    }
+  }
+}

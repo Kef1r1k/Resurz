@@ -12,3 +12,15 @@
     flex-wrap: wrap;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .M_ArticleCard {
+    width: 330px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .M_ArticleCard {
+    width: 358px;
+  }
+}

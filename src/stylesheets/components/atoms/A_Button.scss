@@ -10,6 +10,7 @@
   font-weight: 600;
   line-height: 135%;
   cursor: pointer;
+  transition: all 0.3s;
 
   &.primary {
     color: var(--white);
@@ -37,5 +38,13 @@
       border: 2px solid var(--black-pressed);
       background: var(--black-pressed);
     }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_Button {
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 18px;
   }
 }

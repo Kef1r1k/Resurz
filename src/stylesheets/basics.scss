@@ -89,6 +89,7 @@ h5 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 20px;
+  position: relative;
 }
 
 .Q_Image {
@@ -112,8 +113,11 @@ h5 {
 }
 
 .article {
-  .M_ArticleContents {
+  .W_ArticleContents {
     grid-column: 9 / 13;
+    position: absolute;
+    top: 700px;
+    height: 2480px;
   }
 
   .A_TextContents,
@@ -135,5 +139,95 @@ h5 {
 
   .C_Articles {
     margin-top: 32px;
+  }
+}
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .Q_Grid {
+    width: 1018px;
+    grid-column-gap: 14px;
+  }
+
+  .C_Articles {
+    width: 1018px;
+    gap: 48px 14px;
+  }
+
+  .article {
+    .W_ArticleContents {
+      top: 590px;
+      height: 2000px;
+    }
+
+    .M_ArticleQuote,
+    .A_PostCover.large {
+      margin-bottom: 48px;
+    }
+
+    .C_Articles {
+      margin-top: 24px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  p {
+    font-size: 18px;
+
+    &.s {
+      font-size: 16px;
+    }
+
+    &.xs {
+      font-size: 14px;
+    }
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 44px;
+    letter-spacing: -1.4px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  h4 {
+    font-size: 28px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .Q_Grid {
+    width: 730px;
+    grid-column-gap: 14px;
+  }
+
+  .C_Articles {
+    width: 730px;
+    gap: 40px 14px;
+  }
+
+  .article {
+    .W_ArticleContents {
+      display: none;
+    }
+
+    .M_ArticleContents {
+      grid-column: 1 / 11;
+    }
+
+    .A_TextContents,
+    .recommendation {
+      grid-column: 1 / 11;
+    }
   }
 }

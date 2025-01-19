@@ -10,3 +10,14 @@
     gap: 24px;
   }
 }
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_TextContents {
+    gap: 48px;
+    margin-bottom: 48px;
+
+    .W_TextBlock {
+      gap: 20px;
+    }
+  }
+}

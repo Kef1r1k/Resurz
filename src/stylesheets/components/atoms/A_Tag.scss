@@ -64,3 +64,10 @@
     color: var(--white);
   }
 }
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_Tag {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}

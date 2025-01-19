@@ -7,3 +7,15 @@
   color: var(--gray);
   border-bottom: 1px solid var(--stroke-gray);
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .A_ArticleDate {
+    width: 1018px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_ArticleDate {
+    width: 730px;
+  }
+}

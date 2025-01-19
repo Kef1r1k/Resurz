@@ -52,3 +52,27 @@
     }
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .O_Footer {
+    margin-top: 128px;
+
+    .W_Footer {
+      width: 1018px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .O_Footer {
+    margin-top: 100px;
+
+    .W_Footer {
+      width: 730px;
+
+      .W_FooterLinks {
+        gap: 24px;
+      }
+    }
+  }
+}

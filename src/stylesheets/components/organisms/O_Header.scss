@@ -24,3 +24,25 @@
     }
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .O_Header {
+    width: 1018px;
+    margin-bottom: 24px;
+    padding: 12px 32px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .O_Header {
+    width: 730px;
+
+    .W_Header {
+      gap: 16px;
+
+      .C_HeaderLinks {
+        gap: 12px;
+      }
+    }
+  }
+}
