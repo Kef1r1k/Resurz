@@ -1,0 +1,33 @@
+.M_CharacterCard {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  .W_CharacterCard {
+    display: flex;
+    width: 660px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+
+    .C_Tags {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .W_Texts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+}
+
+.M_CharacterCard:nth-child(odd) {
+  flex-direction: row;
+}
+.M_CharacterCard:nth-child(even) {
+  flex-direction: row-reverse;
+}

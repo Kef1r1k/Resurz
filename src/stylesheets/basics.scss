@@ -159,6 +159,79 @@ h5 {
   }
 }
 
+.index {
+  .M_MainCreative {
+    grid-column: 1 / 13;
+    margin-bottom: 96px;
+  }
+
+  .W_Heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    grid-column: 4 / 10;
+
+    h1,
+    h5 {
+      text-align: center;
+    }
+  }
+
+  .C_CharacterCards {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    grid-column: 1 / 13;
+  }
+
+  .Q_Line {
+    grid-column: 1 / 13;
+    width: 100%;
+    height: 1px;
+    background-color: var(--stroke-gray);
+    margin: 64px 0 40px 0;
+  }
+
+  .W_LastArticles {
+    grid-column: 1 / 13;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .C_Articles {
+    grid-column: 1 / 13;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+  }
+
+  .M_GeneratorCreative {
+    grid-column: 1 / 13;
+    margin: 96px 0;
+  }
+
+  .freelancers {
+    grid-column: 3 / 11;
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  .M_InterviewCard {
+    grid-column: 1 / 13;
+  }
+
+  .M_Subscription {
+    grid-column: 1 / 13;
+    margin-top: 96px;
+  }
+}
+
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .Q_Grid {
     width: 1018px;

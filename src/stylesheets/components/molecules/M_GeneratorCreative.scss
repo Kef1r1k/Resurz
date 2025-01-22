@@ -1,0 +1,67 @@
+.M_GeneratorCreative {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  border-radius: 32px;
+  background-image: url('./images/generator-main.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .A_StyledH2 {
+    width: 639px;
+    height: 152px;
+    background-image: url('./images/main-generator-h2.svg');
+  }
+
+  .W_Notification {
+    display: flex;
+    width: 940px;
+    padding: 32px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 48px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 24px 0px rgba(60, 0, 112, 0.25);
+    backdrop-filter: blur(30px);
+
+    .Q_Image {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+    }
+  }
+
+  .W_Message {
+    display: flex;
+    width: 604px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    flex-shrink: 0;
+
+    .W_MessageText {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      align-self: stretch;
+
+      .W_MassegeTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-self: stretch;
+
+        p {
+          color: var(--gray);
+        }
+      }
+    }
+  }
+}

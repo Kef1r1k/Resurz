@@ -1,0 +1,20 @@
+.M_Subscription {
+  width: 1420px;
+  height: 432px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  border-radius: 32px;
+  background-image: url('./images/subsription.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .A_StyledH2 {
+    width: 740px;
+    height: 152px;
+    background-image: url('./images/subscription-h2.svg');
+  }
+}

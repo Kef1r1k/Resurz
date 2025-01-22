@@ -1,0 +1,20 @@
+.A_StyledH1 {
+  width: 770px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background-image: url('./images/h1-main-creative.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 43.421px 0px rgba(96, 3, 130, 0.25);
+
+  h1 {
+    font-size: 80px;
+    line-height: 100%;
+    font-weight: 700;
+  }
+}

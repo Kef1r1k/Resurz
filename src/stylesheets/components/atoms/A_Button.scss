@@ -39,6 +39,25 @@
       background: var(--black-pressed);
     }
   }
+
+  &.tertiary {
+    display: inline-flex;
+    padding: 2px 0px;
+    border-radius: 0px;
+    border-bottom: 1px solid var(--gray);
+    color: var(--gray);
+    font-weight: 400;
+
+    &:hover {
+      border-bottom: 1px solid var(--black-hover);
+      color: var(--black-hover);
+    }
+
+    &:active {
+      border-bottom: 1px solid var(--black-pressed);
+      color: var(--black-pressed);
+    }
+  }
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1420px) {
@@ -46,6 +65,11 @@
     padding: 16px 24px;
     border-radius: 8px;
     font-size: 18px;
+
+    &.tertiary {
+      padding: 2px 0px;
+      border-radius: 0px;
+    }
   }
 }
 
@@ -55,5 +79,11 @@
     padding: 16px 24px;
     border-radius: 8px;
     font-size: 16px;
+
+    &.tertiary {
+      width: auto;
+      padding: 2px 0px;
+      border-radius: 0px;
+    }
   }
 }
