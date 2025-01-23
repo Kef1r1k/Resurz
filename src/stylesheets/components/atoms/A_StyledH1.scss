@@ -1,16 +1,16 @@
 .A_StyledH1 {
-  width: 770px;
-  height: 220px;
+  width: 860px;
+  height: 300px;
+  margin: -40px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 12px;
   background-image: url('./images/h1-main-creative.svg');
-  background-position: center;
+  background-position: top;
   background-size: contain;
   background-repeat: no-repeat;
-  box-shadow: 0px 0px 43.421px 0px rgba(96, 3, 130, 0.25);
 
   h1 {
     font-size: 80px;
