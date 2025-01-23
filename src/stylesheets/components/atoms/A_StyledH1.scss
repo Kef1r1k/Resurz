@@ -18,3 +18,16 @@
     font-weight: 700;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .A_StyledH1 {
+    width: 600px;
+    height: 220px;
+    margin: 0px;
+    gap: 8px;
+
+    h1 {
+      font-size: 56px;
+    }
+  }
+}

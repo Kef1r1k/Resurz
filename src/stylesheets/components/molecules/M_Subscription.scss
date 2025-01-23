@@ -19,3 +19,18 @@
     background-image: url('./images/subscription-h2.svg');
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .M_Subscription {
+    width: 1018px;
+    height: 360px;
+    gap: 40px;
+    border-radius: 24px;
+
+    .A_StyledH2 {
+      width: 614px;
+      height: 156px;
+      margin: -16px 0;
+    }
+  }
+}

@@ -31,3 +31,22 @@
 .M_CharacterCard:nth-child(even) {
   flex-direction: row-reverse;
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .M_CharacterCard {
+    gap: 24px;
+
+    .W_CharacterCard {
+      width: 492px;
+      gap: 30px;
+
+      .C_Tags {
+        gap: 8px;
+      }
+
+      .W_Texts {
+        gap: 12px;
+      }
+    }
+  }
+}

@@ -236,17 +236,17 @@ h5 {
 }
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
-  .Q_Grid {
-    width: 1018px;
-    grid-column-gap: 14px;
-  }
-
   .C_Articles {
     width: 1018px;
     gap: 48px 14px;
   }
 
   .article {
+    .Q_Grid {
+      width: 1018px;
+      grid-column-gap: 14px;
+    }
+
     .W_ArticleContents {
       top: 590px;
       height: 2000px;
@@ -259,6 +259,56 @@ h5 {
 
     .C_Articles {
       margin-top: 24px;
+    }
+  }
+
+  .index {
+    .M_MainCreative {
+      margin-bottom: 48px;
+    }
+
+    .W_Heading {
+      width: 502px;
+    }
+
+    .C_CharacterCards {
+      width: 1018px;
+      margin-top: 56px;
+      gap: 48px;
+    }
+
+    .Q_Line {
+      width: 1018px;
+      margin: 56px 0 32px 0;
+    }
+
+    .W_LastArticles {
+      width: 1018px;
+      margin-bottom: 24px;
+    }
+
+    .C_Articles {
+      width: 1018px;
+      gap: 14px;
+    }
+
+    .M_GeneratorCreative {
+      width: 1018px;
+      margin: 64px 0;
+    }
+
+    .freelancers {
+      width: 674px;
+      margin-bottom: 48px;
+    }
+
+    .M_InterviewCard {
+      width: 1018px;
+    }
+
+    .M_Subscription {
+      width: 1018px;
+      margin-top: 64px;
     }
   }
 }
