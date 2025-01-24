@@ -349,17 +349,16 @@ h5 {
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1018px) {
-  .Q_Grid {
-    width: 730px;
-    grid-column-gap: 14px;
-  }
-
-  .C_Articles {
-    width: 730px;
-    gap: 40px 14px;
-  }
-
   .article {
+    .Q_Grid {
+      width: 730px;
+      grid-column-gap: 14px;
+    }
+    .C_Articles {
+      width: 730px;
+      gap: 40px 14px;
+    }
+
     .W_ArticleContents {
       display: none;
     }
@@ -371,6 +370,62 @@ h5 {
     .A_TextContents,
     .recommendation {
       grid-column: 1 / 11;
+    }
+  }
+
+  .index {
+    .M_MainCreative {
+      margin-bottom: 48px;
+    }
+
+    .W_Heading {
+      width: 482px;
+    }
+
+    .W_CharacterCardsContainer,
+    .W_ArticlesContainer {
+      width: 730px;
+      overflow-y: scroll;
+    }
+
+    .C_CharacterCards {
+      width: 100%;
+      margin-top: 48px;
+      gap: 14px;
+    }
+
+    .Q_Line {
+      width: 730px;
+      margin: 56px 0 32px 0;
+    }
+
+    .W_LastArticles {
+      width: 730px;
+      margin-bottom: 24px;
+    }
+
+    .C_Articles {
+      width: 100%;
+      gap: 14px;
+    }
+
+    .M_GeneratorCreative {
+      width: 100%;
+      margin: 64px 0;
+    }
+
+    .freelancers {
+      width: 674px;
+      margin-bottom: 48px;
+    }
+
+    .M_InterviewCard {
+      width: 606px;
+    }
+
+    .M_Subscription {
+      width: 730px;
+      margin-top: 64px;
     }
   }
 }
@@ -429,6 +484,16 @@ h5 {
   }
 
   .article {
+    .Q_Grid {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column-gap: unset;
+      grid-template-columns: unset;
+      position: relative;
+    }
+
     .W_ArticleContents {
       display: none;
     }

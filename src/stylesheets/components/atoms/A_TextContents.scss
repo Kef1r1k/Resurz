@@ -5,6 +5,10 @@
   gap: 64px;
   margin-bottom: 56px;
 
+  &.hidden {
+    display: none;
+  }
+
   .W_TextBlock {
     display: flex;
     flex-direction: column;
