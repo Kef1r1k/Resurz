@@ -384,12 +384,14 @@ h5 {
 
     .W_CharacterCardsContainer,
     .W_ArticlesContainer {
-      width: 730px;
+      width: 100%;
       overflow-y: scroll;
     }
 
     .C_CharacterCards {
-      width: 100%;
+      width: max-content;
+      padding: 0px 52px;
+      flex-direction: row;
       margin-top: 48px;
       gap: 14px;
     }
@@ -405,7 +407,9 @@ h5 {
     }
 
     .C_Articles {
-      width: 100%;
+      width: max-content;
+      padding: 0px 52px;
+      flex-wrap: nowrap;
       gap: 14px;
     }
 
@@ -424,7 +428,7 @@ h5 {
     }
 
     .M_Subscription {
-      width: 730px;
+      width: 100%;
       margin-top: 64px;
     }
   }

@@ -2,6 +2,7 @@
   display: flex;
   width: 1180px;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 
   .A_Button {
@@ -14,5 +15,12 @@
   .M_EmailSubscription {
     width: 846px;
     gap: 16px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .M_EmailSubscription {
+    width: 730px;
+    gap: 14px;
   }
 }

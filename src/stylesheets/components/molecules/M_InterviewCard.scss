@@ -35,3 +35,19 @@
     }
   }
 }
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .M_InterviewCard {
+    width: 606px;
+    flex-direction: column;
+    gap: 20px;
+
+    .W_InterviewCard {
+      width: 606px;
+      height: auto;
+      padding: 0px;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+}
