@@ -51,7 +51,7 @@
   }
 }
 
-@media only screen and (min-width: 730px) and (max-width: 1018px) {
+@media only screen and (min-width: 320px) and (max-width: 1018px) {
   .M_CharacterCard {
     gap: 16px;
 
@@ -75,5 +75,18 @@
   }
   .M_CharacterCard:nth-child(even) {
     flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_CharacterCard {
+    .W_CharacterCard {
+      width: 328px;
+
+      .C_Tags {
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+    }
   }
 }

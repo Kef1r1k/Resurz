@@ -208,6 +208,10 @@ h5 {
     margin-bottom: 32px;
   }
 
+  .A_Button.mobile {
+    display: none;
+  }
+
   .C_Articles {
     width: 1420px;
     display: flex;
@@ -520,6 +524,84 @@ h5 {
 
     .C_Articles {
       margin-top: 24px;
+    }
+
+    .A_Button {
+      width: -webkit-fill-available;
+    }
+  }
+
+  .index {
+    .M_MainCreative {
+      margin-bottom: 56px;
+    }
+
+    .W_Heading {
+      width: 328px;
+    }
+
+    .W_CharacterCardsContainer {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .W_ArticlesContainer {
+      width: 100%;
+      overflow-y: scroll;
+    }
+
+    .C_CharacterCards {
+      width: 100%;
+      padding: 0px;
+      flex-direction: column;
+      margin-top: 48px;
+      gap: 48px;
+    }
+
+    .Q_Line {
+      width: 328px;
+      margin: 56px 0 24px 0;
+    }
+
+    .W_LastArticles {
+      width: 328px;
+      justify-content: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .A_Button.mobile {
+      display: inline-flex;
+      margin-top: 24px;
+    }
+
+    .A_Button.desktop {
+      display: none;
+    }
+
+    .C_Articles {
+      width: max-content;
+      padding: 0px 24px;
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
+
+    .M_GeneratorCreative {
+      width: 100%;
+      margin: 64px 0;
+    }
+
+    .freelancers {
+      width: 328px;
+      margin-bottom: 32px;
+    }
+
+    .M_InterviewCard {
+      width: 328px;
+    }
+
+    .M_Subscription {
+      width: 100%;
+      margin-top: 64px;
     }
   }
 }

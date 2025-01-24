@@ -65,3 +65,22 @@
     }
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_MainCreative {
+    height: calc(100vh - 110px);
+    overflow: hidden;
+
+    .A_Logo {
+      width: 134px;
+      height: 40px;
+      margin-top: 30px;
+      margin-bottom: 8px;
+    }
+
+    .A_Button {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+  }
+}
