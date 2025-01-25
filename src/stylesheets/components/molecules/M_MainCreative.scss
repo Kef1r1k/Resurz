@@ -1,6 +1,6 @@
 .M_MainCreative {
   width: 100%;
-  height: calc(100vh - 150px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
   .A_Logo {
     width: 194px;
     height: 56px;
-    margin-top: 44px;
+    margin-top: 160px;
     margin-bottom: 48px;
   }
 
@@ -32,12 +32,10 @@
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .M_MainCreative {
-    height: calc(100vh - 150px);
-
     .A_Logo {
       width: 138px;
       height: 40px;
-      margin-top: 32px;
+      margin-top: 142px;
       margin-bottom: 16px;
     }
 
@@ -50,12 +48,10 @@
 
 @media only screen and (min-width: 730px) and (max-width: 1018px) {
   .M_MainCreative {
-    height: calc(100vh - 150px);
-
     .A_Logo {
       width: 132px;
       height: 38px;
-      margin-top: 36px;
+      margin-top: 142px;
       margin-bottom: 24px;
     }
 
@@ -68,13 +64,12 @@
 
 @media only screen and (min-width: 320px) and (max-width: 730px) {
   .M_MainCreative {
-    height: calc(100vh - 110px);
     overflow: hidden;
 
     .A_Logo {
       width: 134px;
       height: 40px;
-      margin-top: 30px;
+      margin-top: 120px;
       margin-bottom: 8px;
     }
 

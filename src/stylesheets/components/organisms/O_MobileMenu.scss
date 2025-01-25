@@ -7,7 +7,7 @@
   align-items: flex-start;
   gap: 24px;
   background: var(--white);
-  transition: all 1s ease-in;
+  transition: all 0.5s ease-out;
   grid-column: 1 / 5;
 
   &.active {
@@ -41,15 +41,17 @@
 
 @media only screen and (min-width: 320px) and (max-width: 730px) {
   .O_MobileMenu {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 100;
     top: 0;
-    right: calc(100vw - 320px);
+    right: 0;
+    transform: translateX(300px);
 
     &.active {
       display: flex;
-      right: 0px;
+      right: 0;
+      transform: translateX(0px);
     }
   }
 }
