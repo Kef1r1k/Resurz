@@ -1,4 +1,5 @@
 .M_SearchBar {
+  width: 60px;
   display: flex;
   padding: 16px;
   align-items: center;
@@ -6,11 +7,12 @@
   border-radius: 40px;
   border: 1px solid var(--stroke-gray);
   background: var(--white);
+  transition: 0.5s all;
   cursor: pointer;
 
   input {
-    width: 348px;
-    display: none;
+    width: 0px;
+    display: inline-block;
     padding: 0;
     border: none;
     color: var(--black);
@@ -19,7 +21,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: 135%;
+    opacity: 0;
     -webkit-appearance: none;
+    transition: 0.5s all;
   }
 
   input,
@@ -41,10 +45,12 @@
   }
 
   &.active {
+    width: 460px;
     padding: 16px 32px;
 
     input {
-      display: inline-block;
+      width: 348px;
+      opacity: 1;
     }
   }
 }
@@ -54,13 +60,14 @@
     padding: 16px;
     gap: 16px;
 
-    input {
-      width: 238px;
-      font-size: 16px;
-    }
-
     &.active {
+      width: 330px;
       padding: 16px 24px;
+
+      input {
+        width: 238px;
+        font-size: 16px;
+      }
     }
   }
 }
@@ -70,13 +77,14 @@
     padding: 16px;
     gap: 12px;
 
-    input {
-      width: 149px;
-      font-size: 16px;
-    }
-
     &.active {
+      width: 220px;
       padding: 16px 16px;
+
+      input {
+        width: 149px;
+        font-size: 16px;
+      }
     }
   }
 }
@@ -90,9 +98,12 @@
       width: 168px;
       font-size: 14px;
       display: inline-block;
+      opacity: 1;
     }
 
-    &.active {
+    &.active,
+    &.neutral {
+      width: auto;
       padding: 16px 16px;
     }
   }
