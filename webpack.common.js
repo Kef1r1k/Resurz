@@ -8,7 +8,8 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index.js',
+    articles: './src/javascript/articles.js'
   },
   output: {
     filename: '[name].js',
@@ -98,28 +99,28 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/articles.html',
       filename: './articles.html',
-      chunks: ['index']
+      chunks: ['index', 'articles']
     }),
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/suetulya.html',
       filename: './suetulya.html',
-      chunks: ['index']
+      chunks: ['index', 'articles']
     }),
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/poteryasha.html',
       filename: './poteryasha.html',
-      chunks: ['index']
+      chunks: ['index', 'articles']
     }),
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/toksinka.html',
       filename: './toksinka.html',
-      chunks: ['index']
+      chunks: ['index', 'articles']
     }),
 
     // Interviews
@@ -128,7 +129,7 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/interviews.html',
       filename: './interviews.html',
-      chunks: ['index']
+      chunks: ['index', 'articles']
     }),
 
     // Contract generator
@@ -217,6 +218,16 @@ module.exports = {
         priority: 'replace'
       }
     ]),
+
+    new HtmlWebpackPartialsPlugin([
+      {
+        path: path.join(__dirname, './src/partials/filters.html'),
+        location: 'filters',
+        template_filename: '*',
+        priority: 'replace'
+      }
+    ]),
+
     new HtmlWebpackPartialsPlugin([
       {
         path: path.join(__dirname, './src/partials/analytics.html'),

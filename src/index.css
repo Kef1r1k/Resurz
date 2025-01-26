@@ -25,6 +25,7 @@
 @import 'stylesheets/components/atoms/A_CharacterButton.scss';
 @import 'stylesheets/components/atoms/A_SortButton.scss';
 @import 'stylesheets/components/atoms/A_SortOption.scss';
+@import 'stylesheets/components/atoms/A_FiltersButton.scss';
 
 /*----------- Молекулы */
 @import 'stylesheets/components/molecules/M_SearchBar.scss';
@@ -45,3 +46,4 @@
 @import 'stylesheets/components/organisms/O_Header.scss';
 @import 'stylesheets/components/organisms/O_ArticleCover.scss';
 @import 'stylesheets/components/organisms/O_MobileMenu.scss';
+@import 'stylesheets/components/organisms/O_Filters.scss';

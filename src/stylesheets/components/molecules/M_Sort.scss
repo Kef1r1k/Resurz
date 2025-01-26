@@ -44,3 +44,9 @@
     }
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_Sort {
+    display: none;
+  }
+}

@@ -108,6 +108,11 @@
     &.neutral {
       width: auto;
       padding: 16px 16px;
+
+      input {
+        width: 168px;
+        font-size: 16px;
+      }
     }
   }
 }

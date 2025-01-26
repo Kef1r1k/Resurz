@@ -10,6 +10,7 @@
   border-radius: 8px;
   font-size: 20px;
   line-height: 135%;
+  cursor: pointer;
 }
 
 .A_SortOption.active::after {
@@ -30,5 +31,16 @@
   .A_SortOption.active::after {
     width: 12px;
     height: 12px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .A_SortOption {
+    font-size: 18px;
+  }
+
+  .A_SortOption.active::after {
+    width: 16px;
+    height: 16px;
   }
 }

@@ -22,6 +22,8 @@ function menuClose() {
 
 document.addEventListener('DOMContentLoaded', () => {
   if (mediaphone.matches) {
+    console.log('HII')
+
     menuInit()
   }
 })

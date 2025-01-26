@@ -712,4 +712,36 @@ h5 {
       margin-top: 64px;
     }
   }
+
+  .all_articles {
+    .C_CharacterButtons {
+      width: 328px;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .W_Header {
+      width: 328px;
+      align-items: center;
+
+      .W_Options {
+        display: none;
+      }
+    }
+
+    .Q_Line {
+      width: 328px;
+      margin: 24px 0;
+    }
+
+    .C_Tags.desktop {
+      display: none;
+    }
+
+    .C_Articles {
+      width: 328px;
+      gap: 40px;
+      margin-top: 0px;
+    }
+  }
 }
