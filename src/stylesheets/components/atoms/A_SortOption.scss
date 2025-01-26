@@ -6,8 +6,8 @@
   gap: 8px;
   align-self: stretch;
   justify-content: space-between;
-  border-radius: 8px;
   background: var(--white);
+  border-radius: 8px;
   font-size: 20px;
   line-height: 135%;
 }
@@ -20,4 +20,15 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_SortOption {
+    font-size: 16px;
+  }
+
+  .A_SortOption.active::after {
+    width: 12px;
+    height: 12px;
+  }
 }

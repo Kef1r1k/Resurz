@@ -20,7 +20,7 @@
     transition: 0.4s all;
     position: absolute;
     top: 36px;
-    z-index: 20;
+    z-index: 80;
   }
 
   &.active {
@@ -31,6 +31,16 @@
 
     .A_SortButton::after {
       transform: rotate(0);
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .M_Sort {
+    width: 158px;
+
+    .C_SortOptions {
+      top: 30px;
     }
   }
 }

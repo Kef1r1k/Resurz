@@ -17,3 +17,17 @@
     transition: 0.4s all;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .A_SortButton {
+    gap: 16px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_SortButton {
+    gap: 8px;
+    font-size: 16px;
+  }
+}

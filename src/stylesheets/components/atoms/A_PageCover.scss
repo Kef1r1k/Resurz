@@ -12,3 +12,19 @@
     background-image: url('./images/ArticlesPageCover.png');
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .A_PageCover {
+    width: 1018px;
+    height: 200px;
+    margin-top: 132px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_PageCover {
+    width: 730px;
+    height: 200px;
+    margin-top: 132px;
+  }
+}

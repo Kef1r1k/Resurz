@@ -358,6 +358,38 @@ h5 {
       margin-top: 64px;
     }
   }
+
+  .all_articles {
+    .C_CharacterButtons {
+      width: 1018px;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .W_Header {
+      width: 1018px;
+
+      .W_Options {
+        gap: 14px;
+      }
+    }
+
+    .Q_Line {
+      width: 1018px;
+      margin: 16px 0;
+    }
+
+    .C_Tags {
+      width: 1018px;
+      gap: 12px;
+    }
+
+    .C_Articles {
+      width: 1018px;
+      gap: 40px 14px;
+      margin-top: 24px;
+    }
+  }
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1420px) {
@@ -477,6 +509,39 @@ h5 {
     .M_Subscription {
       width: 100%;
       margin-top: 64px;
+    }
+  }
+
+  .all_articles {
+    .C_CharacterButtons {
+      width: 730px;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .W_Header {
+      width: 730px;
+      align-items: center;
+
+      .W_Options {
+        gap: 14px;
+      }
+    }
+
+    .Q_Line {
+      width: 730px;
+      margin: 16px 0;
+    }
+
+    .C_Tags {
+      width: 730px;
+      gap: 12px;
+    }
+
+    .C_Articles {
+      width: 730px;
+      gap: 40px 14px;
+      margin-top: 24px;
     }
   }
 }
