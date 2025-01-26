@@ -1,0 +1,76 @@
+.A_CharacterButton {
+  width: 460px;
+  height: 100px;
+  padding: 0px 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-radius: 48px;
+  transition: 0.4s all;
+
+  .Q_Image {
+    flex-shrink: 0;
+
+    img {
+      object-position: center;
+    }
+  }
+
+  h5 {
+    padding: 2px 16px 8px 16px;
+    border-radius: 16px;
+    background-color: var(--white);
+  }
+
+  &.toksinka {
+    background: var(--light-green);
+
+    h5 {
+      color: var(--dark-green);
+    }
+
+    .Q_Image {
+      width: 130px;
+      height: 100px;
+    }
+  }
+
+  &.toksinka:hover {
+    background: var(--dark-green);
+  }
+
+  &.poteryasha {
+    background: var(--pink);
+
+    h5 {
+      color: var(--dark-purple);
+    }
+
+    .Q_Image {
+      width: 164px;
+      height: 100px;
+    }
+  }
+
+  &.poteryasha:hover {
+    background: var(--dark-purple);
+  }
+
+  &.suetulya {
+    background: var(--yellow);
+
+    h5 {
+      color: var(--dark-orange);
+    }
+
+    .Q_Image {
+      width: 146px;
+      height: 100px;
+    }
+  }
+
+  &.suetulya:hover {
+    background: var(--dark-orange);
+  }
+}

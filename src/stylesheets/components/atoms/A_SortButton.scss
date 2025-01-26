@@ -1,0 +1,19 @@
+.A_SortButton {
+  width: -webkit-fill-available;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+
+  &::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    transform: rotate(180deg);
+    background-image: url('./images/arrow.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.4s all;
+  }
+}

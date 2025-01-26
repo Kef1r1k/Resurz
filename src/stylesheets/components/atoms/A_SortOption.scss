@@ -1,0 +1,23 @@
+.A_SortOption {
+  width: -webkit-fill-available;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  justify-content: space-between;
+  border-radius: 8px;
+  background: var(--white);
+  font-size: 20px;
+  line-height: 135%;
+}
+
+.A_SortOption.active::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-image: url('./images/tick.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

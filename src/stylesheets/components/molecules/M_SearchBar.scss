@@ -44,7 +44,8 @@
     padding: 0;
   }
 
-  &.active {
+  &.active,
+  &.neutral {
     width: 460px;
     padding: 16px 32px;
 
@@ -60,7 +61,8 @@
     padding: 16px;
     gap: 16px;
 
-    &.active {
+    &.active,
+    &.neutral {
       width: 330px;
       padding: 16px 24px;
 
@@ -77,7 +79,8 @@
     padding: 16px;
     gap: 12px;
 
-    &.active {
+    &.active,
+    &.neutral {
       width: 220px;
       padding: 16px 16px;
 

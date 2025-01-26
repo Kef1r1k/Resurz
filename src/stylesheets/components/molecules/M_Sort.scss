@@ -1,0 +1,36 @@
+.M_Sort {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+
+  .C_SortOptions {
+    width: 220px;
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 8px;
+    border: 1px solid var(--stroke-gray);
+    background: var(--white);
+    transition: 0.4s all;
+    position: absolute;
+    top: 36px;
+    z-index: 20;
+  }
+
+  &.active {
+    .C_SortOptions {
+      display: flex;
+      opacity: 1;
+    }
+
+    .A_SortButton::after {
+      transform: rotate(0);
+    }
+  }
+}

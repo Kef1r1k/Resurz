@@ -100,6 +100,27 @@ module.exports = {
       filename: './articles.html',
       chunks: ['index']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/suetulya.html',
+      filename: './suetulya.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/poteryasha.html',
+      filename: './poteryasha.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/toksinka.html',
+      filename: './toksinka.html',
+      chunks: ['index']
+    }),
 
     // Interviews
     new HtmlWebpackPlugin({
@@ -119,12 +140,30 @@ module.exports = {
       chunks: ['index']
     }),
 
-    // Articles pages
+    // Suetulya articles pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
-      template: './src/articles/article_template.html',
-      filename: './articles/article_template.html',
+      template: './src/suetulya/article_template.html',
+      filename: './suetulya/article_template.html',
+      chunks: ['index']
+    }),
+
+    // Poteryasha articles pages
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/poteryasha/article_template.html',
+      filename: './poteryasha/article_template.html',
+      chunks: ['index']
+    }),
+
+    // Toksinka articles pages
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/toksinka/article_template.html',
+      filename: './toksinka/article_template.html',
       chunks: ['index']
     }),
 

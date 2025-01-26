@@ -237,6 +237,51 @@ h5 {
   }
 }
 
+.all_articles {
+  .C_CharacterButtons {
+    width: 1420px;
+    display: flex;
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .W_Header {
+    width: 1420px;
+    display: flex;
+    justify-content: space-between;
+
+    .W_Options {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  .Q_Line {
+    width: 1420px;
+    height: 1px;
+    background-color: var(--stroke-gray);
+    margin: 24px 0;
+  }
+
+  .C_Tags {
+    width: 1420px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .C_Articles {
+    width: 1420px;
+    display: flex;
+    gap: 48px 20px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+}
+
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .C_Articles {
     width: 1018px;

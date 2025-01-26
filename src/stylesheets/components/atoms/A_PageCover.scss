@@ -1,0 +1,14 @@
+.A_PageCover {
+  width: 1420px;
+  height: 260px;
+  margin-top: 148px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.articles {
+    background-image: url('./images/ArticlesPageCover.png');
+  }
+}
