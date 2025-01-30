@@ -1,0 +1,44 @@
+.M_PopUp {
+  display: flex;
+  width: 700px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  border-radius: 32px;
+  background: var(--white);
+  position: absolute;
+  z-index: 100;
+
+  &.hidden {
+    display: none;
+  }
+
+  .W_PopUpHead {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    h4 {
+      text-align: center;
+    }
+
+    .A_CloseButton {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .C_Buttons {
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    .A_Button {
+      width: -webkit-fill-availible;
+    }
+  }
+}

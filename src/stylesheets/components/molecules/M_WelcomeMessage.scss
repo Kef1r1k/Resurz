@@ -1,0 +1,31 @@
+.M_WelcomeMessage {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  position: relative;
+
+  .Q_Image {
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+    position: absolute;
+    left: -240px;
+  }
+
+  .W_WelcomeMessage {
+    display: flex;
+    width: 460px;
+    padding: 24px;
+    flex-direction: column;
+    gap: 24px;
+    flex-shrink: 0;
+    border-radius: 24px 24px 24px 0px;
+    background: var(--white);
+  }
+
+  .C_Buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
