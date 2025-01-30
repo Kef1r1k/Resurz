@@ -24,13 +24,13 @@
     flex-wrap: wrap;
 
     .A_Tag {
-      border: 1px solid var(--black-pressed);
-      color: var(--black-pressed);
+      border: 1px solid var(--black);
+      color: var(--black);
       cursor: default;
 
       &:hover {
-        border: 1px solid var(--black-pressed);
-        color: var(--black-pressed);
+        border: 1px solid var(--black);
+        color: var(--black);
       }
     }
   }

@@ -15,6 +15,24 @@
   &.interviews {
     background-image: url('./images/AllInterviewsCover.png');
   }
+
+  &.suetulya {
+    background-image: url('./images/SuetulyaArticlesCover.png');
+  }
+
+  &.poteryasha {
+    background-image: url('./images/PoteryashaArticlesCover.png');
+  }
+
+  &.toksinka {
+    background-image: url('./images/ToksinkaArticlesCover.png');
+  }
+
+  &.suetulya,
+  &.poteryasha,
+  &.toksinka {
+    height: 360px;
+  }
 }
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
@@ -22,6 +40,12 @@
     width: 1018px;
     height: 200px;
     margin-top: 132px;
+
+    &.suetulya,
+    .poteryasha,
+    .toksinka {
+      height: 300px;
+    }
   }
 }
 
@@ -30,6 +54,24 @@
     width: 730px;
     height: 200px;
     margin-top: 132px;
+
+    &.suetulya {
+      background-image: url('./images/SuetulyaArticlesCover-Ipad.png');
+    }
+
+    &.poteryasha {
+      background-image: url('./images/PoteryashaArticlesCover-Ipad.png');
+    }
+
+    &.toksinka {
+      background-image: url('./images/ToksinkaArticlesCover-Ipad.png');
+    }
+
+    &.suetulya,
+    &.poteryasha,
+    &.toksinka {
+      height: 300px;
+    }
   }
 }
 
@@ -46,6 +88,24 @@
 
     &.interviews {
       background-image: url('./images/AllInterviewsCover-mob.png');
+    }
+
+    &.suetulya {
+      background-image: url('./images/SuetulyaArticlesCover-mob.png');
+    }
+
+    &.poteryasha {
+      background-image: url('./images/PoteryashaArticlesCover-mob.png');
+    }
+
+    &.toksinka {
+      background-image: url('./images/ToksinkaArticlesCover-mob.png');
+    }
+
+    &.suetulya,
+    &.poteryasha,
+    &.toksinka {
+      height: 260px;
     }
   }
 }

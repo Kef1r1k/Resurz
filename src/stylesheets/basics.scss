@@ -239,11 +239,15 @@ h5 {
 
 .all_articles,
 .all_interviews {
+  .A_PageCover {
+    margin-bottom: 24px;
+  }
+
   .C_CharacterButtons {
     width: 1420px;
     display: flex;
     gap: 20px;
-    margin: 32px 0;
+    margin: 8px 0 32px 0;
   }
 
   .W_Header {
@@ -284,10 +288,6 @@ h5 {
 }
 
 .all_interviews {
-  .A_PageCover {
-    margin-bottom: 24px;
-  }
-
   .C_Interviews {
     width: 1420px;
     margin-top: 40px;
@@ -380,7 +380,7 @@ h5 {
     .C_CharacterButtons {
       width: 1018px;
       gap: 14px;
-      margin: 24px 0;
+      margin: 0 0 24px 0;
     }
 
     .W_Header {
@@ -541,7 +541,7 @@ h5 {
     .C_CharacterButtons {
       width: 730px;
       gap: 14px;
-      margin: 24px 0;
+      margin: 0 0 24px 0;
     }
 
     .W_Header {
