@@ -11,6 +11,10 @@
   &.articles {
     background-image: url('./images/ArticlesPageCover.png');
   }
+
+  &.interviews {
+    background-image: url('./images/AllInterviewsCover.png');
+  }
 }
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
@@ -38,6 +42,10 @@
 
     &.articles {
       background-image: url('./images/ArticlesPageCover-mob.png');
+    }
+
+    &.interviews {
+      background-image: url('./images/AllInterviewsCover-mob.png');
     }
   }
 }
