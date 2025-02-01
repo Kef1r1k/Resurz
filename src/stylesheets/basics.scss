@@ -215,6 +215,10 @@ h5 {
     gap: 56px;
   }
 
+  .W_CharacterCardsContainer::-webkit-scrollbar {
+    display: none;
+  }
+
   .Q_Line {
     width: 1420px;
     height: 1px;
@@ -238,6 +242,10 @@ h5 {
     width: 1420px;
     display: flex;
     gap: 20px;
+  }
+
+  .W_ArticlesContainer::-webkit-scrollbar {
+    display: none;
   }
 
   .M_GeneratorCreative {

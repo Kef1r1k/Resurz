@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const webpack = require('webpack')
 const path = require('path')
@@ -9,7 +10,8 @@ const path = require('path')
 module.exports = {
   entry: {
     index: './src/index.js',
-    articles: './src/javascript/articles.js'
+    articles: './src/javascript/articles.js',
+    contract: './src/javascript/contract-generator.js'
   },
   output: {
     filename: '[name].js',
@@ -75,6 +77,15 @@ module.exports = {
       chunkFilename: '[id].css'
     }),
 
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/contracts/*.doc'),
+          to: path.resolve(__dirname, 'dist/[name].[ext]')
+        }
+      ]
+    }),
+
     // Main page
     new HtmlWebpackPlugin({
       hash: true,
@@ -82,6 +93,15 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
       chunks: ['index']
+    }),
+
+    // Contract generator
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/contract_generator.html',
+      filename: './contract_generator.html',
+      chunks: ['index', 'contract']
     }),
 
     // About
@@ -130,15 +150,6 @@ module.exports = {
       template: './src/interviews.html',
       filename: './interviews.html',
       chunks: ['index', 'articles']
-    }),
-
-    // Contract generator
-    new HtmlWebpackPlugin({
-      hash: true,
-      scriptLoading: 'blocking',
-      template: './src/contract_generator.html',
-      filename: './contract_generator.html',
-      chunks: ['index']
     }),
 
     // Suetulya articles pages
