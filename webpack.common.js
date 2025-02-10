@@ -11,7 +11,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     articles: './src/javascript/articles.js',
-    contract: './src/javascript/contract-generator.js'
+    contract: './src/contract-generator.jsx'
   },
   output: {
     filename: '[name].js',
@@ -101,6 +101,14 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/contract_generator.html',
       filename: './contract_generator.html',
+      chunks: ['index', 'contract']
+    }),
+
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/contract-generator-2.html',
+      filename: './contract-generator-2.html',
       chunks: ['index', 'contract']
     }),
 
