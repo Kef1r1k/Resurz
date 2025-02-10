@@ -165,9 +165,9 @@ const Chat = () => {
   }
 
   return (
-    <div className="chat">
+    <div className="O_Chat">
       {/* Отображаем все сообщения */}
-      <div className="messages">
+      <div className="W_Messages">
         {messages.map((message, index) => (
           <div
             key={index}

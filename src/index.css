@@ -26,7 +26,12 @@
 @import 'stylesheets/components/atoms/A_SortButton.scss';
 @import 'stylesheets/components/atoms/A_SortOption.scss';
 @import 'stylesheets/components/atoms/A_FiltersButton.scss';
+@import 'stylesheets/components/atoms/A_MessageButton.scss';
+@import 'stylesheets/components/atoms/A_HintButton.scss';
 @import 'stylesheets/components/atoms/A_SendButton.scss';
+@import 'stylesheets/components/atoms/A_HintBubble.scss';
+@import 'stylesheets/components/atoms/A_ChatBackButton.scss';
+@import 'stylesheets/components/atoms/A_Message.scss';
 
 /*----------- Молекулы */
 @import 'stylesheets/components/molecules/M_SearchBar.scss';
@@ -44,6 +49,7 @@
 @import 'stylesheets/components/molecules/M_WelcomeMessage.scss';
 @import 'stylesheets/components/molecules/M_ChatInput.scss';
 @import 'stylesheets/components/molecules/M_PopUp.scss';
+@import 'stylesheets/components/molecules/M_Hint.scss';
 
 /*----------- Организмы */
 @import 'stylesheets/components/organisms/O_Footer.scss';
@@ -51,3 +57,5 @@
 @import 'stylesheets/components/organisms/O_ArticleCover.scss';
 @import 'stylesheets/components/organisms/O_MobileMenu.scss';
 @import 'stylesheets/components/organisms/O_Filters.scss';
+@import 'stylesheets/components/organisms/O_BotMessage.scss';
+@import 'stylesheets/components/organisms/O_Chat.scss';

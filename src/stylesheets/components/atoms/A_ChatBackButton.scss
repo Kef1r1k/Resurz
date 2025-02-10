@@ -1,0 +1,21 @@
+.A_ChatBackButton {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background-color: var(--black);
+  background-image: url('./images/back.svg');
+  background-position: center;
+  background-size: 17px;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--black-hover);
+  }
+
+  &:active {
+    background-color: var(--black-pressed);
+  }
+}

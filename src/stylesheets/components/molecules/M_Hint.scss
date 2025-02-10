@@ -1,0 +1,13 @@
+.M_Hint {
+  display: flex;
+  width: 32px;
+  align-items: flex-end;
+  gap: 16px;
+  position: relative;
+
+  .A_HintBubble {
+    position: absolute;
+    left: 48px;
+    bottom: 0px;
+  }
+}
