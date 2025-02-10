@@ -1,16 +1,24 @@
 import React, { useState } from 'react' // Добавлен useState
 
-const Message = ({ question, onAnswer }) => {
-  const [showHint, setShowHint] = useState(false) // Используем useState для управления подсказкой
+const Message = ({
+  text,
+  question,
+  onAnswer,
+  isLastMessage,
+  isFirstMessage,
+  onBack
+}) => {
+  const [showHint, setShowHint] = useState(false)
+  // Если text не определен, не рендерим сообщение
 
   return (
     <div className="O_BotMessage">
       <div className="W_Message">
-        <div className="Q_Image"></div>
+        {isLastMessage && <div className="Q_Image"></div>}
         <div className="W_MessageBubble">
-          <div className="A_Message bot"> {question.text} </div>
+          <div className="A_Message bot">{text}</div>
           <div className="C_ActionButtons">
-            {question.hint && (
+            {question?.hint && (
               <div
                 className="M_Hint"
                 onMouseEnter={() => setShowHint(true)}
@@ -22,12 +30,16 @@ const Message = ({ question, onAnswer }) => {
                 )}
               </div>
             )}
+
+            {isLastMessage && !isFirstMessage && (
+              <button className="A_ChatBackButton" onClick={onBack}></button>
+            )}
           </div>
         </div>
       </div>
 
       {/* Кнопки с вариантами ответа (если тип вопроса — select) */}
-      {question.type === 'select' && (
+      {question?.type === 'select' && (
         <div className="C_MessageButtons">
           {question.options.map((option, index) => (
             <button
