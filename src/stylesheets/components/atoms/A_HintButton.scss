@@ -19,3 +19,11 @@
     background-color: var(--black-pressed);
   }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 1018px) {
+  .A_ChatBackButton {
+    width: 40px;
+    height: 40px;
+    background-size: 15px;
+  }
+}

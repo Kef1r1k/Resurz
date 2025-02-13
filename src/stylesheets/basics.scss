@@ -84,104 +84,9 @@ h5 {
   letter-spacing: -0.6px;
 }
 
-//////////////////
-
-.chat {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
+#resetFilterButton {
+  order: 3;
 }
-
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 20px;
-}
-
-.message {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 70%;
-}
-
-.message.bot {
-  background-color: #f1f1f1;
-  align-self: flex-start;
-}
-
-.message.user {
-  background-color: #007bff;
-  color: white;
-  align-self: flex-end;
-}
-
-.input-box {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-top: 1px solid #ddd;
-}
-
-.input-box input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.input-box button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.hint-icon {
-  display: inline-block;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.hint-text {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-  margin-top: 5px;
-}
-
-.hint-icon:hover .hint-text {
-  display: block;
-}
-
-.options {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.options button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.options button:hover {
-  background-color: #0056b3;
-}
-
-/// /////////////////////
 
 .Q_Grid {
   width: 100%;
@@ -213,8 +118,8 @@ h5 {
 .Q_BackgroundBlur {
   display: none;
   width: 100%;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   z-index: 98;
   top: 0;
   background: rgba(0, 0, 0, 0.2);
@@ -246,6 +151,10 @@ h5 {
     margin-bottom: 50px;
     position: relative;
     background-image: url('./images/generator-h2.svg');
+  }
+
+  .O_Footer {
+    margin-top: 0;
   }
 }
 
@@ -545,6 +454,15 @@ h5 {
       gap: 40px;
     }
   }
+
+  .generator {
+    .A_StyledH2 {
+      width: 440px;
+      height: 164px;
+      margin-top: 15vh;
+      margin-bottom: 40px;
+    }
+  }
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1420px) {
@@ -706,6 +624,15 @@ h5 {
       width: 730px;
       align-items: center;
       gap: 48px;
+    }
+  }
+
+  .generator {
+    .A_StyledH2 {
+      width: 440px;
+      height: 164px;
+      margin-top: 15vh;
+      margin-bottom: 40px;
     }
   }
 }
@@ -915,6 +842,15 @@ h5 {
       width: 328px;
       margin-top: 0px;
       gap: 40px;
+    }
+  }
+
+  .generator {
+    .A_StyledH2 {
+      width: 280px;
+      height: 116px;
+      margin-top: 15vh;
+      margin-bottom: 24px;
     }
   }
 }

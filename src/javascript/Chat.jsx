@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Message from './Message.jsx'
 import Answer from './Answer.jsx'
-import InputBox from './InputBox.jsx' // Компонент для ввода текста/чисел
+import InputBox from './InputBox.jsx'
+import ProgressBar from './ProgressBar.jsx'
 
 const questions = [
   {
@@ -104,6 +105,50 @@ const Chat = () => {
   const [userAnswers, setUserAnswers] = useState([]) // Ответы пользователя
   const [currentScenario, setCurrentScenario] = useState('start') // Текущий сценарий
   const [isChatFinished, setIsChatFinished] = useState(false) // Флаг завершения чата
+  const [isExtendedMode, setIsExtendedMode] = useState(false) // Режим расширенных настроек
+
+  // Разделяем вопросы на обычные и расширенные
+  const regularQuestions = questions.filter(
+    (q) => !q.scenario.includes('расширенные настройки')
+  )
+  const extendedQuestions = questions.filter((q) =>
+    q.scenario.includes('расширенные настройки')
+  )
+  // Функция для подсчета обычных вопросов
+  const getBasicQuestionsCount = (scenario) => {
+    return questions.filter(
+      (q) =>
+        q.scenario.includes(scenario) &&
+        !q.scenario.includes('расширенные настройки')
+    ).length
+  }
+
+  // Функция для подсчета расширенных вопросов
+  const getExtendedQuestionsCount = (scenario) => {
+    return questions.filter(
+      (q) =>
+        q.scenario.includes(scenario) &&
+        q.scenario.includes('расширенные настройки')
+    ).length
+  }
+
+  // Рассчитываем прогресс
+  const calculateProgress = () => {
+    const basicQuestionsCount = getBasicQuestionsCount(currentScenario)
+    const extendedQuestionsCount = getExtendedQuestionsCount(currentScenario)
+
+    // Если выбран режим расширенных настроек, учитываем все вопросы
+    if (isExtendedMode) {
+      const totalQuestions = basicQuestionsCount + extendedQuestionsCount
+      const currentProgress = currentQuestionIndex + 1 // Текущий прогресс
+      return (currentProgress / totalQuestions) * 100
+    }
+
+    // Иначе учитываем только обычные вопросы
+    return ((currentQuestionIndex + 1) / basicQuestionsCount) * 100
+  }
+
+  const progress = calculateProgress()
 
   // Обработка ответа пользователя
   const handleAnswer = (answer) => {
@@ -209,16 +254,19 @@ const Chat = () => {
         })}
       </div>
 
-      {/* Отображаем текущий вопрос (если это не select) */}
-      {!isChatFinished &&
-        questions[currentQuestionIndex]?.type !== 'select' && (
-          <InputBox
-            type={questions[currentQuestionIndex]?.type} // Тип ввода (text/number)
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            onSubmit={() => handleAnswer(userInput)}
-          />
-        )}
+      <div className="W_ChatInput">
+        <ProgressBar progress={progress} />
+        <InputBox
+          type={questions[currentQuestionIndex]?.type} // Тип ввода (text/number)
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          onSubmit={() => handleAnswer(userInput)}
+          disabled={
+            questions[currentQuestionIndex]?.type !== 'text' &&
+            questions[currentQuestionIndex]?.type !== 'number'
+          }
+        />
+      </div>
     </div>
   )
 }

@@ -24,3 +24,33 @@
     color: var(--white);
   }
 }
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_Message {
+    max-width: 330px;
+    padding: 16px;
+    font-size: 18px;
+
+    &.bot {
+      border-radius: 16px 16px 16px 0px;
+    }
+
+    &.user {
+      border-radius: 16px 16px 0px 16px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .A_Message {
+    max-width: 356px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1420px) {
+  .A_Message {
+    max-width: 280px;
+    padding: 12px;
+    font-size: 16px;
+  }
+}

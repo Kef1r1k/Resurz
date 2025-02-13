@@ -32,6 +32,7 @@
 @import 'stylesheets/components/atoms/A_HintBubble.scss';
 @import 'stylesheets/components/atoms/A_ChatBackButton.scss';
 @import 'stylesheets/components/atoms/A_Message.scss';
+@import 'stylesheets/components/atoms/A_ProgressBar.scss';
 
 /*----------- Молекулы */
 @import 'stylesheets/components/molecules/M_SearchBar.scss';

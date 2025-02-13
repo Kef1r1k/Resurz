@@ -48,3 +48,88 @@
     flex-wrap: wrap;
   }
 }
+
+@media only screen and (min-width: 1018px) and (max-width: 1420px) {
+  .O_BotMessage {
+    gap: 12px;
+
+    .W_Message {
+      gap: 14px;
+
+      .Q_Image {
+        width: 72px;
+        height: 72px;
+        left: -86px;
+      }
+    }
+
+    .W_MessageBubble {
+      gap: 16px;
+    }
+
+    .C_ActionButtons {
+      gap: 8px;
+    }
+
+    .C_MessageButtons {
+      max-width: 386px;
+      gap: 8px;
+    }
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .O_BotMessage {
+    gap: 12px;
+
+    .W_Message {
+      gap: 12px;
+
+      .Q_Image {
+        width: 50px;
+        height: 50px;
+        left: -62px;
+      }
+    }
+
+    .W_MessageBubble {
+      gap: 16px;
+    }
+
+    .C_ActionButtons {
+      gap: 16px;
+    }
+
+    .C_MessageButtons {
+      max-width: 412px;
+      gap: 8px;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .O_BotMessage {
+    gap: 16px;
+
+    .W_Message {
+      gap: 2px;
+
+      .Q_Image {
+        display: none;
+      }
+    }
+
+    .W_MessageBubble {
+      gap: 8px;
+    }
+
+    .C_ActionButtons {
+      gap: 16px;
+    }
+
+    .C_MessageButtons {
+      max-width: 328px;
+      gap: 8px;
+    }
+  }
+}
