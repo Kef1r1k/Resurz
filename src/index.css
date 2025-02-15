@@ -33,6 +33,9 @@
 @import 'stylesheets/components/atoms/A_ChatBackButton.scss';
 @import 'stylesheets/components/atoms/A_Message.scss';
 @import 'stylesheets/components/atoms/A_ProgressBar.scss';
+@import 'stylesheets/components/atoms/A_QuestionsCounter.scss';
+@import 'stylesheets/components/atoms/A_QuestionExplained.scss';
+@import 'stylesheets/components/atoms/A_AnswerBullet.scss';
 
 /*----------- Молекулы */
 @import 'stylesheets/components/molecules/M_SearchBar.scss';
@@ -51,6 +54,7 @@
 @import 'stylesheets/components/molecules/M_ChatInput.scss';
 @import 'stylesheets/components/molecules/M_PopUp.scss';
 @import 'stylesheets/components/molecules/M_Hint.scss';
+@import 'stylesheets/components/molecules/M_Test.scss';
 
 /*----------- Организмы */
 @import 'stylesheets/components/organisms/O_Footer.scss';
@@ -60,3 +64,4 @@
 @import 'stylesheets/components/organisms/O_Filters.scss';
 @import 'stylesheets/components/organisms/O_BotMessage.scss';
 @import 'stylesheets/components/organisms/O_Chat.scss';
+@import 'stylesheets/components/organisms/O_TestPopUp.scss';

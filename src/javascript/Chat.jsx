@@ -166,6 +166,12 @@ const Chat = () => {
     // Добавляем ответ пользователя в список сообщений
     setMessages([...messages, { text: answer, isUser: true }])
 
+    // Если пользователь выбрал "скачать договор", выводим ответы в консоль
+    if (answer === 'скачать договор') {
+      console.log('Ответы пользователя:', userAnswers)
+      return // Завершаем чат
+    }
+
     // Определяем следующий сценарий
     let nextScenario = currentScenario
     if (answer === 'небольшой заказ') {
@@ -173,6 +179,7 @@ const Chat = () => {
     } else if (answer === 'заказ с этапами работы') {
       nextScenario = 'заказ с этапами работы'
     } else if (answer === 'перейти к расширенным настройкам') {
+      setIsExtendedMode(true) // Включаем режим расширенных настроек
       if (currentScenario === 'небольшой заказ') {
         nextScenario = 'расширенные настройки 1'
       } else if (currentScenario === 'заказ с этапами работы') {
@@ -196,12 +203,13 @@ const Chat = () => {
         { text: nextQuestion.text, isUser: false, questionId: nextQuestion.id }
       ])
     } else {
-      // Если вопросы закончились, завершаем чат
+      // Если вопросы закончились, завершаем чат и выводим ответы в консоль
       setIsChatFinished(true)
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: 'Спасибо за ответы! Твой договор готов.', isUser: false }
       ])
+      console.log('Ответы пользователя:', userAnswers)
     }
 
     // Очищаем поле ввода (если это был ввод текста/числа)

@@ -249,6 +249,15 @@ module.exports = {
 
     new HtmlWebpackPartialsPlugin([
       {
+        path: path.join(__dirname, './src/partials/test.html'),
+        location: 'test',
+        template_filename: '*',
+        priority: 'replace'
+      }
+    ]),
+
+    new HtmlWebpackPartialsPlugin([
+      {
         path: path.join(__dirname, './src/partials/analytics.html'),
         location: 'analytics',
         template_filename: '*',

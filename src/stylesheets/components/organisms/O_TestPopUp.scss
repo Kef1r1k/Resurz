@@ -1,0 +1,16 @@
+.O_TestPopUp {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+
+  &.active {
+    display: flex;
+  }
+}
