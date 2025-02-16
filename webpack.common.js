@@ -83,7 +83,8 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/contracts/*.doc'),
           to: path.resolve(__dirname, 'dist/[name].[ext]')
-        }
+        },
+        { from: 'src/share', to: 'share' }
       ]
     }),
 
