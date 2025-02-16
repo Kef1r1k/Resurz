@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     articles: './src/javascript/articles.js',
+    article: './src/javascript/article.js',
     contract: './src/contract-generator.jsx'
   },
   output: {
@@ -160,31 +161,31 @@ module.exports = {
       chunks: ['index', 'articles']
     }),
 
-    // Suetulya articles pages
+    // Suetulya article pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/suetulya/article_template.html',
       filename: './suetulya/article_template.html',
-      chunks: ['index']
+      chunks: ['index', 'article']
     }),
 
-    // Poteryasha articles pages
+    // Poteryasha article pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/poteryasha/article_template.html',
       filename: './poteryasha/article_template.html',
-      chunks: ['index']
+      chunks: ['index', 'article']
     }),
 
-    // Toksinka articles pages
+    // Toksinka article pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/toksinka/article_template.html',
       filename: './toksinka/article_template.html',
-      chunks: ['index']
+      chunks: ['index', 'article']
     }),
 
     // Interviews pages
