@@ -55,60 +55,6 @@ window.onscroll = function () {
 
 /***/ }),
 
-/***/ 401:
-/***/ (() => {
-
-var hints = document.getElementsByClassName('M_ArticleContents');
-
-function hintInit() {
-  for (var i = 0; i < hints.length; i++) {
-    var hint = hints[i];
-    hintOpen(hint);
-  }
-}
-
-function hintOpen(hint) {
-  var hintButton = hint.querySelector('.A_ToggleButton');
-  var hintText = document.querySelector('.A_TextContents.hint');
-  var articleTexts = document.querySelectorAll('.A_TextContents.full');
-  var articleQuotes = document.querySelectorAll('.M_ArticleQuote');
-  hintButton.addEventListener('click', function (e) {
-    hintButton.classList.toggle('active');
-
-    if (hintButton.classList.contains('active')) {
-      hintText.classList.remove('hidden');
-
-      for (var i = 0; i < articleTexts.length; i++) {
-        var articleText = articleTexts[i];
-        articleText.classList.add('hidden');
-      }
-
-      for (var _i = 0; _i < articleQuotes.length; _i++) {
-        var articleQuote = articleQuotes[_i];
-        articleQuote.classList.add('hidden');
-      }
-    } else {
-      for (var _i2 = 0; _i2 < articleTexts.length; _i2++) {
-        var _articleText = articleTexts[_i2];
-
-        _articleText.classList.remove('hidden');
-      }
-
-      for (var _i3 = 0; _i3 < articleQuotes.length; _i3++) {
-        var _articleQuote = articleQuotes[_i3];
-
-        _articleQuote.classList.remove('hidden');
-      }
-
-      hintText.classList.add('hidden');
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', hintInit());
-
-/***/ }),
-
 /***/ 670:
 /***/ (() => {
 
@@ -185,15 +131,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _javascript_hint_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(401);
-/* harmony import */ var _javascript_hint_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_javascript_hint_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(857);
-/* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_javascript_header_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(480);
-/* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(670);
-/* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_javascript_search_open_js__WEBPACK_IMPORTED_MODULE_3__);
-
+/* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(857);
+/* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_javascript_header_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(480);
+/* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(670);
+/* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
