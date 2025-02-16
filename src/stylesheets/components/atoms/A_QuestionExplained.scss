@@ -9,6 +9,10 @@
   border-bottom: 1px solid var(--stroke-gray);
   color: var(--dark-green);
 
+  &.hidden {
+    display: none;
+  }
+
   .Q_Image {
     width: 36px;
     height: 36px;
