@@ -1,16 +1,16 @@
 {
-  "name": "static-site-boilerplate",
+  "name": "Resurz",
   "version": "1.0.0",
-  "author": "Zakhar Day",
+  "author": "Kef1r1k",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https:///github.com/ZakharDay/static-site-boilerplate"
+    "url": "git+https://github.com/Kef1r1k/Resurz"
   },
   "bugs": {
-    "url": "https://github.com/ZakharDay/static-site-boilerplate/issues"
+    "url": "https://github.com/Kef1r1k/Resurz/issues"
   },
-  "homepage": "https://github.com/ZakharDay/static-site-boilerplate#readme",
+  "homepage": "https://github.com/Kef1r1k/Resurz#readme",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "watch": "webpack --config webpack.dev.js",

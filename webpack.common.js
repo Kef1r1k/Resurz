@@ -11,7 +11,8 @@ module.exports = {
   entry: {
     index: './src/index.js',
     articles: './src/javascript/articles.js',
-    contract: './src/javascript/contract-generator.js'
+    article: './src/javascript/article.js',
+    contract: './src/contract-generator.jsx'
   },
   output: {
     filename: '[name].js',
@@ -104,6 +105,14 @@ module.exports = {
       chunks: ['index', 'contract']
     }),
 
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/contract-generator-2.html',
+      filename: './contract-generator-2.html',
+      chunks: ['index', 'contract']
+    }),
+
     // About
     new HtmlWebpackPlugin({
       hash: true,
@@ -152,31 +161,31 @@ module.exports = {
       chunks: ['index', 'articles']
     }),
 
-    // Suetulya articles pages
+    // Suetulya article pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/suetulya/article_template.html',
       filename: './suetulya/article_template.html',
-      chunks: ['index']
+      chunks: ['index', 'article']
     }),
 
-    // Poteryasha articles pages
+    // Poteryasha article pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/poteryasha/article_template.html',
       filename: './poteryasha/article_template.html',
-      chunks: ['index']
+      chunks: ['index', 'article']
     }),
 
-    // Toksinka articles pages
+    // Toksinka article pages
     new HtmlWebpackPlugin({
       hash: true,
       scriptLoading: 'blocking',
       template: './src/toksinka/article_template.html',
       filename: './toksinka/article_template.html',
-      chunks: ['index']
+      chunks: ['index', 'article']
     }),
 
     // Interviews pages
@@ -234,6 +243,15 @@ module.exports = {
       {
         path: path.join(__dirname, './src/partials/filters.html'),
         location: 'filters',
+        template_filename: '*',
+        priority: 'replace'
+      }
+    ]),
+
+    new HtmlWebpackPartialsPlugin([
+      {
+        path: path.join(__dirname, './src/partials/test.html'),
+        location: 'test',
         template_filename: '*',
         priority: 'replace'
       }

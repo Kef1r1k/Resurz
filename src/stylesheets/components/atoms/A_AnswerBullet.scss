@@ -1,0 +1,64 @@
+.A_AnswerBullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  color: var(--black);
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    border: 2px solid var(--stroke-gray);
+    background-color: var(--white);
+  }
+}
+
+.A_AnswerBullet.selected {
+  &::before {
+    border: 2px solid var(--black);
+    background-color: var(--black);
+  }
+}
+
+.A_AnswerBullet.correct {
+  &::before {
+    border: 2px solid var(--correct);
+    background-color: var(--correct);
+  }
+}
+
+.A_AnswerBullet.wrong {
+  &::before {
+    border: 2px solid var(--wrong);
+    background-color: var(--wrong);
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1420px) {
+  .A_AnswerBullet {
+    gap: 16px;
+    font-size: 18px;
+
+    &::before {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .A_AnswerBullet {
+    gap: 8px;
+    font-size: 16px;
+
+    &::before {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

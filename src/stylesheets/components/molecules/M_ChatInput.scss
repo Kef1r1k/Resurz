@@ -4,14 +4,58 @@
   padding: 24px 32px;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
   z-index: 5;
-  bottom: 50px;
   border-radius: 24px;
   background: var(--white);
 
   .A_Input {
+    outline: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    color: var(--black);
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .A_Input input:focus {
+    outline: none;
     border: none;
     padding: 0;
+  }
+
+  .A_Input input:disabled,
+  .A_SendButton:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1420px) {
+  .M_ChatInput {
+    width: 674px;
+    padding: 16px 24px;
+    border-radius: 16px;
+  }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 1018px) {
+  .M_ChatInput {
+    width: 606px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_ChatInput {
+    width: 328px;
+    padding: 16px 24px;
+    border-radius: 16px;
+
+    .A_SendButton {
+      display: none;
+    }
   }
 }
