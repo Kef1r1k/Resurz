@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { generateContract } from './generate-contract.js'
 import Message from './Message.jsx'
 import Answer from './Answer.jsx'
 import InputBox from './InputBox.jsx'
@@ -105,53 +106,26 @@ const Chat = () => {
   const [userAnswers, setUserAnswers] = useState([]) // Ответы пользователя
   const [currentScenario, setCurrentScenario] = useState('start') // Текущий сценарий
   const [isChatFinished, setIsChatFinished] = useState(false) // Флаг завершения чата
-  const [isExtendedMode, setIsExtendedMode] = useState(false) // Режим расширенных настроек
+  const [isExtendedMode, setIsExtendedMode] = useState(false)
 
-  // Разделяем вопросы на обычные и расширенные
-  const regularQuestions = questions.filter(
-    (q) => !q.scenario.includes('расширенные настройки')
-  )
-  const extendedQuestions = questions.filter((q) =>
-    q.scenario.includes('расширенные настройки')
-  )
-  // Функция для подсчета обычных вопросов
-  const getBasicQuestionsCount = (scenario) => {
-    return questions.filter(
-      (q) =>
-        q.scenario.includes(scenario) &&
-        !q.scenario.includes('расширенные настройки')
-    ).length
-  }
-
-  // Функция для подсчета расширенных вопросов
-  const getExtendedQuestionsCount = (scenario) => {
-    return questions.filter(
-      (q) =>
-        q.scenario.includes(scenario) &&
-        q.scenario.includes('расширенные настройки')
-    ).length
-  }
-
-  // Рассчитываем прогресс
+  // Функция для расчета прогресса
   const calculateProgress = () => {
-    const basicQuestionsCount = getBasicQuestionsCount(currentScenario)
-    const extendedQuestionsCount = getExtendedQuestionsCount(currentScenario)
+    // Фильтруем вопросы, которые относятся к текущему сценарию
+    const scenarioQuestions = questions.filter((q) =>
+      q.scenario.includes(currentScenario)
+    )
 
-    // Если выбран режим расширенных настроек, учитываем все вопросы
-    if (isExtendedMode) {
-      const totalQuestions = basicQuestionsCount + extendedQuestionsCount
-      const currentProgress = currentQuestionIndex + 1 // Текущий прогресс
-      return (currentProgress / totalQuestions) * 100
-    }
+    // Общее количество вопросов в сценарии
+    const totalQuestions = scenarioQuestions.length
 
-    // Иначе учитываем только обычные вопросы
-    return ((currentQuestionIndex + 1) / basicQuestionsCount) * 100
+    // Текущий прогресс (в процентах)
+    const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100
+
+    return progress
   }
-
-  const progress = calculateProgress()
 
   // Обработка ответа пользователя
-  const handleAnswer = (answer) => {
+  const handleAnswer = async (answer) => {
     const currentQuestion = questions[currentQuestionIndex]
 
     // Добавляем ответ пользователя в список ответов
@@ -168,8 +142,12 @@ const Chat = () => {
 
     // Если пользователь выбрал "скачать договор", выводим ответы в консоль
     if (answer === 'скачать договор') {
-      console.log('Ответы пользователя:', userAnswers)
+      await handleDownloadContract()
       return // Завершаем чат
+    }
+
+    if (answer === 'перейти к расширенным настройкам') {
+      setIsExtendedMode(true)
     }
 
     // Определяем следующий сценарий
@@ -237,6 +215,10 @@ const Chat = () => {
     }
   }
 
+  const handleDownloadContract = async () => {
+    await generateContract(userAnswers) // Передаем ответы пользователя
+  }
+
   return (
     <div className="O_Chat">
       {/* Отображаем все сообщения */}
@@ -263,7 +245,7 @@ const Chat = () => {
       </div>
 
       <div className="W_ChatInput">
-        <ProgressBar progress={progress} />
+        <ProgressBar progress={calculateProgress()} />
         <InputBox
           type={questions[currentQuestionIndex]?.type} // Тип ввода (text/number)
           value={userInput}

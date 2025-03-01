@@ -19,6 +19,21 @@ module.exports = {
     path: path.resolve(__dirname, 'docs')
     // clean: true
   },
+
+  resolve: {
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      crypto: require.resolve('crypto-browserify'),
+      buffer: require.resolve('buffer'),
+      url: require.resolve('url'),
+      querystring: require.resolve('querystring-browser'),
+      http: require.resolve('stream-http'),
+      https: require.resolve('https-browserify'),
+      vm: require.resolve('vm-browserify'),
+      timers: require.resolve('timers-browserify')
+    }
+  },
+
   module: {
     rules: [
       {
@@ -73,6 +88,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser', // Полифилл для process
+      Buffer: ['buffer', 'Buffer'] // Полифилл для Buffer
+    }),
+
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
@@ -80,11 +100,8 @@ module.exports = {
 
     new CopyPlugin({
       patterns: [
-        {
-          from: path.resolve(__dirname, 'src/contracts/*.doc'),
-          to: path.resolve(__dirname, 'dist/[name].[ext]')
-        },
-        { from: 'src/share', to: 'share' }
+        { from: 'src/share', to: 'share' },
+        { from: 'src/share/templates', to: 'templates' }
       ]
     }),
 
