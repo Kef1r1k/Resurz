@@ -11,6 +11,15 @@ const Message = ({
 }) => {
   const [showHint, setShowHint] = useState(false)
 
+  const handleHintClick = () => {
+    setShowHint((prev) => !prev) // Переключаем состояние подсказки
+  }
+
+  const handleCloseHint = (event) => {
+    event.stopPropagation() // Останавливаем всплытие события
+    setShowHint(false) // Закрываем подсказку
+  }
+
   return (
     <div className="O_BotMessage">
       <div className="W_Message">
@@ -19,14 +28,24 @@ const Message = ({
           <div className="A_Message bot">{text}</div>
           <div className="C_ActionButtons">
             {question?.hint && (
-              <div
-                className="M_Hint"
-                onMouseEnter={() => setShowHint(true)}
-                onMouseLeave={() => setShowHint(false)}
-              >
+              <div className="M_Hint" onClick={handleHintClick}>
                 <div className="A_HintButton"> </div>
                 {showHint && (
-                  <div className="A_HintBubble">{question.hint}</div>
+                  <div className="W_HintBubble">
+                    {/* Подсказка для десктопов */}
+                    <div className="A_HintBubbleDesktop">{question.hint}</div>
+                    {/* Подсказка для мобильных устройств */}
+                    <div className="M_HintBubbleMobile">
+                      <div className="W_HintTop">
+                        <h4>Подсказка</h4>
+                        <button
+                          className="A_CloseButton"
+                          onClick={handleCloseHint}
+                        ></button>
+                      </div>
+                      <p>{question.hint}</p>
+                    </div>
+                  </div>
                 )}
               </div>
             )}

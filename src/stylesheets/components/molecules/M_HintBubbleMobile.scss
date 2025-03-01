@@ -1,0 +1,30 @@
+.M_HintBubbleMobile {
+  display: none;
+  width: 328px;
+  height: max-content;
+  padding: 24px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke-gray, #d9d9d9);
+  background: var(--white, #fff);
+
+  .W_HintTop {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 730px) {
+  .M_HintBubbleMobile {
+    display: flex;
+  }
+}

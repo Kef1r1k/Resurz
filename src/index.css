@@ -54,6 +54,7 @@
 @import 'stylesheets/components/molecules/M_ChatInput.scss';
 @import 'stylesheets/components/molecules/M_PopUp.scss';
 @import 'stylesheets/components/molecules/M_Hint.scss';
+@import 'stylesheets/components/molecules/M_HintBubbleMobile.scss';
 @import 'stylesheets/components/molecules/M_Test.scss';
 
 /*----------- Организмы */
