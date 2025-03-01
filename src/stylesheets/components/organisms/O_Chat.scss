@@ -6,6 +6,13 @@
   width: 940px;
   padding: 160px 0 200px 0;
 
+  .W_MessagesContainer {
+    overflow-y: scroll;
+  }
+  .W_MessagesContainer::-webkit-scrollbar {
+    display: none;
+  }
+
   .W_Messages {
     display: flex;
     flex-direction: column;

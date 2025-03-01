@@ -1,4 +1,4 @@
-import React, { useState } from 'react' // Добавлен useState
+import React, { useState } from 'react'
 
 const Message = ({
   text,
@@ -6,10 +6,10 @@ const Message = ({
   onAnswer,
   isLastMessage,
   isFirstMessage,
-  onBack
+  onBack,
+  selectedOption
 }) => {
   const [showHint, setShowHint] = useState(false)
-  // Если text не определен, не рендерим сообщение
 
   return (
     <div className="O_BotMessage">
@@ -43,9 +43,12 @@ const Message = ({
         <div className="C_MessageButtons">
           {question.options.map((option, index) => (
             <button
-              className="A_MessageButton"
+              className={`A_MessageButton ${
+                selectedOption === option ? 'active' : ''
+              } ${isLastMessage ? '' : 'disabled'}`} // Добавляем класс disabled для неактивных кнопок
               key={index}
-              onClick={() => onAnswer(option)}
+              onClick={isLastMessage ? () => onAnswer(option) : undefined} // Блокируем клик для неактивных кнопок
+              disabled={!isLastMessage} // Отключаем кнопки, если это не последний вопрос
             >
               {option}
             </button>

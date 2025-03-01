@@ -101,7 +101,8 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'src/share', to: 'share' },
-        { from: 'src/share/templates', to: 'templates' }
+        { from: 'src/share/templates', to: 'templates' },
+        { from: 'src/share/contracts', to: 'contracts' }
       ]
     }),
 

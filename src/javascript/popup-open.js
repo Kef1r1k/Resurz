@@ -9,10 +9,12 @@ function popupInit() {
 }
 
 function popupOpen() {
+  document.body.classList.add('overflow-hidden')
   popup.classList.add('active'), bgblur.classList.add('active')
 }
 
 function popupClose() {
+  document.body.classList.remove('overflow-hidden')
   popup.classList.remove('active'), bgblur.classList.remove('active')
 }
 
