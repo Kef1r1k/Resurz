@@ -82,46 +82,47 @@ const questions = [
 
 const Chat = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [messages, setMessages] = useState([
-    { text: questions[0].text, isUser: false, questionId: questions[0].id }
-  ])
+  const [messages, setMessages] = useState([])
   const [userInput, setUserInput] = useState('')
   const [userAnswers, setUserAnswers] = useState([])
   const [currentScenario, setCurrentScenario] = useState('start')
   const [isChatFinished, setIsChatFinished] = useState(false)
   const [isExtendedMode, setIsExtendedMode] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState({})
+  const [showWelcome, setShowWelcome] = useState(true)
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
 
-  // Функция для расчета прогресса
+  const handlePopupOpen = () => {
+    setIsPopupOpen(true)
+    document.body.classList.add('overflow-hidden') // Блокируем скролл страницы
+  }
+
+  // Функция для закрытия попапа
+  const handlePopupClose = () => {
+    setIsPopupOpen(false)
+    document.body.classList.remove('overflow-hidden') // Разблокируем скролл страницы
+  }
+
   const calculateProgress = () => {
-    // Если чат завершен, прогресс 100%
     if (isChatFinished) {
       return 100
     }
 
-    // Все вопросы, которые относятся к текущему сценарию или сценарию "start"
     const scenarioQuestions = questions.filter(
       (q) =>
         (q.scenario.includes(currentScenario) ||
           q.scenario.includes('start')) &&
-        (!q.extended || isExtendedMode) // Учитываем расширенные вопросы, если режим включен
+        (!q.extended || isExtendedMode)
     )
-
-    // Общее количество вопросов в сценарии (включая первый вопрос и расширенные)
     const totalQuestions = scenarioQuestions.length
-
-    // Количество ответов пользователя (включая ответ на первый вопрос и расширенные)
     const answeredQuestions = userAnswers.filter((answer) =>
       scenarioQuestions.some((q) => q.id === answer.questionId)
     ).length
-
-    // Прогресс в процентах
     const progress = (answeredQuestions / totalQuestions) * 100
 
     return progress
   }
 
-  // Функция для скролла вниз
   const scrollToBottom = () => {
     setTimeout(() => {
       const messagesContainer = document.querySelector('.W_MessagesContainer')
@@ -134,7 +135,6 @@ const Chat = () => {
     }, 0)
   }
 
-  // Обработка ответа пользователя
   const handleAnswer = async (answer) => {
     const currentQuestion = questions[currentQuestionIndex]
 
@@ -162,8 +162,6 @@ const Chat = () => {
 
     if (answer === 'перейти к расширенным настройкам') {
       setIsExtendedMode(true)
-
-      // Находим первый вопрос с extended: true для текущего сценария
       const nextQuestion = questions.find(
         (q) => q.scenario.includes(currentScenario) && q.extended === true
       )
@@ -179,10 +177,9 @@ const Chat = () => {
           }
         ])
       }
-      return // Завершаем выполнение, чтобы не искать следующий вопрос
+      return
     }
 
-    // Определяем следующий сценарий
     let nextScenario = currentScenario
     if (answer === 'небольшой заказ') {
       nextScenario = 'небольшой заказ'
@@ -190,12 +187,11 @@ const Chat = () => {
       nextScenario = 'заказ с этапами работы'
     }
 
-    // Находим следующий вопрос
     const nextQuestion = questions.find(
       (q, index) =>
         index > currentQuestionIndex &&
         q.scenario.includes(nextScenario) &&
-        (!q.extended || isExtendedMode) // Учитываем расширенные вопросы, если режим включен
+        (!q.extended || isExtendedMode)
     )
 
     if (nextQuestion) {
@@ -207,7 +203,6 @@ const Chat = () => {
         { text: nextQuestion.text, isUser: false, questionId: nextQuestion.id }
       ])
 
-      // Проверяем, является ли следующий вопрос последним в сценарии
       const isLastQuestionInScenario = !questions.some(
         (q, index) =>
           index > questions.indexOf(nextQuestion) &&
@@ -225,7 +220,6 @@ const Chat = () => {
     setUserInput('')
   }
 
-  // Обработка возврата к предыдущему вопросу
   const handleBack = () => {
     if (messages.length > 1) {
       const newMessages = messages.slice(0, -2)
@@ -238,7 +232,6 @@ const Chat = () => {
         )
         setCurrentQuestionIndex(previousQuestionIndex)
 
-        // Сбрасываем выбранный вариант для текущего вопроса
         setSelectedOptions((prev) => {
           const updatedOptions = { ...prev }
           delete updatedOptions[previousQuestionId]
@@ -246,8 +239,7 @@ const Chat = () => {
         })
       }
 
-      // Удаляем последний ответ пользователя
-      setUserAnswers((prevAnswers) => prevAnswers.slice(0, -1))
+      setUserAnswers(userAnswers.slice(0, -1))
     }
   }
 
@@ -255,8 +247,72 @@ const Chat = () => {
     await generateContract(userAnswers)
   }
 
+  const handleStartChat = () => {
+    setShowWelcome(false)
+    setMessages([
+      { text: questions[0].text, isUser: false, questionId: questions[0].id }
+    ])
+  }
+
   return (
     <div className="O_Chat">
+      {showWelcome && (
+        <div className="W_WelcomeCreative">
+          <div className="A_StyledH2">
+            <h2>давай заполним</h2>
+            <h2>договор</h2>
+          </div>
+          <div className="M_WelcomeMessage">
+            <div className="Q_Image"></div>
+            <div className="W_WelcomeMessage">
+              <p>Привет! Я помогу тебе заполнить договор в формате переписки</p>
+              <div className="C_Buttons">
+                <button className="A_Button primary" onClick={handleStartChat}>
+                  Погнали
+                </button>
+                <button
+                  className="A_Button secondary download"
+                  onClick={handlePopupOpen}
+                >
+                  Скачать шаблон
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isPopupOpen && (
+        <div className="M_PopUp active">
+          <div className="W_PopUpHead">
+            <h4>Скачать пустой шаблон договора</h4>
+            <button
+              className="A_CloseButton"
+              onClick={handlePopupClose} // Закрываем попап
+            ></button>
+          </div>
+          <div className="C_Buttons">
+            <a
+              href="./share/contracts/dogovor_fiz_ur.doc"
+              className="A_Button secondary"
+              download
+            >
+              Небольшой заказ
+            </a>
+            <a
+              href="./share/contracts/dogovor_steps.doc"
+              className="A_Button secondary"
+              download
+            >
+              Заказ с этапами работ
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* Затемнение фона */}
+      {isPopupOpen && <div className="Q_BackgroundBlur active"></div>}
+
       <div className="W_MessagesContainer">
         <div className="W_Messages">
           {messages.map((message, index) => {

@@ -10,6 +10,10 @@
     flex-shrink: 0;
     position: absolute;
     left: -240px;
+    background-image: url('./images/poteryasha-circle.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .W_WelcomeMessage {
@@ -27,6 +31,18 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  .A_Button.secondary {
+    background-color: var(--white);
+
+    &:hover {
+      background-color: var(--black-hover);
+    }
+
+    &:active {
+      background-color: var(--black-pressed);
+    }
   }
 }
 

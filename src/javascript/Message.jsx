@@ -63,7 +63,7 @@ const Message = ({
           {question.options.map((option, index) => (
             <button
               className={`A_MessageButton ${
-                selectedOption === option ? 'active' : ''
+                selectedOption === option ? 'selected' : ''
               } ${isLastMessage ? '' : 'disabled'}`} // Добавляем класс disabled для неактивных кнопок
               key={index}
               onClick={isLastMessage ? () => onAnswer(option) : undefined} // Блокируем клик для неактивных кнопок

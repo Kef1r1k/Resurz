@@ -124,14 +124,6 @@ module.exports = {
       chunks: ['index', 'contract']
     }),
 
-    new HtmlWebpackPlugin({
-      hash: true,
-      scriptLoading: 'blocking',
-      template: './src/contract-generator-2.html',
-      filename: './contract-generator-2.html',
-      chunks: ['index', 'contract']
-    }),
-
     // About
     new HtmlWebpackPlugin({
       hash: true,
