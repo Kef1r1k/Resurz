@@ -26,7 +26,12 @@ a {
   color: var(--black);
 }
 
-p {
+li {
+  list-style-type: disc;
+}
+
+p,
+li {
   font-family: 'Inter';
   font-size: 24px;
   font-style: normal;
@@ -174,7 +179,7 @@ h5 {
     grid-column: 9 / 13;
     position: absolute;
     top: 700px;
-    height: 2480px;
+    height: -webkit-fill-available;
   }
 
   .A_TextContents,
@@ -468,7 +473,8 @@ h5 {
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1420px) {
-  p {
+  p,
+  li {
     font-size: 18px;
 
     &.s {
@@ -639,7 +645,8 @@ h5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 730px) {
-  p {
+  p,
+  li {
     font-size: 16px;
 
     &.s {
