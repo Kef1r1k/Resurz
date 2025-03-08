@@ -102,7 +102,8 @@ module.exports = {
       patterns: [
         { from: 'src/share', to: 'share' },
         { from: 'src/share/templates', to: 'templates' },
-        { from: 'src/share/contracts', to: 'contracts' }
+        { from: 'src/share/contracts', to: 'contracts' },
+        { from: 'src/share/covers', to: 'covers' }
       ]
     }),
 
