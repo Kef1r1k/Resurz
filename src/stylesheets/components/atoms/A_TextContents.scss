@@ -35,6 +35,8 @@
     }
 
     ul {
+      margin-left: 32px;
+
       li:not(:last-child) {
         margin-bottom: 16px;
       }
@@ -55,6 +57,8 @@
       gap: 20px;
 
       ul {
+        margin-left: 24px;
+
         li:not(:last-child) {
           margin-bottom: 12px;
         }
@@ -76,6 +80,8 @@
       gap: 16px;
 
       ul {
+        margin-left: 16px;
+
         li:not(:last-child) {
           margin-bottom: 8px;
         }
