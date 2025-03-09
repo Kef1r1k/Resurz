@@ -213,6 +213,13 @@ module.exports = {
       filename: './toksinka/article_template.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/toksinka/personal_boundaries.html',
+      filename: './toksinka/personal_boundaries.html',
+      chunks: ['index', 'article']
+    }),
 
     // Interviews pages
     new HtmlWebpackPlugin({
