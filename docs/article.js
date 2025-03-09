@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 401:
+/***/ 6401:
 /***/ (() => {
 
 var hints = document.getElementsByClassName('M_ArticleContents');
@@ -55,10 +55,42 @@ document.addEventListener('DOMContentLoaded', hintInit());
 
 /***/ }),
 
-/***/ 574:
+/***/ 847:
+/***/ (() => {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var shareButton = document.getElementById('share');
+  var telegramButton = document.getElementById('tg');
+  var vkButton = document.getElementById('vk');
+  var whatsappButton = document.getElementById('whatsapp');
+  var currentUrl = window.location.href;
+  shareButton.addEventListener('click', function () {
+    navigator.clipboard.writeText(currentUrl).then(function () {
+      alert('Ссылка скопирована в буфер обмена!');
+    })["catch"](function (err) {
+      console.error('Ошибка при копировании ссылки: ', err);
+    });
+  });
+  telegramButton.addEventListener('click', function () {
+    var telegramUrl = "https://t.me/share/url?url=".concat(encodeURIComponent(currentUrl));
+    window.open(telegramUrl, '_blank');
+  });
+  vkButton.addEventListener('click', function () {
+    var vkUrl = "https://vk.com/share.php?url=".concat(encodeURIComponent(currentUrl));
+    window.open(vkUrl, '_blank');
+  });
+  whatsappButton.addEventListener('click', function () {
+    var whatsappUrl = "https://wa.me/?text=".concat(encodeURIComponent(currentUrl));
+    window.open(whatsappUrl, '_blank');
+  });
+});
+
+/***/ }),
+
+/***/ 4574:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var questions = __webpack_require__(972);
+var questions = __webpack_require__(1972);
 
 var startButton = document.getElementById('startTest');
 var test = document.querySelector('.O_TestPopUp');
@@ -82,6 +114,7 @@ function testInit() {
 function testOpen() {
   var _questions$find;
 
+  document.body.classList.add('overflow-hidden');
   test.classList.add('active');
   var articleId = startButton.getAttribute('data-article-id');
   currentTest = ((_questions$find = questions.find(function (q) {
@@ -91,6 +124,7 @@ function testOpen() {
 }
 
 function popupClose() {
+  document.body.classList.remove('overflow-hidden');
   test.classList.remove('active');
 }
 
@@ -158,11 +192,11 @@ document.addEventListener('DOMContentLoaded', testInit);
 
 /***/ }),
 
-/***/ 972:
+/***/ 1972:
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('[{"articleId":"article1","questions":[{"question":"Здесь будет написан первый вопрос","answers":["Первый вариант ответа","Второй вариант ответа","Третий вариант ответа"],"correctAnswer":0,"explanation":"Правильный ответ — первый, потому что..."},{"question":"Здесь будет написан второй вопрос","answers":["Первый вариант ответа","Второй вариант ответа","Третий вариант ответа"],"correctAnswer":2,"explanation":"Правильный ответ — третий, потому что..."}]},{"articleId":"article2","questions":[{"question":"Здесь будет написан первый вопрос","answers":["Первый вариант ответа","Второй вариант ответа","Третий вариант ответа"],"correctAnswer":0,"explanation":"Правильный ответ — первый, потому что..."}]}]');
+module.exports = JSON.parse('[{"articleId":"article1","questions":[{"question":"Какие форматы файлов нужно подготовить для передачи логотипа заказчику?","answers":["Только PNG","Только PDF","Векторные (SVG, AI, EPS) и растровые (PNG, JPG)","Только черно-белую версию"],"correctAnswer":2,"explanation":"Векторные форматы нужны для масштабирования без потери качества, а растровые — для повседневного использования. Это обеспечивает универсальность логотипа."},{"question":"Что обязательно нужно проверить перед передачей логотипа, чтобы избежать проблем с Роспатентом?","answers":["Соответствие логотипа трендам","Уникальность логотипа и отсутствие официальной символики","Количество использованных цветов","Размер файлов"],"correctAnswer":1,"explanation":"Проверка уникальности и отсутствия официальной символики помогает избежать юридических проблем и отказов при регистрации товарного знака."},{"question":"Что должно быть включено в логобук?","answers":["Только цветовые палитры","Описание логотипа, цветовые палитры, минимальные размеры и примеры использования","Только примеры использования","Только описание логотипа"],"correctAnswer":1,"explanation":"Логобук помогает заказчику правильно использовать логотип в разных ситуациях, обеспечивая его корректное воспроизведение и применение."}]},{"articleId":"article2","questions":[{"question":"Что такое финансовая подушка для фрилансера?","answers":["Деньги на отпуск","Сумма, которая покроет расходы на 3-6 месяцев","Инвестиции в акции","Зарплата за месяц"],"correctAnswer":1,"explanation":"Финансовая подушка — это запас денег, который помогает фрилансеру пережить периоды без заказов или задержек оплаты."},{"question":"Сколько рекомендуется откладывать от каждого дохода?","answers":["5%","10-20%","50%","Не нужно откладывать"],"correctAnswer":1,"explanation":"Даже небольшие, но регулярные отчисления (10-20% от дохода) помогут постепенно сформировать подушку безопасности."},{"question":"Где лучше хранить финансовую подушку?","answers":["В наличных под подушкой","В криптовалюте","На основной карте","На накопительном счете"],"correctAnswer":3,"explanation":"Накопительный счет — это надежный и доступный способ хранения денег, который позволяет быстро получить доступ к средствам, если это понадобится."}]},{"articleId":"article3","questions":[{"question":"Как лучше всего отказать заказчику, если ты не можешь взяться за проект?","answers":["Игнорировать запрос","Вежливо, но твёрдо объяснить, что у тебя другие обязательства","Согласиться, но не выполнить работу","Начать проект, но сделать его плохо"],"correctAnswer":1,"explanation":"Вежливый, но твёрдый отказ помогает сохранить хорошие отношения с заказчиком и показывает, что ты ценишь своё время и труд."},{"question":"Что поможет избежать конфликтов с заказчиком?","answers":["Ничего не обсуждать заранее","Соглашаться на всё, что просит заказчик","Чётко прописать все условия работы в договоре","Не задавать уточняющих вопросов"],"correctAnswer":2,"explanation":"Чёткие условия помогают избежать недопонимания и споров, так как обе стороны знают, чего ожидать."},{"question":"Какой совет поможет защитить личные границы на фрилансе?","answers":["Быть на связи 24/7","Установить рабочие часы и сообщить о них заказчику","Никогда не говорить «нет»","Брать как можно больше проектов"],"correctAnswer":1,"explanation":"Установка рабочих часов помогает разделить работу и личную жизнь, что снижает риск выгорания и сохраняет баланс."}]}]');
 
 /***/ })
 
@@ -227,10 +261,13 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _hint_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(401);
+/* harmony import */ var _hint_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6401);
 /* harmony import */ var _hint_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hint_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _test_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(574);
-/* harmony import */ var _test_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_test_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _social_buttons_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(847);
+/* harmony import */ var _social_buttons_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_social_buttons_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _test_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4574);
+/* harmony import */ var _test_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_test_js__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 })();

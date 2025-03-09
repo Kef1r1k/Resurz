@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 857:
+/***/ 2857:
 /***/ (() => {
 
 var menuButton = document.querySelector('.A_BurgerButton');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ 480:
+/***/ 7480:
 /***/ (() => {
 
 var menu = document.querySelector('.O_Header');
@@ -55,7 +55,7 @@ window.onscroll = function () {
 
 /***/ }),
 
-/***/ 670:
+/***/ 8670:
 /***/ (() => {
 
 var search = document.querySelector('.O_Header .M_SearchBar');
@@ -131,16 +131,23 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(857);
+/* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2857);
 /* harmony import */ var _javascript_header_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_javascript_header_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(480);
+/* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7480);
 /* harmony import */ var _javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_javascript_hide_header_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(670);
+/* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8670);
 /* harmony import */ var _javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_javascript_search_open_js__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 
+var video = document.getElementById('bg-video');
+window.addEventListener('scroll', function () {
+  video.pause();
+});
+window.addEventListener('scrollend', function () {
+  video.play();
+});
 })();
 
 /******/ })()

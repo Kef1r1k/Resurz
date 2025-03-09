@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 40:
+/***/ 8040:
 /***/ (() => {
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ 27:
+/***/ 5027:
 /***/ (() => {
 
 var filtersButton = document.querySelector('.A_FiltersButton');
@@ -123,10 +123,12 @@ function filtersInit() {
 }
 
 function filtersOpen() {
+  document.body.classList.add('overflow-hidden');
   filters.classList.add('active'), bgblur.classList.add('active');
 }
 
 function filtersClose() {
+  document.body.classList.remove('overflow-hidden');
   filters.classList.remove('active'), bgblur.classList.remove('active');
 }
 
@@ -138,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ 395:
+/***/ 6395:
 /***/ (() => {
 
 var sortButton = document.querySelector('.A_SortButton');
@@ -215,11 +217,11 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _filters_open_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
+/* harmony import */ var _filters_open_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5027);
 /* harmony import */ var _filters_open_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_filters_open_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _filter_articles_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(40);
+/* harmony import */ var _filter_articles_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8040);
 /* harmony import */ var _filter_articles_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_filter_articles_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _sort_open_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(395);
+/* harmony import */ var _sort_open_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6395);
 /* harmony import */ var _sort_open_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sort_open_js__WEBPACK_IMPORTED_MODULE_2__);
 
 
