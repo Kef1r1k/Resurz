@@ -259,22 +259,25 @@ const Chat = () => {
       {showWelcome && (
         <div className="W_WelcomeCreative">
           <div className="A_StyledH2">
-            <h2>давай заполним</h2>
-            <h2>договор</h2>
+            <h2>забери шаблоны</h2>
+            <h2>договора</h2>
           </div>
           <div className="M_WelcomeMessage">
             <div className="Q_Image"></div>
             <div className="W_WelcomeMessage">
-              <p>Привет! Я помогу тебе заполнить договор в формате переписки</p>
+              <p>
+                Генератор договора находится в разработке, но уже сейчас можно
+                бесплатно забрать шаблоны договоров, которые проверил юрист 👇
+              </p>
               <div className="C_Buttons">
-                <button className="A_Button primary" onClick={handleStartChat}>
+                {/* <button className="A_Button primary" onClick={handleStartChat}>
                   Погнали
-                </button>
+                </button> */}
                 <button
-                  className="A_Button secondary download"
+                  className="A_Button primary download"
                   onClick={handlePopupOpen}
                 >
-                  Скачать шаблон
+                  Скачать шаблоны
                 </button>
               </div>
             </div>
@@ -338,7 +341,7 @@ const Chat = () => {
         </div>
       </div>
 
-      <div className="W_ChatInput">
+      {/* <div className="W_ChatInput">
         <ProgressBar progress={calculateProgress()} />
         <InputBox
           type={questions[currentQuestionIndex]?.type}
@@ -350,7 +353,7 @@ const Chat = () => {
             questions[currentQuestionIndex]?.type !== 'number'
           }
         />
-      </div>
+      </div> */}
     </div>
   )
 }
