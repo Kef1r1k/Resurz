@@ -2,11 +2,23 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
   height: 100vh;
   width: 940px;
   padding: 160px 0 200px 0;
 
+  .W_MessagesContainer {
+    width: 130%;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+  }
+  .W_MessagesContainer::-webkit-scrollbar {
+    display: none;
+  }
+
   .W_Messages {
+    width: 940px;
     display: flex;
     flex-direction: column;
     gap: 64px;
@@ -25,12 +37,21 @@
   gap: 16px;
 }
 
+.W_WelcomeCreative {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .O_Chat {
     width: 674px;
     padding: 120px 0 200px 0;
 
     .W_Messages {
+      width: 674px;
       gap: 64px;
     }
   }
@@ -47,6 +68,7 @@
     padding: 120px 0 256px 0;
 
     .W_Messages {
+      width: 606px;
       gap: 56px;
     }
   }
@@ -63,7 +85,12 @@
     padding: 120px 0 160px 0;
 
     .W_Messages {
+      width: 328px;
       gap: 48px;
+    }
+
+    .W_MessagesContainer {
+      width: 100%;
     }
   }
 

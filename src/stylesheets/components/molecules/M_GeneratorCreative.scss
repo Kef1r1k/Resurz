@@ -35,6 +35,10 @@
       width: 180px;
       height: 180px;
       flex-shrink: 0;
+
+      img {
+        object-fit: contain;
+      }
     }
   }
 
@@ -130,7 +134,7 @@
       border-radius: 24px;
 
       .Q_Image {
-        top: 0;
+        top: -90px;
         width: 108px;
         height: 80px;
         position: absolute;

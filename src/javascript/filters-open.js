@@ -13,10 +13,12 @@ function filtersInit() {
 }
 
 function filtersOpen() {
+  document.body.classList.add('overflow-hidden')
   filters.classList.add('active'), bgblur.classList.add('active')
 }
 
 function filtersClose() {
+  document.body.classList.remove('overflow-hidden')
   filters.classList.remove('active'), bgblur.classList.remove('active')
 }
 

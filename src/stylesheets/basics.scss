@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -15,6 +19,10 @@ body {
   color: var(--black);
   font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-weight: 400;
+
+  &.overflow-hidden {
+    overflow: hidden;
+  }
 }
 
 a {
@@ -22,12 +30,17 @@ a {
   color: var(--black);
 }
 
-p {
+li {
+  list-style-type: disc;
+}
+
+p,
+li {
   font-family: 'Inter';
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 140%;
 
   &.s {
     font-size: 20px;
@@ -145,12 +158,11 @@ h5 {
   }
 
   .A_StyledH2 {
-    width: 560px;
+    width: 570px;
     height: 190px;
-    margin-top: 15vh;
     margin-bottom: 50px;
     position: relative;
-    background-image: url('./images/generator-h2.svg');
+    background-image: url('./images/generator-demo-h2.svg');
   }
 
   .O_Footer {
@@ -171,7 +183,7 @@ h5 {
     grid-column: 9 / 13;
     position: absolute;
     top: 700px;
-    height: 2480px;
+    height: -webkit-fill-available;
   }
 
   .A_TextContents,
@@ -202,16 +214,23 @@ h5 {
   }
 
   .W_Heading {
-    width: 700px;
+    width: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
 
     h1,
     h5 {
       text-align: center;
+    }
+
+    h5 {
+      margin-top: 16px;
+    }
+
+    .A_Button {
+      margin-top: 32px;
     }
   }
 
@@ -371,7 +390,11 @@ h5 {
     }
 
     .W_Heading {
-      width: 502px;
+      width: 600px;
+
+      h5 {
+        width: 500px;
+      }
     }
 
     .C_CharacterCards {
@@ -459,14 +482,14 @@ h5 {
     .A_StyledH2 {
       width: 440px;
       height: 164px;
-      margin-top: 15vh;
       margin-bottom: 40px;
     }
   }
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1420px) {
-  p {
+  p,
+  li {
     font-size: 18px;
 
     &.s {
@@ -631,14 +654,14 @@ h5 {
     .A_StyledH2 {
       width: 440px;
       height: 164px;
-      margin-top: 15vh;
       margin-bottom: 40px;
     }
   }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 730px) {
-  p {
+  p,
+  li {
     font-size: 16px;
 
     &.s {
@@ -847,9 +870,8 @@ h5 {
 
   .generator {
     .A_StyledH2 {
-      width: 280px;
+      width: 300px;
       height: 116px;
-      margin-top: 15vh;
       margin-bottom: 24px;
     }
   }

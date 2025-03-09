@@ -19,6 +19,21 @@ module.exports = {
     path: path.resolve(__dirname, 'docs')
     // clean: true
   },
+
+  resolve: {
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      crypto: require.resolve('crypto-browserify'),
+      buffer: require.resolve('buffer'),
+      url: require.resolve('url'),
+      querystring: require.resolve('querystring-browser'),
+      http: require.resolve('stream-http'),
+      https: require.resolve('https-browserify'),
+      vm: require.resolve('vm-browserify'),
+      timers: require.resolve('timers-browserify')
+    }
+  },
+
   module: {
     rules: [
       {
@@ -57,7 +72,7 @@ module.exports = {
         type: 'asset/source'
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        test: /\.(png|jpg|jpeg|gif|svg|mp4|webm)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[hash][ext][query]'
@@ -73,6 +88,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser', // Полифилл для process
+      Buffer: ['buffer', 'Buffer'] // Полифилл для Buffer
+    }),
+
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
@@ -80,11 +100,10 @@ module.exports = {
 
     new CopyPlugin({
       patterns: [
-        {
-          from: path.resolve(__dirname, 'src/contracts/*.doc'),
-          to: path.resolve(__dirname, 'dist/[name].[ext]')
-        },
-        { from: 'src/share', to: 'share' }
+        { from: 'src/share', to: 'share' },
+        { from: 'src/share/templates', to: 'templates' },
+        { from: 'src/share/contracts', to: 'contracts' },
+        { from: 'src/share/covers', to: 'covers' }
       ]
     }),
 
@@ -103,14 +122,6 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/contract_generator.html',
       filename: './contract_generator.html',
-      chunks: ['index', 'contract']
-    }),
-
-    new HtmlWebpackPlugin({
-      hash: true,
-      scriptLoading: 'blocking',
-      template: './src/contract-generator-2.html',
-      filename: './contract-generator-2.html',
       chunks: ['index', 'contract']
     }),
 
@@ -170,6 +181,13 @@ module.exports = {
       filename: './suetulya/article_template.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/suetulya/finansovaya_podushka.html',
+      filename: './suetulya/finansovaya_podushka.html',
+      chunks: ['index', 'article']
+    }),
 
     // Poteryasha article pages
     new HtmlWebpackPlugin({
@@ -179,6 +197,13 @@ module.exports = {
       filename: './poteryasha/article_template.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/poteryasha/logo_checklist.html',
+      filename: './poteryasha/logo_checklist.html',
+      chunks: ['index', 'article']
+    }),
 
     // Toksinka article pages
     new HtmlWebpackPlugin({
@@ -186,6 +211,13 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/toksinka/article_template.html',
       filename: './toksinka/article_template.html',
+      chunks: ['index', 'article']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/toksinka/personal_boundaries.html',
+      filename: './toksinka/personal_boundaries.html',
       chunks: ['index', 'article']
     }),
 

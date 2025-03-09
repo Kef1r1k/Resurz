@@ -21,6 +21,7 @@ function testInit() {
 }
 
 function testOpen() {
+  document.body.classList.add('overflow-hidden')
   test.classList.add('active')
   const articleId = startButton.getAttribute('data-article-id')
   currentTest =
@@ -29,6 +30,7 @@ function testOpen() {
 }
 
 function popupClose() {
+  document.body.classList.remove('overflow-hidden')
   test.classList.remove('active')
 }
 
