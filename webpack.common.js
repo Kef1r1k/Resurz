@@ -12,6 +12,7 @@ module.exports = {
     index: './src/index.js',
     articles: './src/javascript/articles.js',
     article: './src/javascript/article.js',
+    video: './src/javascript/video.js',
     contract: './src/contract-generator.jsx'
   },
   output: {
@@ -113,7 +114,7 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/index.html',
       filename: './index.html',
-      chunks: ['index']
+      chunks: ['index', 'video']
     }),
 
     // Contract generator
