@@ -184,6 +184,7 @@ h5 {
     position: absolute;
     top: 700px;
     height: -webkit-fill-available;
+    height: -moz-available;
   }
 
   .A_TextContents,
@@ -364,7 +365,6 @@ h5 {
 
     .W_ArticleContents {
       top: 590px;
-      height: 2000px;
     }
 
     .M_ArticleQuote,
