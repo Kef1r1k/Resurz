@@ -183,7 +183,7 @@ h5 {
     grid-column: 9 / 13;
     position: absolute;
     top: 700px;
-    height: -webkit-fill-available;
+    height: calc(100% - 1500px);
     height: -moz-available;
 
     &.interview {
@@ -369,6 +369,7 @@ h5 {
 
     .W_ArticleContents {
       top: 590px;
+      height: calc(100% - 1000px);
 
       &.interview {
         top: 630px;
