@@ -185,6 +185,10 @@ h5 {
     top: 700px;
     height: -webkit-fill-available;
     height: -moz-available;
+
+    &.interview {
+      top: 748px;
+    }
   }
 
   .A_TextContents,
@@ -365,6 +369,10 @@ h5 {
 
     .W_ArticleContents {
       top: 590px;
+
+      &.interview {
+        top: 630px;
+      }
     }
 
     .M_ArticleQuote,

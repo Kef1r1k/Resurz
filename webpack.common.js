@@ -230,6 +230,13 @@ module.exports = {
       filename: './interviews/interview_template.html',
       chunks: ['index']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/interviews/tanya_morguleva.html',
+      filename: './interviews/tanya_morguleva.html',
+      chunks: ['index']
+    }),
 
     // Errors
     new HtmlWebpackPlugin({
