@@ -11,11 +11,10 @@ export const generateContract = async (userAnswers) => {
     userAnswers.find((a) => a.questionId === 6)?.answer || ''
 
   const data = {
-    userAnswer,
-    // предоплата: prepayment,
+    разработка: userAnswer,
     срок: deadline,
-    варианты: optionsCount
-    // срок_отправки: optionsDeadline
+    варианты: optionsCount,
+    срок_отправки: optionsDeadline
   }
 
   try {
