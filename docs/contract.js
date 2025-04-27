@@ -19062,11 +19062,10 @@ var generateContract = /*#__PURE__*/function () {
               return a.questionId === 6;
             })) === null || _userAnswers$find5 === void 0 ? void 0 : _userAnswers$find5.answer) || '';
             data = {
-              userAnswer: userAnswer,
-              // предоплата: prepayment,
+              разработка: userAnswer,
               срок: deadline,
-              варианты: optionsCount // срок_отправки: optionsDeadline
-
+              варианты: optionsCount,
+              срок_отправки: optionsDeadline
             };
             _context.prev = 6;
             _context.next = 9;
