@@ -189,6 +189,13 @@ module.exports = {
       filename: './suetulya/finansovaya_podushka.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/suetulya/gid_po_deadlines.html',
+      filename: './suetulya/gid_po_deadlines.html',
+      chunks: ['index', 'article']
+    }),
 
     // Poteryasha article pages
     new HtmlWebpackPlugin({
@@ -228,6 +235,13 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/interviews/interview_template.html',
       filename: './interviews/interview_template.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/interviews/tanya_morguleva.html',
+      filename: './interviews/tanya_morguleva.html',
       chunks: ['index']
     }),
 

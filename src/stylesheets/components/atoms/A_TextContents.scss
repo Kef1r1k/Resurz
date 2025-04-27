@@ -16,12 +16,13 @@
 
     .text-link {
       text-decoration: underline;
+      text-underline-offset: 6px;
 
       &.poteryasha {
         color: var(--dark-purple);
       }
 
-      &.suyetulya {
+      &.suetulya {
         color: var(--dark-orange);
       }
 

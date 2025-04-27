@@ -183,8 +183,11 @@ h5 {
     grid-column: 9 / 13;
     position: absolute;
     top: 700px;
-    height: -moz-available; /* WebKit игнор. */
-    height: -webkit-fill-available; /* Mozilla игнор. */
+    height: calc(100% - 1500px);
+
+    &.interview {
+      top: 748px;
+    }
   }
 
   .A_TextContents,
@@ -220,6 +223,7 @@ h5 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 16px;
 
     h1,
     h5 {
@@ -372,6 +376,11 @@ h5 {
 
     .W_ArticleContents {
       top: 590px;
+      height: calc(100% - 1000px);
+
+      &.interview {
+        top: 630px;
+      }
     }
 
     .M_ArticleQuote,

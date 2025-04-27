@@ -42,19 +42,19 @@
 
   &.tertiary {
     display: inline-flex;
-    padding: 2px 0px;
+    padding: 0px 20px;
     border-radius: 0px;
-    border-bottom: 1px solid var(--gray);
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset: 8px;
     color: var(--gray);
     font-weight: 400;
 
     &:hover {
-      border-bottom: 1px solid var(--black-hover);
       color: var(--black-hover);
     }
 
     &:active {
-      border-bottom: 1px solid var(--black-pressed);
       color: var(--black-pressed);
     }
   }
@@ -67,8 +67,9 @@
     font-size: 18px;
 
     &.tertiary {
-      padding: 2px 0px;
+      padding: 0px 16px;
       border-radius: 0px;
+      font-size: 16px;
     }
   }
 }
@@ -81,8 +82,10 @@
 
     &.tertiary {
       width: auto;
-      padding: 2px 0px;
+      padding: 0px 16px 16px 0px;
       border-radius: 0px;
+      font-size: 18px;
+      color: var(--black);
     }
   }
 }
