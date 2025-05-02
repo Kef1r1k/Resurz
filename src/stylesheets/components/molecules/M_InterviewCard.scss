@@ -36,13 +36,13 @@
   }
 }
 
-.M_InterviewCard:nth-child(even) {
-  flex-direction: row-reverse;
+// .M_InterviewCard:nth-child(even) {
+//   flex-direction: row-reverse;
 
-  .W_InterviewCard {
-    padding: 32px 32px 32px 0px;
-  }
-}
+//   .W_InterviewCard {
+//     padding: 32px 32px 32px 0px;
+//   }
+// }
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .M_InterviewCard {
@@ -56,11 +56,11 @@
     }
   }
 
-  .M_InterviewCard:nth-child(even) {
-    .W_InterviewCard {
-      padding: 24px 10px 24px 0px;
-    }
-  }
+  // .M_InterviewCard:nth-child(even) {
+  //   .W_InterviewCard {
+  //     padding: 24px 10px 24px 0px;
+  //   }
+  // }
 }
 
 @media only screen and (min-width: 730px) and (max-width: 1018px) {
@@ -78,12 +78,12 @@
     }
   }
 
-  .M_InterviewCard:nth-child(even) {
-    flex-direction: column;
-    .W_InterviewCard {
-      padding: 0px;
-    }
-  }
+  // .M_InterviewCard:nth-child(even) {
+  //   flex-direction: column;
+  //   .W_InterviewCard {
+  //     padding: 0px;
+  //   }
+  // }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 730px) {
