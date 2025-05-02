@@ -36,6 +36,7 @@
 @import 'stylesheets/components/atoms/A_QuestionsCounter.scss';
 @import 'stylesheets/components/atoms/A_QuestionExplained.scss';
 @import 'stylesheets/components/atoms/A_AnswerBullet.scss';
+@import 'stylesheets/components/atoms/A_InterviewLink.scss';
 
 /*----------- Молекулы */
 @import 'stylesheets/components/molecules/M_SearchBar.scss';
