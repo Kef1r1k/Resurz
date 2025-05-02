@@ -13,7 +13,8 @@ module.exports = {
     articles: './src/javascript/articles.js',
     article: './src/javascript/article.js',
     video: './src/javascript/video.js',
-    contract: './src/contract-generator.jsx'
+    contract: './src/contract-generator.jsx',
+    search: './src/javascript/search.js'
   },
   output: {
     filename: '[name].js',
@@ -133,6 +134,15 @@ module.exports = {
       template: './src/about.html',
       filename: './about.html',
       chunks: ['index']
+    }),
+
+    // Search
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/search.html',
+      filename: './search.html',
+      chunks: ['index', 'search']
     }),
 
     // Articles
