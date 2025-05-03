@@ -1,27 +1,47 @@
-const searchButton = document.querySelector('.O_Header .A_SearchButton')
-const search = document.querySelector('.O_Header .M_SearchBar')
-const searchInput = search.querySelector('input')
-const menu = document.querySelector('.O_Header')
-
 function searchInit() {
-  searchButton.addEventListener('click', () => {
-    search.classList.toggle('active')
+  // Десктопное поле поиска
+  const desktopSearchButton = document.querySelector(
+    '.O_Header .A_SearchButton'
+  )
+  const desktopSearch = document.querySelector('.O_Header .M_SearchBar')
+  const desktopSearchInput = desktopSearch.querySelector('input')
+
+  // Мобильное поле поиска
+  const mobileSearch = document.querySelector('.O_MobileMenu .M_SearchBar')
+  const mobileSearchInput = mobileSearch.querySelector('input')
+
+  const menu = document.querySelector('.O_Header')
+  const mobileMenu = document.querySelector('.O_MobileMenu')
+
+  function handleSearch(query) {
+    if (query.trim()) {
+      window.location.href = `search.html?q=${encodeURIComponent(query.trim())}`
+    }
+  }
+
+  desktopSearchButton.addEventListener('click', () => {
+    desktopSearch.classList.toggle('active')
   })
 
-  searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && searchInput.value.trim()) {
-      window.location.href = `search.html?q=${encodeURIComponent(
-        searchInput.value.trim()
-      )}`
+  desktopSearchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(desktopSearchInput.value)
+    }
+  })
+
+  mobileSearchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(mobileSearchInput.value)
     }
   })
 
   document.addEventListener('click', (e) => {
     const isClickInsideMenu = menu.contains(e.target)
-    const isClickInsideSearch = search.contains(e.target)
+    const isClickInsideSearch = desktopSearch.contains(e.target)
+    const isClickInsideMobileMenu = mobileMenu.contains(e.target)
 
     if (!isClickInsideMenu && !isClickInsideSearch) {
-      search.classList.remove('active')
+      desktopSearch.classList.remove('active')
     }
   })
 }
