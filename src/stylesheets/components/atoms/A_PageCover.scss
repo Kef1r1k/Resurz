@@ -91,6 +91,7 @@
     }
 
     &.not-found {
+      display: none;
       background-image: url('./images/not-found-mob.jpg');
     }
 
