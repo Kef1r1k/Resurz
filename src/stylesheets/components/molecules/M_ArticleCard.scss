@@ -14,6 +14,13 @@
   }
 }
 
+.M_ArticleCard:hover {
+  .A_PostCover img {
+    width: 110%;
+    height: 110%;
+  }
+}
+
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .M_ArticleCard {
     width: 330px;

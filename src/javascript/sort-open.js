@@ -4,9 +4,13 @@ function initSorting() {
 
   if (!isArticlesPage && !isInterviewsPage) return
 
-  const sortButton = document.querySelector('.A_SortButton')
-  const sort = document.querySelector('.M_Sort')
-  const sortOptions = sort.querySelectorAll('.A_SortOption')
+  const desktopSortButton = document.querySelector('.A_SortButton')
+  const desktopSort = document.querySelector('.M_Sort')
+  const desktopSortOptions = desktopSort?.querySelectorAll('.A_SortOption')
+  const mobileSortOptions = document.querySelectorAll(
+    '.O_Filters .A_SortOption'
+  )
+
   const container = isArticlesPage
     ? document.querySelector('.C_Articles')
     : document.querySelector('.C_Interviews')
@@ -24,23 +28,52 @@ function initSorting() {
     cards.forEach((card) => container.appendChild(card))
   }
 
-  sortButton.addEventListener('click', (e) => {
-    sort.classList.toggle('active')
-  })
+  // Обработчики для десктопной версии
+  if (desktopSortButton && desktopSort) {
+    desktopSortButton.addEventListener('click', (e) => {
+      desktopSort.classList.toggle('active')
+    })
 
-  sortOptions.forEach((option) => {
+    desktopSortOptions?.forEach((option) => {
+      option.addEventListener('click', function (e) {
+        desktopSortOptions.forEach((opt) => opt.classList.remove('active'))
+        this.classList.add('active')
+        desktopSortButton.textContent = this.textContent
+
+        if (this.textContent === 'Сначала новые') {
+          applySorting('newest')
+        } else if (this.textContent === 'Сначала старые') {
+          applySorting('oldest')
+        }
+
+        desktopSort.classList.remove('active')
+      })
+    })
+  }
+
+  // Обработчики для мобильной версии
+  mobileSortOptions?.forEach((option) => {
     option.addEventListener('click', function (e) {
-      sortOptions.forEach((opt) => opt.classList.remove('active'))
+      mobileSortOptions.forEach((opt) => opt.classList.remove('active'))
       this.classList.add('active')
-      sortButton.textContent = this.textContent
+      if (desktopSortButton) {
+        desktopSortButton.textContent = this.textContent
+      }
+      if (desktopSortOptions) {
+        desktopSortOptions.forEach((opt) => opt.classList.remove('active'))
+        const correspondingOption = Array.from(desktopSortOptions).find(
+          (opt) => opt.textContent === this.textContent
+        )
+        if (correspondingOption) {
+          correspondingOption.classList.add('active')
+        }
+      }
 
       if (this.textContent === 'Сначала новые') {
         applySorting('newest')
       } else if (this.textContent === 'Сначала старые') {
         applySorting('oldest')
       }
-
-      sort.classList.remove('active')
     })
   })
 }
