@@ -1,9 +1,8 @@
 .M_SearchBar {
   width: 60px;
   display: flex;
-  padding: 16px;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
   border-radius: 40px;
   border: 1px solid var(--stroke-gray);
   background: var(--white);
@@ -52,7 +51,7 @@
   &.active,
   &.neutral {
     width: 460px;
-    padding: 16px 32px;
+    padding: 0px 8px;
 
     input {
       width: 348px;
@@ -63,13 +62,12 @@
 
 @media only screen and (min-width: 1018px) and (max-width: 1420px) {
   .M_SearchBar {
-    padding: 16px;
-    gap: 16px;
+    gap: 8px;
 
     &.active,
     &.neutral {
       width: 330px;
-      padding: 16px 24px;
+      padding: 0px 8px;
 
       input {
         width: 238px;
@@ -81,13 +79,12 @@
 
 @media only screen and (min-width: 730px) and (max-width: 1018px) {
   .M_SearchBar {
-    padding: 16px;
-    gap: 12px;
+    gap: 0px;
 
     &.active,
     &.neutral {
       width: 220px;
-      padding: 16px 16px;
+      padding: 0px;
 
       input {
         width: 149px;
@@ -99,8 +96,7 @@
 
 @media only screen and (min-width: 320px) and (max-width: 730px) {
   .M_SearchBar {
-    padding: 16px;
-    gap: 16px;
+    gap: 8px;
 
     input {
       width: 168px;
@@ -111,8 +107,8 @@
 
     &.active,
     &.neutral {
-      width: auto;
-      padding: 16px 16px;
+      width: 252px;
+      padding: 0px;
 
       input {
         width: 168px;

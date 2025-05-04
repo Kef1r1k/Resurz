@@ -1,0 +1,19 @@
+.A_LoaderSpinner {
+  position: relative;
+  top: 30vh;
+  width: 60px;
+  height: 60px;
+  border: 5px solid var(--stroke-gray);
+  border-top: 5px solid var(--black); // Ваш акцентный цвет
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

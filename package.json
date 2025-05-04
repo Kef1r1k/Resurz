@@ -41,6 +41,7 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "airtable": "^0.12.2",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.1",
     "docxtemplater": "^3.60.0",

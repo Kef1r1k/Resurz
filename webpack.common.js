@@ -13,7 +13,8 @@ module.exports = {
     articles: './src/javascript/articles.js',
     article: './src/javascript/article.js',
     video: './src/javascript/video.js',
-    contract: './src/contract-generator.jsx'
+    contract: './src/contract-generator.jsx',
+    search: './src/javascript/search.js'
   },
   output: {
     filename: '[name].js',
@@ -135,6 +136,15 @@ module.exports = {
       chunks: ['index']
     }),
 
+    // Search
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/search.html',
+      filename: './search.html',
+      chunks: ['index', 'search']
+    }),
+
     // Articles
     new HtmlWebpackPlugin({
       hash: true,
@@ -210,6 +220,13 @@ module.exports = {
       scriptLoading: 'blocking',
       template: './src/poteryasha/logo_checklist.html',
       filename: './poteryasha/logo_checklist.html',
+      chunks: ['index', 'article']
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/poteryasha/ai_helper.html',
+      filename: './poteryasha/ai_helper.html',
       chunks: ['index', 'article']
     }),
 
