@@ -14,16 +14,12 @@
   }
 
   &.small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 460px;
     height: 258px;
     border-radius: 16px;
-    overflow: hidden;
-  }
-
-  &.main {
-    width: 700px;
-    height: 534px;
-    border-radius: 24px;
     overflow: hidden;
   }
 
@@ -32,6 +28,14 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: all 0.5s;
+  }
+
+  &.main {
+    width: 700px;
+    height: 534px;
+    border-radius: 24px;
+    overflow: hidden;
   }
 
   &.hidden {

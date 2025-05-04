@@ -1,13 +1,13 @@
 .A_SearchButton {
-  width: 28px;
-  height: 28px;
+  width: 60px;
+  height: 60px;
   display: flex;
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
   background-image: url('./images/search.svg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 28px 28px;
   background-position: center;
   filter: invert(20%) sepia(0%) saturate(0%) hue-rotate(111deg) brightness(98%)
     contrast(95%);

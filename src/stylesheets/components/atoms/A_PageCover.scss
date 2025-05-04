@@ -12,6 +12,10 @@
     background-image: url('./images/ArticlesPageCover.png');
   }
 
+  &.not-found {
+    background-image: url('./images/not-found.jpg');
+  }
+
   &.interviews {
     background-image: url('./images/AllInterviewsCover.png');
   }
@@ -84,6 +88,11 @@
 
     &.articles {
       background-image: url('./images/ArticlesPageCover-mob.png');
+    }
+
+    &.not-found {
+      display: none;
+      background-image: url('./images/not-found-mob.jpg');
     }
 
     &.interviews {
