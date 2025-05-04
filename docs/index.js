@@ -58,11 +58,44 @@ window.onscroll = function () {
 /***/ 8670:
 /***/ (() => {
 
-var search = document.querySelector('.O_Header .M_SearchBar');
-
 function searchInit() {
-  search.addEventListener('click', function (e) {
-    search.classList.toggle('active');
+  // Десктопное поле поиска
+  var desktopSearchButton = document.querySelector('.O_Header .A_SearchButton');
+  var desktopSearch = document.querySelector('.O_Header .M_SearchBar');
+  var desktopSearchInput = desktopSearch.querySelector('input'); // Мобильное поле поиска
+
+  var mobileSearch = document.querySelector('.O_MobileMenu .M_SearchBar');
+  var mobileSearchInput = mobileSearch.querySelector('input');
+  var menu = document.querySelector('.O_Header');
+  var mobileMenu = document.querySelector('.O_MobileMenu');
+
+  function handleSearch(query) {
+    if (query.trim()) {
+      window.location.href = "search.html?q=".concat(encodeURIComponent(query.trim()));
+    }
+  }
+
+  desktopSearchButton.addEventListener('click', function () {
+    desktopSearch.classList.toggle('active');
+  });
+  desktopSearchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      handleSearch(desktopSearchInput.value);
+    }
+  });
+  mobileSearchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      handleSearch(mobileSearchInput.value);
+    }
+  });
+  document.addEventListener('click', function (e) {
+    var isClickInsideMenu = menu.contains(e.target);
+    var isClickInsideSearch = desktopSearch.contains(e.target);
+    var isClickInsideMobileMenu = mobileMenu.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickInsideSearch) {
+      desktopSearch.classList.remove('active');
+    }
   });
 }
 

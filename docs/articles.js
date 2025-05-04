@@ -1,109 +1,179 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 8229:
+/***/ (() => {
+
+function filterCards(query, cardSelector) {
+  var titleSelector = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'h5';
+  var normalizedQuery = query.trim().toLowerCase();
+  var cards = document.querySelectorAll(cardSelector);
+  cards.forEach(function (card) {
+    var titleElement = card.querySelector(titleSelector);
+    var titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+
+    if (normalizedQuery === '' || titleText.includes(normalizedQuery)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function initSearch(inputSelector, cardSelector) {
+  var titleSelector = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'h5';
+  var inputs = document.querySelectorAll(inputSelector);
+  inputs.forEach(function (input) {
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        filterCards(e.target.value, cardSelector, titleSelector);
+      }
+    });
+    input.addEventListener('input', function (e) {
+      if (!e.target.value.trim()) {
+        filterCards('', cardSelector, titleSelector);
+      }
+    });
+  });
+}
+
+if (document.body.classList.contains('all_articles')) {
+  initSearch('.M_SearchBar.articles input', '.C_Articles .M_ArticleCard', 'h5');
+}
+
+if (document.body.classList.contains('all_interviews')) {
+  initSearch('.M_SearchBar.articles input', '.C_Interviews .M_InterviewCard', 'h4');
+}
+
+/***/ }),
+
 /***/ 8040:
 /***/ (() => {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var selectedTags = [];
-  var desktopFilterContainer = document.querySelector('.C_Tags.desktop');
-  var mobileFilterContainer = document.querySelector('.C_Tags.mobile');
-  var resetButtonDesktop = document.getElementById('resetFilterButton');
-  var resetButtonMobile = document.getElementById('resetFilterButtonMobile');
+  function initTagFilter(_ref) {
+    var tagContainerDesktop = _ref.tagContainerDesktop,
+        tagContainerMobile = _ref.tagContainerMobile,
+        cardSelector = _ref.cardSelector,
+        tagInCardSelector = _ref.tagInCardSelector;
+    var selectedTags = [];
+    var desktopFilterContainer = document.querySelector(tagContainerDesktop);
+    var mobileFilterContainer = document.querySelector(tagContainerMobile);
+    var resetButtonDesktop = document.getElementById('resetFilterButton');
+    var resetButtonMobile = document.getElementById('resetFilterButtonMobile');
 
-  function toggleTag(tag) {
-    var desktopTags = document.querySelectorAll('.C_Tags.desktop .A_Tag');
-    var mobileTags = document.querySelectorAll('.C_Tags.mobile .A_Tag');
-    desktopTags.forEach(function (t) {
-      if (t.textContent === tag) {
-        t.classList.toggle('selected');
-      }
-    });
-    mobileTags.forEach(function (t) {
-      if (t.textContent === tag) {
-        t.classList.toggle('selected');
-      }
-    });
-
-    if (selectedTags.includes(tag)) {
-      selectedTags = selectedTags.filter(function (t) {
-        return t !== tag;
-      });
-    } else {
-      selectedTags.push(tag);
-    }
-
-    filterArticlesByTags(selectedTags);
-  }
-
-  function filterArticlesByTags(tags) {
-    var articles = document.querySelectorAll('.M_ArticleCard');
-    articles.forEach(function (article) {
-      var articleTags = article.querySelectorAll('.A_Tag');
-      var hasAllTags = tags.every(function (tag) {
-        return Array.from(articleTags).some(function (t) {
-          return t.textContent === tag;
+    function toggleTag(tag) {
+      var desktopTags = document.querySelectorAll("".concat(tagContainerDesktop, " .A_Tag"));
+      var mobileTags = document.querySelectorAll("".concat(tagContainerMobile, " .A_Tag"));
+      [desktopTags, mobileTags].forEach(function (tagsList) {
+        tagsList.forEach(function (t) {
+          if (t.textContent.trim() === tag.trim()) {
+            t.classList.toggle('selected');
+          }
         });
       });
 
-      if (hasAllTags || tags.length === 0) {
-        article.style.display = 'flex';
+      if (selectedTags.includes(tag)) {
+        selectedTags = selectedTags.filter(function (t) {
+          return t !== tag;
+        });
       } else {
-        article.style.display = 'none';
+        selectedTags.push(tag);
       }
 
-      articleTags.forEach(function (t) {
-        if (tags.includes(t.textContent)) {
-          t.classList.add('selected');
+      filterByTags(selectedTags);
+    }
+
+    function filterByTags(tags) {
+      var cards = document.querySelectorAll(cardSelector);
+      cards.forEach(function (card) {
+        var cardTags = card.querySelectorAll(tagInCardSelector);
+        var cardTagsText = Array.from(cardTags).map(function (t) {
+          return t.textContent.trim();
+        });
+        var hasAllTags = tags.every(function (tag) {
+          return cardTagsText.includes(tag);
+        });
+
+        if (hasAllTags || tags.length === 0) {
+          card.style.display = 'flex';
         } else {
-          t.classList.remove('selected');
+          card.style.display = 'none';
+        }
+
+        cardTags.forEach(function (t) {
+          if (tags.includes(t.textContent.trim())) {
+            t.classList.add('selected');
+          } else {
+            t.classList.remove('selected');
+          }
+        });
+      });
+    }
+
+    function resetFilter() {
+      var cards = document.querySelectorAll(cardSelector);
+      var desktopTags = document.querySelectorAll("".concat(tagContainerDesktop, " .A_Tag"));
+      var mobileTags = document.querySelectorAll("".concat(tagContainerMobile, " .A_Tag"));
+      var allCardTags = document.querySelectorAll("".concat(cardSelector, " ").concat(tagInCardSelector));
+      cards.forEach(function (card) {
+        card.style.display = 'flex';
+      });
+      [desktopTags, mobileTags, allCardTags].forEach(function (list) {
+        list.forEach(function (t) {
+          return t.classList.remove('selected');
+        });
+      });
+      selectedTags = [];
+    }
+
+    if (desktopFilterContainer && mobileFilterContainer) {
+      desktopFilterContainer.addEventListener('click', function (e) {
+        var tagEl = e.target.closest('.A_Tag');
+
+        if (tagEl) {
+          var tag = tagEl.getAttribute('data-tag');
+          toggleTag(tag);
         }
       });
+      mobileFilterContainer.addEventListener('click', function (e) {
+        var tagEl = e.target.closest('.A_Tag');
+
+        if (tagEl) {
+          var tag = tagEl.getAttribute('data-tag');
+          toggleTag(tag);
+        }
+      });
+    }
+
+    if (resetButtonDesktop) {
+      resetButtonDesktop.addEventListener('click', resetFilter);
+    }
+
+    if (resetButtonMobile) {
+      resetButtonMobile.addEventListener('click', resetFilter);
+    }
+  } // ==== Инициализация под конкретные страницы ====
+
+
+  if (document.body.classList.contains('all_articles')) {
+    initTagFilter({
+      tagContainerDesktop: '.C_Tags.desktop',
+      tagContainerMobile: '.C_Tags.mobile',
+      cardSelector: '.M_ArticleCard',
+      tagInCardSelector: '.A_Tag'
     });
   }
 
-  function resetFilter() {
-    var articles = document.querySelectorAll('.M_ArticleCard');
-    var desktopTags = document.querySelectorAll('.C_Tags.desktop .A_Tag');
-    var mobileTags = document.querySelectorAll('.C_Tags.mobile .A_Tag');
-    var articleTags = document.querySelectorAll('.M_ArticleCard .A_Tag');
-    articles.forEach(function (article) {
-      article.style.display = 'flex';
+  if (document.body.classList.contains('all_interviews')) {
+    initTagFilter({
+      tagContainerDesktop: '.C_Tags.desktop',
+      tagContainerMobile: '.C_Tags.mobile',
+      cardSelector: '.M_InterviewCard',
+      tagInCardSelector: '.A_Tag'
     });
-    desktopTags.forEach(function (t) {
-      t.classList.remove('selected');
-    });
-    mobileTags.forEach(function (t) {
-      t.classList.remove('selected');
-    });
-    articleTags.forEach(function (t) {
-      t.classList.remove('selected');
-    });
-    selectedTags = [];
   }
-
-  desktopFilterContainer.addEventListener('click', function (event) {
-    var tagElement = event.target;
-
-    if (tagElement.classList.contains('A_Tag')) {
-      var tag = tagElement.getAttribute('data-tag');
-      toggleTag(tag);
-    }
-  });
-  mobileFilterContainer.addEventListener('click', function (event) {
-    var tagElement = event.target;
-
-    if (tagElement.classList.contains('A_Tag')) {
-      var tag = tagElement.getAttribute('data-tag');
-      toggleTag(tag);
-    }
-  });
-  resetButtonDesktop.addEventListener('click', function () {
-    resetFilter();
-  });
-  resetButtonMobile.addEventListener('click', function () {
-    resetFilter();
-  });
 });
 
 /***/ }),
@@ -143,16 +213,90 @@ document.addEventListener('DOMContentLoaded', function () {
 /***/ 6395:
 /***/ (() => {
 
-var sortButton = document.querySelector('.A_SortButton');
-var sort = document.querySelector('.M_Sort');
+function initSorting() {
+  var isArticlesPage = document.body.classList.contains('all_articles');
+  var isInterviewsPage = document.body.classList.contains('all_interviews');
+  if (!isArticlesPage && !isInterviewsPage) return;
+  var desktopSortButton = document.querySelector('.A_SortButton');
+  var desktopSort = document.querySelector('.M_Sort');
+  var desktopSortOptions = desktopSort === null || desktopSort === void 0 ? void 0 : desktopSort.querySelectorAll('.A_SortOption');
+  var mobileSortOptions = document.querySelectorAll('.O_Filters .A_SortOption');
+  var container = isArticlesPage ? document.querySelector('.C_Articles') : document.querySelector('.C_Interviews');
+  var cardSelector = isArticlesPage ? '.M_ArticleCard' : '.M_InterviewCard';
 
-function sortInit() {
-  sortButton.addEventListener('click', function (e) {
-    sort.classList.toggle('active');
+  function applySorting(order) {
+    var cards = Array.from(container.querySelectorAll(cardSelector));
+    cards.sort(function (a, b) {
+      var dateA = new Date(a.dataset.date);
+      var dateB = new Date(b.dataset.date);
+      return order === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+    cards.forEach(function (card) {
+      return container.appendChild(card);
+    });
+  } // Обработчики для десктопной версии
+
+
+  if (desktopSortButton && desktopSort) {
+    desktopSortButton.addEventListener('click', function (e) {
+      desktopSort.classList.toggle('active');
+    });
+    desktopSortOptions === null || desktopSortOptions === void 0 ? void 0 : desktopSortOptions.forEach(function (option) {
+      option.addEventListener('click', function (e) {
+        desktopSortOptions.forEach(function (opt) {
+          return opt.classList.remove('active');
+        });
+        this.classList.add('active');
+        desktopSortButton.textContent = this.textContent;
+
+        if (this.textContent === 'Сначала новые') {
+          applySorting('newest');
+        } else if (this.textContent === 'Сначала старые') {
+          applySorting('oldest');
+        }
+
+        desktopSort.classList.remove('active');
+      });
+    });
+  } // Обработчики для мобильной версии
+
+
+  mobileSortOptions === null || mobileSortOptions === void 0 ? void 0 : mobileSortOptions.forEach(function (option) {
+    option.addEventListener('click', function (e) {
+      var _this = this;
+
+      mobileSortOptions.forEach(function (opt) {
+        return opt.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      if (desktopSortButton) {
+        desktopSortButton.textContent = this.textContent;
+      }
+
+      if (desktopSortOptions) {
+        desktopSortOptions.forEach(function (opt) {
+          return opt.classList.remove('active');
+        });
+        var correspondingOption = Array.from(desktopSortOptions).find(function (opt) {
+          return opt.textContent === _this.textContent;
+        });
+
+        if (correspondingOption) {
+          correspondingOption.classList.add('active');
+        }
+      }
+
+      if (this.textContent === 'Сначала новые') {
+        applySorting('newest');
+      } else if (this.textContent === 'Сначала старые') {
+        applySorting('oldest');
+      }
+    });
   });
 }
 
-document.addEventListener('DOMContentLoaded', sortInit());
+document.addEventListener('DOMContentLoaded', initSorting);
 
 /***/ })
 
@@ -223,6 +367,9 @@ var __webpack_exports__ = {};
 /* harmony import */ var _filter_articles_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_filter_articles_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _sort_open_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6395);
 /* harmony import */ var _sort_open_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sort_open_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _article_search_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8229);
+/* harmony import */ var _article_search_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_article_search_js__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
