@@ -32,6 +32,13 @@
         border: 1px solid var(--black);
         color: var(--black);
       }
+
+      &.selected {
+        border: 1px solid var(--black);
+        background-color: var(--black);
+        color: var(--white);
+        cursor: default;
+      }
     }
   }
 }
