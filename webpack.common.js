@@ -222,6 +222,13 @@ module.exports = {
       filename: './poteryasha/logo_checklist.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/poteryasha/ai_helper.html',
+      filename: './poteryasha/ai_helper.html',
+      chunks: ['index', 'article']
+    }),
 
     // Toksinka article pages
     new HtmlWebpackPlugin({
