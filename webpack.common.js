@@ -206,6 +206,13 @@ module.exports = {
       filename: './suetulya/gid_po_deadlines.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/suetulya/best_rest.html',
+      filename: './suetulya/best_rest.html',
+      chunks: ['index', 'article']
+    }),
 
     // Poteryasha article pages
     new HtmlWebpackPlugin({
