@@ -259,6 +259,13 @@ module.exports = {
       filename: './toksinka/dream_communication.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/toksinka/samozvanets.html',
+      filename: './toksinka/samozvanets.html',
+      chunks: ['index', 'article']
+    }),
 
     // Interviews pages
     new HtmlWebpackPlugin({
