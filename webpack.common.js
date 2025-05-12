@@ -282,7 +282,13 @@ module.exports = {
       filename: './interviews/tanya_morguleva.html',
       chunks: ['index']
     }),
-
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/interviews/anya_matiushchenko.html',
+      filename: './interviews/anya_matiushchenko.html',
+      chunks: ['index']
+    }),
     // Errors
     new HtmlWebpackPlugin({
       hash: true,
