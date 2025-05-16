@@ -11,9 +11,13 @@
     height: 460px;
     padding: 32px 0px 32px 32px;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-start;
     flex-shrink: 0;
+
+    h4 {
+      margin-top: 32px;
+      margin-bottom: 48px;
+    }
   }
 
   .C_Tags {
@@ -60,6 +64,10 @@
       width: 416px;
       height: 330px;
       padding: 24px 0px 24px 10px;
+      h4 {
+        margin-top: 24px;
+        margin-bottom: 32px;
+      }
     }
   }
 
@@ -81,7 +89,11 @@
       height: auto;
       padding: 0px;
       justify-content: flex-start;
-      gap: 20px;
+
+      h4 {
+        margin-top: 16px;
+        margin-bottom: 28px;
+      }
     }
   }
 
@@ -104,7 +116,11 @@
       height: auto;
       padding: 0px;
       justify-content: flex-start;
-      gap: 16px;
+
+      h4 {
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
     }
   }
 
