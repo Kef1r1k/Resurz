@@ -10,6 +10,13 @@
     align-items: flex-start;
     gap: 48px;
 
+    .W_TagsText {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
     .C_Tags {
       display: flex;
       align-items: center;
@@ -40,6 +47,10 @@
       width: 492px;
       gap: 30px;
 
+      .W_TagsText {
+        gap: 24px;
+      }
+
       .C_Tags {
         gap: 8px;
       }
@@ -59,6 +70,10 @@
       width: 482px;
       flex-direction: column;
       gap: 20px;
+
+      .W_TagsText {
+        gap: 16px;
+      }
 
       .C_Tags {
         gap: 8px;

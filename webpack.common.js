@@ -236,6 +236,13 @@ module.exports = {
       filename: './poteryasha/ai_helper.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/poteryasha/pricing.html',
+      filename: './poteryasha/pricing.html',
+      chunks: ['index', 'article']
+    }),
 
     // Toksinka article pages
     new HtmlWebpackPlugin({
