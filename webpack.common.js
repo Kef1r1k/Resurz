@@ -273,6 +273,13 @@ module.exports = {
       filename: './toksinka/samozvanets.html',
       chunks: ['index', 'article']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/toksinka/price_presentation.html',
+      filename: './toksinka/price_presentation.html',
+      chunks: ['index', 'article']
+    }),
 
     // Interviews pages
     new HtmlWebpackPlugin({
