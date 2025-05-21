@@ -303,6 +303,13 @@ module.exports = {
       filename: './interviews/anya_matiushchenko.html',
       chunks: ['index']
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      scriptLoading: 'blocking',
+      template: './src/interviews/anya_chekushkina.html',
+      filename: './interviews/anya_chekushkina.html',
+      chunks: ['index']
+    }),
     // Errors
     new HtmlWebpackPlugin({
       hash: true,
