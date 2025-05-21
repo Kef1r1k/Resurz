@@ -30,6 +30,10 @@
     background-image: url('./images/tg-circle.svg');
   }
 
+  &.anna::before {
+    background-image: url('./images/anna.png');
+  }
+
   &:hover {
     color: var(--black-hover);
     &::before {
