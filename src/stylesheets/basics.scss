@@ -412,6 +412,13 @@ h5 {
 
   .M_InterviewCard {
     width: 1420px;
+    &:nth-child(even) {
+      flex-direction: row;
+
+      .W_InterviewCard {
+        padding: 32px 0px 32px 32px;
+      }
+    }
   }
 
   .M_Subscription {
@@ -558,6 +565,11 @@ h5 {
 
     .M_InterviewCard {
       width: 1018px;
+      &:nth-child(even) {
+        .W_InterviewCard {
+          padding: 24px 0px 24px 10px;
+        }
+      }
     }
 
     .M_Subscription {
@@ -873,6 +885,13 @@ h5 {
 
     .M_InterviewCard {
       width: 606px;
+      &:nth-child(even) {
+        flex-direction: column;
+
+        .W_InterviewCard {
+          padding: 0px;
+        }
+      }
     }
 
     .M_Subscription {
@@ -1175,6 +1194,13 @@ h5 {
 
     .M_InterviewCard {
       width: 328px;
+      &:nth-child(even) {
+        flex-direction: column;
+
+        .W_InterviewCard {
+          padding: 0px;
+        }
+      }
     }
 
     .M_Subscription {
