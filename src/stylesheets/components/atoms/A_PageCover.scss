@@ -12,6 +12,14 @@
     background-image: url('./images/ArticlesPageCover.png');
   }
 
+  &.about {
+    background-image: url('./images/about.jpg');
+  }
+
+  &.creators {
+    background-image: url('./images/creators.jpg');
+  }
+
   &.not-found {
     background-image: url('./images/not-found.jpg');
   }
@@ -88,6 +96,14 @@
 
     &.articles {
       background-image: url('./images/ArticlesPageCover-mob.png');
+    }
+
+    &.about {
+      background-image: url('./images/about-mob.jpg');
+    }
+
+    &.creators {
+      background-image: url('./images/creators-mob.jpg');
     }
 
     &.not-found {
