@@ -148,22 +148,24 @@ h5 {
 }
 
 .about {
-  .A_PageCover.creators {
+  .A_PageCover.about {
     margin-bottom: 48px;
   }
 
-  .A_PageCover.about {
+  .A_PageCover.creators {
     margin-top: 80px;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
   }
 
   .C_Profiles {
     width: 1420px;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .W_Profile {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -586,6 +588,69 @@ h5 {
     }
   }
 
+  .about {
+    .A_PageCover.about {
+      margin-bottom: 40px;
+    }
+
+    .A_PageCover.creators {
+      margin-top: 64px;
+      margin-bottom: 48px;
+    }
+
+    .C_Profiles {
+      width: 1018px;
+    }
+
+    .W_Profile {
+      .Q_Image {
+        width: 330px;
+        height: 330px;
+
+        img {
+          width: 240px;
+          height: 240px;
+        }
+      }
+
+      p {
+        width: 330px;
+      }
+    }
+
+    .W_Name {
+      width: 330px;
+      gap: 32px;
+
+      .C_SocialButtons {
+        gap: 24px;
+      }
+    }
+
+    .C_InfoBlocks {
+      width: 1018px;
+      gap: 48px;
+    }
+
+    .W_InfoBlock {
+      .Q_Image {
+        width: 502px;
+        height: 282px;
+        border-radius: 16px;
+      }
+
+      .W_Text {
+        width: 502px;
+        gap: 16px;
+
+        p,
+        h3 {
+          width: 360px;
+        }
+      }
+    }
+  }
+
   .all_interviews {
     .C_Interviews {
       width: 1018px;
@@ -666,6 +731,82 @@ h5 {
     .A_TextContents,
     .recommendation {
       grid-column: 1 / 11;
+    }
+  }
+
+  .about {
+    .A_PageCover.about {
+      margin-bottom: 32px;
+    }
+
+    .A_PageCover.creators {
+      margin-top: 64px;
+      margin-bottom: 48px;
+    }
+
+    .C_Profiles {
+      width: 730px;
+      gap: 64px;
+    }
+
+    .W_Profile {
+      flex-direction: column;
+      .Q_Image {
+        margin: 32px 0 24px 0;
+        order: 2;
+        width: 240px;
+        height: 240px;
+
+        img {
+          width: 240px;
+          height: 240px;
+        }
+      }
+
+      p {
+        width: 358px;
+        order: 3;
+      }
+    }
+
+    .W_Name {
+      width: 330px;
+      gap: 24px;
+      order: 1;
+
+      .C_SocialButtons {
+        gap: 32px;
+      }
+    }
+
+    .C_InfoBlocks {
+      width: 730px;
+      gap: 56px;
+    }
+
+    .W_InfoBlock {
+      flex-direction: column-reverse;
+      gap: 32px;
+
+      &:nth-child(even) {
+        flex-direction: column-reverse;
+      }
+
+      .Q_Image {
+        width: 602px;
+        height: 340px;
+        border-radius: 16px;
+      }
+
+      .W_Text {
+        width: 482px;
+        gap: 8px;
+
+        p,
+        h3 {
+          width: 482px;
+        }
+      }
     }
   }
 
@@ -837,6 +978,82 @@ h5 {
   .search-page {
     .C_Articles {
       margin-top: 132px;
+    }
+  }
+
+  .about {
+    .A_PageCover.about {
+      margin-bottom: 40px;
+    }
+
+    .A_PageCover.creators {
+      margin-top: 64px;
+      margin-bottom: 48px;
+    }
+
+    .C_Profiles {
+      width: 328px;
+      gap: 64px;
+    }
+
+    .W_Profile {
+      flex-direction: column;
+      .Q_Image {
+        margin: 32px 0 24px 0;
+        order: 2;
+        width: 250px;
+        height: 250px;
+
+        img {
+          width: 250px;
+          height: 250px;
+        }
+      }
+
+      p {
+        width: 328px;
+        order: 3;
+      }
+    }
+
+    .W_Name {
+      width: 328px;
+      gap: 16px;
+      order: 1;
+
+      .C_SocialButtons {
+        gap: 24px;
+      }
+    }
+
+    .C_InfoBlocks {
+      width: 328px;
+      gap: 48px;
+    }
+
+    .W_InfoBlock {
+      flex-direction: column-reverse;
+      gap: 24px;
+
+      &:nth-child(even) {
+        flex-direction: column-reverse;
+      }
+
+      .Q_Image {
+        width: 328px;
+        height: 184px;
+        border-radius: 12px;
+      }
+
+      .W_Text {
+        width: 328px;
+        gap: 8px;
+
+        p,
+        h3 {
+          width: 328px;
+        }
+      }
     }
   }
 
