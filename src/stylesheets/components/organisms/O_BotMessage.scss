@@ -8,17 +8,17 @@
   .W_Message {
     display: flex;
     align-items: flex-end;
-    gap: 20px;
+    gap: 16px;
     align-self: stretch;
     position: relative;
 
     .Q_Image {
       width: 100px;
       height: 124px;
-      border-radius: 100px;
+      border-radius: 0px;
       background-image: url('./images/poteryasha-kind.png');
       background-size: contain;
-      background-position: center;
+      background-position: bottom center;
       background-repeat: no-repeat;
       position: absolute;
       left: -120px;
@@ -28,7 +28,7 @@
   .W_MessageBubble {
     display: flex;
     align-items: flex-end;
-    gap: 16px;
+    gap: 12px;
   }
 
   .C_ActionButtons {
@@ -36,7 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
   }
 
   .C_MessageButtons {
@@ -44,7 +44,7 @@
     max-width: 508px;
     align-items: center;
     align-content: center;
-    gap: 12px;
+    gap: 8px;
     align-self: stretch;
     flex-wrap: wrap;
   }
@@ -55,7 +55,7 @@
     gap: 12px;
 
     .W_Message {
-      gap: 14px;
+      gap: 12px;
 
       .Q_Image {
         width: 80px;
@@ -65,7 +65,7 @@
     }
 
     .W_MessageBubble {
-      gap: 16px;
+      gap: 12px;
     }
 
     .C_ActionButtons {
@@ -73,7 +73,7 @@
     }
 
     .C_MessageButtons {
-      max-width: 386px;
+      max-width: 456px;
       gap: 8px;
     }
   }
@@ -94,15 +94,15 @@
     }
 
     .W_MessageBubble {
-      gap: 16px;
+      gap: 12px;
     }
 
     .C_ActionButtons {
-      gap: 16px;
+      gap: 12px;
     }
 
     .C_MessageButtons {
-      max-width: 412px;
+      max-width: 456px;
       gap: 8px;
     }
   }

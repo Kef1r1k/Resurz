@@ -1,12 +1,12 @@
 .A_Message {
   display: flex;
   max-width: 460px;
-  padding: 16px 24px;
+  padding: 16px;
   align-items: flex-start;
   font-family: Inter;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 24px;
 
   &.bot {
     border-radius: 24px 24px 24px 0px;
@@ -27,9 +27,9 @@
 
 @media only screen and (min-width: 730px) and (max-width: 1420px) {
   .A_Message {
-    max-width: 330px;
-    padding: 16px;
-    font-size: 18px;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 16px;
 
     &.bot {
       border-radius: 16px 16px 16px 0px;
@@ -47,10 +47,11 @@
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1420px) {
+@media only screen and (min-width: 320px) and (max-width: 730px) {
   .A_Message {
-    max-width: 280px;
+    max-width: 288px;
     padding: 12px;
-    font-size: 16px;
+    font-size: 17px;
+    line-height: 22px;
   }
 }
