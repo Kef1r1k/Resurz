@@ -10,6 +10,7 @@
   .W_MessagesContainer {
     width: 130%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     overflow-y: scroll;
   }
@@ -22,6 +23,10 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    .W_DownloadOnMobile {
+      display: none;
+    }
 
     .A_Message.user {
       align-self: flex-end;
@@ -95,6 +100,13 @@
 
     .W_MessagesContainer {
       width: 100%;
+
+      .W_DownloadOnMobile {
+        display: flex;
+        width: 100%;
+        margin-top: 24px;
+        justify-content: center;
+      }
     }
   }
 

@@ -207,6 +207,7 @@ export const Chat = () => {
   const [selectedOptions, setSelectedOptions] = useState({})
   const [showWelcome, setShowWelcome] = useState(true)
   const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [isFinalStage, setIsFinalStage] = useState(false)
 
   const calculateProgress = () => {
     if (isChatFinished) return 100
@@ -248,13 +249,12 @@ export const Chat = () => {
     scrollToBottom()
 
     if (answer === 'скачать договор') {
-      setTimeout(() => {
-        generateContract(userAnswers, isExtendedMode)
-      }, 0)
+      setIsFinalStage(true)
+      await generateContract(userAnswers, isExtendedMode)
       return
     }
 
-    if (answer === 'перейти к расширенным настройкам') {
+    if (answer === 'перейти к доп. настройкам') {
       setIsExtendedMode(true)
       const nextQuestion = questions.find(
         (q) => q.scenario.includes(currentScenario) && q.extended === true
@@ -320,6 +320,10 @@ export const Chat = () => {
       if (isLast) {
         setIsChatFinished(true)
       }
+
+      if (nextQuestion.id === 18) {
+        setIsFinalStage(true)
+      }
     }
 
     setUserInput('')
@@ -343,7 +347,10 @@ export const Chat = () => {
   }
 
   const handleDownloadContract = async () => {
-    await generateContract(userAnswers, isExtendedMode)
+    setTimeout(() => {
+      generateContract(userAnswers, isExtendedMode)
+    }, 0)
+    return
   }
 
   const handleBack = () => {
@@ -460,6 +467,23 @@ export const Chat = () => {
             )
           })}
         </div>
+
+        {(isChatFinished || isFinalStage) && (
+          <div className="W_DownloadOnMobile">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="A_Button primary"
+              onClick={(e) => {
+                e.preventDefault()
+                handleDownloadContract()
+              }}
+            >
+              Скачать договор
+            </a>
+          </div>
+        )}
       </div>
 
       <div className="W_ChatInput">
