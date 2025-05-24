@@ -81,18 +81,39 @@ const Message = ({
       {/* Кнопки с вариантами ответа (если тип вопроса — select) */}
       {question?.type === 'select' && (
         <div className="C_MessageButtons">
-          {question.options.map((option, index) => (
-            <button
-              className={`A_MessageButton ${
-                selectedOption === option ? 'selected' : ''
-              } ${isLastMessage ? '' : 'disabled'}`} // Добавляем класс disabled для неактивных кнопок
-              key={index}
-              onClick={isLastMessage ? () => onAnswer(option) : undefined} // Блокируем клик для неактивных кнопок
-              disabled={!isLastMessage} // Отключаем кнопки, если это не последний вопрос
-            >
-              {option}
-            </button>
-          ))}
+          {question.options.map((option, index) => {
+            // Проверяем, является ли вариант "скачать договор"
+            const isDownloadButton = option === 'скачать договор'
+
+            return (
+              <React.Fragment key={index}>
+                {isDownloadButton ? (
+                  // Если это кнопка "скачать договор", делаем её ссылкой с onClick
+                  <a
+                    href="#"
+                    className="A_MessageButton"
+                    onClick={(e) => {
+                      e.preventDefault() // Предотвращаем переход по ссылке
+                      onAnswer(option) // Вызываем вашу функцию generateContract
+                    }}
+                  >
+                    {option}
+                  </a>
+                ) : (
+                  <button
+                    className={`A_MessageButton ${
+                      selectedOption === option ? 'selected' : ''
+                    } ${isLastMessage ? '' : 'disabled'}`}
+                    key={index}
+                    onClick={isLastMessage ? () => onAnswer(option) : undefined}
+                    disabled={!isLastMessage}
+                  >
+                    {option}
+                  </button>
+                )}
+              </React.Fragment>
+            )
+          })}
         </div>
       )}
     </div>
