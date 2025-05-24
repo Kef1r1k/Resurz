@@ -11,8 +11,18 @@ const Message = ({
 }) => {
   const [showHint, setShowHint] = useState(false)
 
+  const scrollbottom = () => {
+    setTimeout(() => {
+      const container = document.querySelector('.W_MessagesContainer')
+      if (container) container.scrollTo({ top: container.scrollHeight })
+    }, 10)
+  }
+
   const handleHintClick = () => {
     setShowHint((prev) => !prev) // Переключаем состояние подсказки
+    if (!showHint) {
+      scrollbottom() // Скроллим вниз при открытии подсказки
+    }
   }
 
   const handleCloseHint = (event) => {
@@ -29,11 +39,17 @@ const Message = ({
           <div className="C_ActionButtons">
             {question?.hint && (
               <div className="M_Hint" onClick={handleHintClick}>
-                <div className="A_HintButton"> </div>
+                <div className="A_HintButton"></div>
                 {showHint && (
                   <div className="W_HintBubble">
                     {/* Подсказка для десктопов */}
-                    <div className="A_HintBubbleDesktop">{question.hint}</div>
+                    <div
+                      className="A_HintBubbleDesktop"
+                      dangerouslySetInnerHTML={{
+                        __html: question.hint.replace(/\n/g, '<br>')
+                      }}
+                    />
+
                     {/* Подсказка для мобильных устройств */}
                     <div className="M_HintBubbleMobile">
                       <div className="W_HintTop">
@@ -43,7 +59,12 @@ const Message = ({
                           onClick={handleCloseHint}
                         ></button>
                       </div>
-                      <p>{question.hint}</p>
+                      <p
+                        className="M_HintBubbleMobileText"
+                        dangerouslySetInnerHTML={{
+                          __html: question.hint.replace(/\n/g, '<br>')
+                        }}
+                      />
                     </div>
                   </div>
                 )}
