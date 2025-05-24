@@ -88,17 +88,14 @@ const Message = ({
             return (
               <React.Fragment key={index}>
                 {isDownloadButton ? (
-                  // Если это кнопка "скачать договор", делаем её ссылкой с onClick
-                  <a
-                    href="#"
+                  // Используем кнопку вместо ссылки
+                  <button
+                    type="button"
                     className="A_MessageButton"
-                    onClick={(e) => {
-                      e.preventDefault() // Предотвращаем переход по ссылке
-                      onAnswer(option) // Вызываем вашу функцию generateContract
-                    }}
+                    onClick={() => onAnswer(option)}
                   >
                     {option}
-                  </a>
+                  </button>
                 ) : (
                   <button
                     className={`A_MessageButton ${
