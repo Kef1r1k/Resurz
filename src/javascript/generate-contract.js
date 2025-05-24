@@ -89,18 +89,15 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     doc.setData(data)
     doc.render()
 
-    // Генерация файла
     const out = doc.getZip().generate({ type: 'blob' })
-
-    // Создание ссылки и скачивание файла через <a>
     const url = URL.createObjectURL(out)
     const link = document.createElement('a')
     link.href = url
-    link.download = 'договор.docx' // Имя файла при скачивании
+    link.download = 'договор.docx'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-    URL.revokeObjectURL(url) // Очистка
+    URL.revokeObjectURL(url)
   } catch (error) {
     console.error('Ошибка при генерации договора:', error)
     alert(

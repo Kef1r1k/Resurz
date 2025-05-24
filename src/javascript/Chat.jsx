@@ -346,12 +346,8 @@ export const Chat = () => {
     document.body.classList.remove('overflow-hidden')
   }
 
-  const handleDownloadContract = async () => {
-    setTimeout(() => {
-      generateContract(userAnswers, isExtendedMode)
-    }, 0)
-    return
-  }
+  const handleDownloadContract = () =>
+    generateContract(userAnswers, isExtendedMode)
 
   const handleBack = () => {
     if (messages.length > 1) {
@@ -470,18 +466,13 @@ export const Chat = () => {
 
         {(isChatFinished || isFinalStage) && (
           <div className="W_DownloadOnMobile">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               className="A_Button primary"
-              onClick={(e) => {
-                e.preventDefault()
-                handleDownloadContract()
-              }}
+              onClick={handleDownloadContract}
             >
               Скачать договор
-            </a>
+            </button>
           </div>
         )}
       </div>
