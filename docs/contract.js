@@ -19017,18 +19017,24 @@ var __webpack_exports__ = {};
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./node_modules/react-dom/client.js
 var client = __webpack_require__(745);
+// EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
+var FileSaver_min = __webpack_require__(3162);
 // EXTERNAL MODULE: ./node_modules/docxtemplater/js/docxtemplater.js
 var docxtemplater = __webpack_require__(4522);
 var docxtemplater_default = /*#__PURE__*/__webpack_require__.n(docxtemplater);
 // EXTERNAL MODULE: ./node_modules/pizzip/js/index.js
 var js = __webpack_require__(1344);
 var js_default = /*#__PURE__*/__webpack_require__.n(js);
-// EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
-var FileSaver_min = __webpack_require__(3162);
 ;// CONCATENATED MODULE: ./src/javascript/generate-contract.js
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -19038,84 +19044,197 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var generateContract = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(userAnswers) {
-    var _userAnswers$find, _userAnswers$find2, _userAnswers$find3, _userAnswers$find4, _userAnswers$find5;
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(userAnswers, isExtendedMode) {
+    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out;
 
-    var userAnswer, prepayment, deadline, optionsCount, optionsDeadline, data, response, buffer, zip, doc, out;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            userAnswer = ((_userAnswers$find = userAnswers.find(function (a) {
-              return a.questionId === 2;
-            })) === null || _userAnswers$find === void 0 ? void 0 : _userAnswers$find.answer) || '';
-            prepayment = ((_userAnswers$find2 = userAnswers.find(function (a) {
-              return a.questionId === 3;
-            })) === null || _userAnswers$find2 === void 0 ? void 0 : _userAnswers$find2.answer) || '';
-            deadline = ((_userAnswers$find3 = userAnswers.find(function (a) {
-              return a.questionId === 4;
-            })) === null || _userAnswers$find3 === void 0 ? void 0 : _userAnswers$find3.answer) || '';
-            optionsCount = ((_userAnswers$find4 = userAnswers.find(function (a) {
-              return a.questionId === 5;
-            })) === null || _userAnswers$find4 === void 0 ? void 0 : _userAnswers$find4.answer) || '';
-            optionsDeadline = ((_userAnswers$find5 = userAnswers.find(function (a) {
-              return a.questionId === 6;
-            })) === null || _userAnswers$find5 === void 0 ? void 0 : _userAnswers$find5.answer) || '';
-            data = {
-              разработка: userAnswer,
-              срок: deadline,
-              варианты: optionsCount,
-              срок_отправки: optionsDeadline
-            };
-            _context.prev = 6;
-            _context.next = 9;
-            return fetch('./share/templates/small_order.docx');
+            _context.prev = 0;
+            contractTypeAnswer = (_userAnswers$find = userAnswers.find(function (ans) {
+              return ans.questionId === 1;
+            })) === null || _userAnswers$find === void 0 ? void 0 : _userAnswers$find.answer;
+            templateUrl = '/share/templates/small_order.docx';
 
-          case 9:
+            if (contractTypeAnswer === 'заказ с этапами работы') {
+              templateUrl = '/share/templates/steps_order.docx';
+            }
+
+            if (contractTypeAnswer === 'продолжительное сотрудничество') {
+              templateUrl = '/share/templates/sotrudnichestvo.docx';
+            }
+
+            _context.next = 7;
+            return fetch(templateUrl);
+
+          case 7:
             response = _context.sent;
+
+            if (response.ok) {
+              _context.next = 10;
+              break;
+            }
+
+            throw new Error('Не удалось загрузить шаблон');
+
+          case 10:
             _context.next = 12;
             return response.arrayBuffer();
 
           case 12:
             buffer = _context.sent;
             zip = new (js_default())(buffer);
-            doc = new (docxtemplater_default())(zip);
-            _context.next = 17;
-            return doc.renderAsync(data);
+            doc = new (docxtemplater_default())(zip); // prettier-ignore
 
-          case 17:
-            out = doc.getZip().generate({
-              type: 'blob'
-            });
-            (0,FileSaver_min.saveAs)(out, 'договор.docx');
-            _context.next = 24;
+            data = {
+              доп_настройки: isExtendedMode
+            };
+            _iterator = _createForOfIteratorHelper(userAnswers);
+            _context.prev = 17;
+
+            _iterator.s();
+
+          case 19:
+            if ((_step = _iterator.n()).done) {
+              _context.next = 60;
+              break;
+            }
+
+            ans = _step.value;
+            _context.t0 = ans.questionId;
+            _context.next = _context.t0 === 2 ? 24 : _context.t0 === 3 ? 26 : _context.t0 === 4 ? 30 : _context.t0 === 5 ? 33 : _context.t0 === 6 ? 35 : _context.t0 === 7 ? 37 : _context.t0 === 8 ? 39 : _context.t0 === 9 ? 41 : _context.t0 === 11 ? 43 : _context.t0 === 12 ? 45 : _context.t0 === 13 ? 47 : _context.t0 === 14 ? 49 : _context.t0 === 15 ? 51 : _context.t0 === 16 ? 53 : _context.t0 === 17 ? 55 : 57;
             break;
 
-          case 21:
-            _context.prev = 21;
-            _context.t0 = _context["catch"](6);
-            console.error('Ошибка при генерации договора:', _context.t0);
-
           case 24:
+            data.проект = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 26:
+            data.предоплата = ans.answer === 'предоплата';
+            data.полная_оплата = ans.answer === 'полная оплата';
+            data.пост_оплата = ans.answer === 'пост-оплата';
+            return _context.abrupt("break", 58);
+
+          case 30:
+            data.процент = ans.answer;
+
+            if (!isNaN(parseInt(ans.answer))) {
+              data.остаток = 100 - parseInt(ans.answer);
+            }
+
+            return _context.abrupt("break", 58);
+
+          case 33:
+            data.начало_работы = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 35:
+            data.варианты = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 37:
+            data.срок = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 39:
+            data.финал = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 41:
+            data.приемка = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 43:
+            data.мин_стоимость = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 45:
+            data.конфиденциально = ans.answer === 'да';
+            return _context.abrupt("break", 58);
+
+          case 47:
+            data.гарантийное_обслуживание = ans.answer === 'да';
+            return _context.abrupt("break", 58);
+
+          case 49:
+            data.срок_обслуживания = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 51:
+            data.неполная_передача = ans.answer === 'нет';
+            return _context.abrupt("break", 58);
+
+          case 53:
+            data.макс_пени = ans.answer === 'да';
+            return _context.abrupt("break", 58);
+
+          case 55:
+            data.пени = ans.answer;
+            return _context.abrupt("break", 58);
+
+          case 57:
+            return _context.abrupt("break", 58);
+
+          case 58:
+            _context.next = 19;
+            break;
+
+          case 60:
+            _context.next = 65;
+            break;
+
+          case 62:
+            _context.prev = 62;
+            _context.t1 = _context["catch"](17);
+
+            _iterator.e(_context.t1);
+
+          case 65:
+            _context.prev = 65;
+
+            _iterator.f();
+
+            return _context.finish(65);
+
+          case 68:
+            // Заполнение шаблона данными
+            doc.setData(data);
+            doc.render();
+            out = doc.getZip().generate({
+              type: 'blob'
+            }); // Сохранение файла
+
+            (0,FileSaver_min.saveAs)(out, 'договор.docx');
+            _context.next = 78;
+            break;
+
+          case 74:
+            _context.prev = 74;
+            _context.t2 = _context["catch"](0);
+            console.error('Ошибка при генерации договора:', _context.t2);
+            alert('Не удалось сформировать договор. Проверьте консоль на ошибки.');
+
+          case 78:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[6, 21]]);
+    }, _callee, null, [[0, 74], [17, 62, 65, 68]]);
   }));
 
-  return function generateContract(_x) {
+  return function generateContract(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
 ;// CONCATENATED MODULE: ./src/javascript/Message.jsx
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || Message_unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function Message_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return Message_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return Message_arrayLikeToArray(o, minLen); }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function Message_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
@@ -19137,10 +19256,23 @@ var Message = function Message(_ref) {
       showHint = _useState2[0],
       setShowHint = _useState2[1];
 
+  var scrollbottom = function scrollbottom() {
+    setTimeout(function () {
+      var container = document.querySelector('.W_MessagesContainer');
+      if (container) container.scrollTo({
+        top: container.scrollHeight
+      });
+    }, 10);
+  };
+
   var handleHintClick = function handleHintClick() {
     setShowHint(function (prev) {
       return !prev;
     }); // Переключаем состояние подсказки
+
+    if (!showHint) {
+      scrollbottom(); // Скроллим вниз при открытии подсказки
+    }
   };
 
   var handleCloseHint = function handleCloseHint(event) {
@@ -19166,18 +19298,26 @@ var Message = function Message(_ref) {
     onClick: handleHintClick
   }, /*#__PURE__*/react.createElement("div", {
     className: "A_HintButton"
-  }, " "), showHint && /*#__PURE__*/react.createElement("div", {
+  }), showHint && /*#__PURE__*/react.createElement("div", {
     className: "W_HintBubble"
   }, /*#__PURE__*/react.createElement("div", {
-    className: "A_HintBubbleDesktop"
-  }, question.hint), /*#__PURE__*/react.createElement("div", {
+    className: "A_HintBubbleDesktop",
+    dangerouslySetInnerHTML: {
+      __html: question.hint.replace(/\n/g, '<br>')
+    }
+  }), /*#__PURE__*/react.createElement("div", {
     className: "M_HintBubbleMobile"
   }, /*#__PURE__*/react.createElement("div", {
     className: "W_HintTop"
   }, /*#__PURE__*/react.createElement("h4", null, "\u041F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0430"), /*#__PURE__*/react.createElement("button", {
     className: "A_CloseButton",
     onClick: handleCloseHint
-  })), /*#__PURE__*/react.createElement("p", null, question.hint)))), isLastMessage && !isFirstMessage && /*#__PURE__*/react.createElement("button", {
+  })), /*#__PURE__*/react.createElement("p", {
+    className: "M_HintBubbleMobileText",
+    dangerouslySetInnerHTML: {
+      __html: question.hint.replace(/\n/g, '<br>')
+    }
+  })))), isLastMessage && !isFirstMessage && /*#__PURE__*/react.createElement("button", {
     className: "A_ChatBackButton",
     onClick: onBack
   })))), (question === null || question === void 0 ? void 0 : question.type) === 'select' && /*#__PURE__*/react.createElement("div", {
@@ -19226,9 +19366,9 @@ var InputBox = function InputBox(_ref) {
     }
   };
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/react.createElement("div", {
     className: "M_ChatInput"
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/react.createElement("input", {
     className: "A_Input",
     type: type // text или number
     ,
@@ -19238,22 +19378,22 @@ var InputBox = function InputBox(_ref) {
     ,
     placeholder: disabled ? 'Выбери ответ' : 'Введи здесь свой ответ...',
     disabled: disabled
-  }), /*#__PURE__*/React.createElement("button", {
+  }), /*#__PURE__*/react.createElement("button", {
     className: "A_SendButton",
     onClick: onSubmit,
     disabled: disabled
   }));
 };
 
-/* harmony default export */ const javascript_InputBox = ((/* unused pure expression or super */ null && (InputBox)));
+/* harmony default export */ const javascript_InputBox = (InputBox);
 ;// CONCATENATED MODULE: ./src/javascript/ProgressBar.jsx
 
 
 var ProgressBar = function ProgressBar(_ref) {
   var progress = _ref.progress;
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/react.createElement("div", {
     className: "A_ProgressBar"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/react.createElement("div", {
     className: "Q_ProgressLine",
     style: {
       width: "".concat(progress, "%")
@@ -19261,7 +19401,7 @@ var ProgressBar = function ProgressBar(_ref) {
   }));
 };
 
-/* harmony default export */ const javascript_ProgressBar = ((/* unused pure expression or super */ null && (ProgressBar)));
+/* harmony default export */ const javascript_ProgressBar = (ProgressBar);
 ;// CONCATENATED MODULE: ./src/javascript/Chat.jsx
 function Chat_typeof(obj) { "@babel/helpers - typeof"; return Chat_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, Chat_typeof(obj); }
 
@@ -19305,72 +19445,146 @@ function Chat_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var questions = [{
   id: 1,
-  text: 'Привет! Я помогу тебе создать договор для работы с заказчиком. Какой у тебя запрос?',
+  text: 'Привет! Я помогу тебе создать договор для работы с заказчиком. Какой у тебя запрос?',
   type: 'select',
-  options: ['небольшой заказ', 'заказ с этапами работы'],
-  scenario: 'start'
+  options: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  scenario: ['start'],
+  hint: 'Я буду адаптировать договор под твои потребности — менять структуру и формулировки.\n\nЕсли проект большой, лучше выбери договор с этапами работ.\n\nЕсли задачи пока не все известны, лучше выбери формат долгосрочного сотрудничества — такой договор можно дополнять заказами по мере их появления.'
 }, {
   id: 2,
-  text: 'Отлично! Что разрабатываем?',
+  text: 'Отлично! Что разрабатываешь?',
   type: 'text',
   scenario: ['небольшой заказ', 'заказ с этапами работы'],
-  hint: 'Укажите, что именно вы разрабатываете, например, логотип, сайт или мобильное приложение.'
+  key: 'проект'
 }, {
   id: 3,
-  text: 'Какая будет предоплата?',
+  text: 'Каким будет тип оплаты?',
   type: 'select',
-  options: ['100%', '50%', 'фиксированная сумма', 'без предоплаты'],
-  scenario: ['небольшой заказ', 'заказ с этапами работы'],
-  hint: 'Выберите размер предоплаты. Это поможет зафиксировать финансовые условия на этапе заключения договора.'
+  options: ['предоплата', 'полная оплата', 'пост-оплата'],
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  hint: 'Предоплата — оплата части суммы до начала работы.\nПолная оплата — 100% оплата до старта проекта.\nПост-оплата — оплата после выполнения работы.',
+  conditionKey: true
 }, {
   id: 4,
-  text: 'Сколько рабочих дней тебе понадобится для выполнения работы? Напиши цифрой',
+  text: 'Каким будет процент предоплаты?',
   type: 'number',
-  scenario: 'небольшой заказ',
-  hint: 'Укажите реалистичный срок выполнения работы. Это поможет избежать недоразумений с заказчиком.'
+  scenario: ['небольшой заказ', 'заказ с этапами работы'],
+  key: 'процент',
+  condition: {
+    questionId: 3,
+    value: 'предоплата'
+  }
 }, {
   id: 5,
-  text: 'Сколько вариантов ты обязуешься предоставить заказчику для выбора? Напиши цифрой',
+  text: 'Через сколько рабочих дней после подписания договора ты начнешь работу?',
   type: 'number',
-  scenario: ['небольшой заказ', 'заказ с этапами работы']
+  scenario: ['небольшой заказ', 'заказ с этапами работы'],
+  key: 'начало_работы'
 }, {
   id: 6,
-  text: 'В течение скольких рабочих дней ты отправишь заказчику варианты? Напиши цифрой',
+  text: 'Сколько вариантов проекта ты подготовишь заказчику?',
   type: 'number',
   scenario: ['небольшой заказ', 'заказ с этапами работы'],
-  hint: 'Укажите срок, в течение которого вы предоставите заказчику варианты для выбора.'
+  key: 'варианты'
 }, {
   id: 7,
-  text: 'Твой персональный договор готов! Осталось только скачать его в формате .doc и самостоятельно заполнить реквизиты сторон, техническое задание и смету. Я также могу помочь с расширенной настройкой договора, если тебе интересно.',
-  type: 'select',
-  options: ['скачать договор', 'перейти к расширенным настройкам'],
-  scenario: ['небольшой заказ', 'заказ с этапами работы']
+  text: 'Сколько рабочих дней тебе нужно для подготовки вариантов проекта?',
+  type: 'number',
+  scenario: ['небольшой заказ', 'заказ с этапами работы'],
+  key: 'срок'
 }, {
   id: 8,
-  text: 'Хорошо! Давай настроим дополнительные условия. Какой срок действия договора?',
-  type: 'text',
+  text: 'Заказчик выбрал один из вариантов, но попросил доработать. Через сколько рабочих дней пришлешь финальный проект?',
+  type: 'number',
   scenario: ['небольшой заказ', 'заказ с этапами работы'],
-  extended: true // Вопрос для расширенных настроек
-
+  key: 'финал'
 }, {
   id: 9,
-  text: 'Будут ли предусмотрены штрафы за нарушение сроков?',
-  type: 'select',
-  options: ['да', 'нет'],
-  scenario: ['небольшой заказ', 'заказ с этапами работы'],
-  extended: true // Вопрос для расширенных настроек
-
+  text: 'Сколько рабочих дней есть у заказчика, чтобы принять готовую работу либо направить мотивированный отказ?',
+  type: 'number',
+  scenario: ['заказ с этапами работы', 'продолжительное сотрудничество'],
+  key: 'приемка'
 }, {
   id: 10,
-  text: 'Спасибо за ответы! Теперь твой договор полностью готов к скачиванию.',
+  text: 'Твой договор готов! Cкачай его, проверь все выделенное желтым и самостоятельно заполни синие пропуски, реквизиты сторон, техническое задание и смету. Я также могу помочь с расширенной настройкой договора, если тебе интересно.',
+  type: 'select',
+  options: ['скачать договор', 'перейти к расширенным настройкам'],
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество']
+}, {
+  id: 11,
+  text: 'Можно оформить задание без подписания доп. соглашения к договору, если стоимость работы меньше скольки рублей?',
+  type: 'number',
+  scenario: ['заказ с этапами работы', 'продолжительное сотрудничество'],
+  extended: true,
+  key: 'мин_стоимость'
+}, {
+  id: 12,
+  text: 'Нужно условие о конфиденциальности?',
+  type: 'select',
+  options: ['да', 'нет'],
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  extended: true,
+  hint: 'Конфиденциальность — запрет на разглашение или передачу посторонним информации о проекте (например данные клиента, идеи, черновики).',
+  key: 'конфиденциально'
+}, {
+  id: 13,
+  text: 'Будет гарантийное обслуживание?',
+  type: 'select',
+  options: ['да', 'нет'],
+  scenario: ['заказ с этапами работы'],
+  extended: true,
+  hint: 'Гарантийное обслуживание — бесплатное исправление твоих недочетов в финальной работе после сдачи-приемки, если клиент обнаружил их в оговоренный срок',
+  key: 'гарантийное_обслуживание'
+}, {
+  id: 14,
+  text: 'Выбери срок гарантийного обслуживания:',
+  type: 'select',
+  options: ['1 месяц', '3 месяца', '6 месяцев', '1 год'],
+  scenario: ['заказ с этапами работы'],
+  key: 'срок_обслуживания',
+  condition: {
+    questionId: 13,
+    value: 'да'
+  }
+}, {
+  id: 15,
+  text: 'Передать все авторские права на результат работы?',
+  type: 'select',
+  options: ['да', 'нет'],
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  extended: true,
+  hint: 'Если есть что-то, чем ты не хочешь делиться с заказчиком, можно прописать это в договоре.\nПрава на отвергнутые идеи и варианты в любом случае ему не передаются.',
+  key: 'неполная_передача'
+}, {
+  id: 16,
+  text: 'Хочешь изменить максимальные пени?',
+  type: 'select',
+  options: ['да', 'нет'],
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  extended: true,
+  hint: 'Пени — штраф за нарушение сроков. Начисляется за каждый день задержки в 0,1% от суммы.',
+  key: 'макс_пени'
+}, {
+  id: 17,
+  text: 'Какой процент от стоимости работ будет максимальными пени?',
+  type: 'number',
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  key: 'пени',
+  condition: {
+    questionId: 16,
+    value: 'да'
+  }
+}, {
+  id: 18,
+  text: 'Спасибо за ответы! Теперь твой договор полностью готов к скачиванию. Напоминаю – проверь все выделенное желтым и самостоятельно заполни синие пропуски, реквизиты сторон, техническое задание и смету.',
   type: 'select',
   options: ['скачать договор'],
-  scenario: ['небольшой заказ', 'заказ с этапами работы'],
-  extended: true // Вопрос для расширенных настроек
-
+  scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'],
+  extended: true
 }];
-
 var Chat = function Chat() {
+  var _questions$currentQue, _questions$currentQue2;
+
   var _useState = (0,react.useState)(0),
       _useState2 = Chat_slicedToArray(_useState, 2),
       currentQuestionIndex = _useState2[0],
@@ -19421,24 +19635,10 @@ var Chat = function Chat() {
       isPopupOpen = _useState20[0],
       setIsPopupOpen = _useState20[1];
 
-  var handlePopupOpen = function handlePopupOpen() {
-    setIsPopupOpen(true);
-    document.body.classList.add('overflow-hidden'); // Блокируем скролл страницы
-  }; // Функция для закрытия попапа
-
-
-  var handlePopupClose = function handlePopupClose() {
-    setIsPopupOpen(false);
-    document.body.classList.remove('overflow-hidden'); // Разблокируем скролл страницы
-  };
-
   var calculateProgress = function calculateProgress() {
-    if (isChatFinished) {
-      return 100;
-    }
-
+    if (isChatFinished) return 100;
     var scenarioQuestions = questions.filter(function (q) {
-      return (q.scenario.includes(currentScenario) || q.scenario.includes('start')) && (!q.extended || isExtendedMode);
+      return (q.scenario.includes(currentScenario) || q.scenario === 'start') && (!q.extended || isExtendedMode);
     });
     var totalQuestions = scenarioQuestions.length;
     var answeredQuestions = userAnswers.filter(function (answer) {
@@ -19446,39 +19646,39 @@ var Chat = function Chat() {
         return q.id === answer.questionId;
       });
     }).length;
-    var progress = answeredQuestions / totalQuestions * 100;
-    return progress;
+    return answeredQuestions / totalQuestions * 100;
   };
 
   var scrollToBottom = function scrollToBottom() {
     setTimeout(function () {
-      var messagesContainer = document.querySelector('.W_MessagesContainer');
-
-      if (messagesContainer) {
-        messagesContainer.scrollTo({
-          top: messagesContainer.scrollHeight,
-          behavior: 'smooth'
-        });
-      }
-    }, 0);
+      var container = document.querySelector('.W_MessagesContainer');
+      if (container) container.scrollTo({
+        top: container.scrollHeight,
+        behavior: 'smooth'
+      });
+    }, 10);
   };
 
   var handleAnswer = /*#__PURE__*/function () {
     var _ref = Chat_asyncToGenerator( /*#__PURE__*/Chat_regeneratorRuntime().mark(function _callee(answer) {
-      var currentQuestion, _nextQuestion, nextScenario, nextQuestion, isLastQuestionInScenario;
+      var currentQuestion, newAnswer, tempAnswers, _nextQuestion, nextScenario, nextQuestion, isLast;
 
       return Chat_regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               currentQuestion = questions[currentQuestionIndex];
+              newAnswer = {
+                questionId: currentQuestion.id,
+                answer: answer
+              };
+              setUserAnswers([].concat(_toConsumableArray(userAnswers), [newAnswer]));
+              tempAnswers = [].concat(_toConsumableArray(userAnswers), [newAnswer]);
               setUserAnswers([].concat(_toConsumableArray(userAnswers), [{
                 questionId: currentQuestion.id,
                 answer: answer
               }]));
-              setSelectedOptions(function (prev) {
-                return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, currentQuestion.id, answer));
-              });
+              setSelectedOptions(_objectSpread(_objectSpread({}, selectedOptions), {}, _defineProperty({}, currentQuestion.id, answer)));
               setMessages([].concat(_toConsumableArray(messages), [{
                 text: answer,
                 isUser: true
@@ -19486,19 +19686,19 @@ var Chat = function Chat() {
               scrollToBottom();
 
               if (!(answer === 'скачать договор')) {
-                _context.next = 9;
+                _context.next = 12;
                 break;
               }
 
-              _context.next = 8;
-              return handleDownloadContract();
+              _context.next = 11;
+              return generateContract(userAnswers, isExtendedMode);
 
-            case 8:
+            case 11:
               return _context.abrupt("return");
 
-            case 9:
+            case 12:
               if (!(answer === 'перейти к расширенным настройкам')) {
-                _context.next = 14;
+                _context.next = 17;
                 break;
               }
 
@@ -19509,8 +19709,8 @@ var Chat = function Chat() {
 
               if (_nextQuestion) {
                 setCurrentQuestionIndex(questions.indexOf(_nextQuestion));
-                setMessages(function (prevMessages) {
-                  return [].concat(_toConsumableArray(prevMessages), [{
+                setMessages(function (prev) {
+                  return [].concat(_toConsumableArray(prev), [{
                     text: _nextQuestion.text,
                     isUser: false,
                     questionId: _nextQuestion.id
@@ -19520,43 +19720,51 @@ var Chat = function Chat() {
 
               return _context.abrupt("return");
 
-            case 14:
+            case 17:
               nextScenario = currentScenario;
 
-              if (answer === 'небольшой заказ') {
-                nextScenario = 'небольшой заказ';
-              } else if (answer === 'заказ с этапами работы') {
-                nextScenario = 'заказ с этапами работы';
+              if (['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'].includes(answer)) {
+                nextScenario = answer;
               }
 
               nextQuestion = questions.find(function (q, index) {
-                return index > currentQuestionIndex && q.scenario.includes(nextScenario) && (!q.extended || isExtendedMode);
+                if (index <= currentQuestionIndex) return false;
+
+                if (q.condition) {
+                  var parentAnswer = tempAnswers.find(function (a) {
+                    return a.questionId === q.condition.questionId;
+                  });
+
+                  if (!parentAnswer || parentAnswer.answer !== q.condition.value) {
+                    return false;
+                  }
+                }
+
+                return q.scenario.includes(nextScenario) && (!q.extended || isExtendedMode);
               });
 
               if (nextQuestion) {
                 setCurrentQuestionIndex(questions.indexOf(nextQuestion));
                 setCurrentScenario(nextScenario);
-                setMessages(function (prevMessages) {
-                  return [].concat(_toConsumableArray(prevMessages), [{
+                setMessages(function (prev) {
+                  return [].concat(_toConsumableArray(prev), [{
                     text: nextQuestion.text,
                     isUser: false,
                     questionId: nextQuestion.id
                   }]);
                 });
-                isLastQuestionInScenario = !questions.some(function (q, index) {
+                isLast = !questions.some(function (q, index) {
                   return index > questions.indexOf(nextQuestion) && q.scenario.includes(nextScenario) && (!q.extended || isExtendedMode);
                 });
 
-                if (isLastQuestionInScenario) {
+                if (isLast) {
                   setIsChatFinished(true);
                 }
-              } else {
-                console.log('Ответы пользователя:', userAnswers);
               }
 
               setUserInput('');
 
-            case 19:
+            case 22:
             case "end":
               return _context.stop();
           }
@@ -19566,6 +19774,47 @@ var Chat = function Chat() {
 
     return function handleAnswer(_x) {
       return _ref.apply(this, arguments);
+    };
+  }();
+
+  var handleStartChat = function handleStartChat() {
+    setShowWelcome(false);
+    setMessages([{
+      text: questions[0].text,
+      isUser: false,
+      questionId: questions[0].id
+    }]);
+  };
+
+  var handlePopupOpen = function handlePopupOpen() {
+    setIsPopupOpen(true);
+    document.body.classList.add('overflow-hidden');
+  };
+
+  var handlePopupClose = function handlePopupClose() {
+    setIsPopupOpen(false);
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  var handleDownloadContract = /*#__PURE__*/function () {
+    var _ref2 = Chat_asyncToGenerator( /*#__PURE__*/Chat_regeneratorRuntime().mark(function _callee2() {
+      return Chat_regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return generateContract(userAnswers, isExtendedMode);
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function handleDownloadContract() {
+      return _ref2.apply(this, arguments);
     };
   }();
 
@@ -19583,46 +19832,18 @@ var Chat = function Chat() {
         });
         setCurrentQuestionIndex(previousQuestionIndex);
         setSelectedOptions(function (prev) {
-          var updatedOptions = _objectSpread({}, prev);
+          var updated = _objectSpread({}, prev);
 
-          delete updatedOptions[previousQuestionId];
-          return updatedOptions;
+          delete updated[previousQuestionId];
+          return updated;
+        });
+        setUserAnswers(function (prevAnswers) {
+          return prevAnswers.filter(function (a) {
+            return a.questionId !== previousQuestionId;
+          });
         });
       }
-
-      setUserAnswers(userAnswers.slice(0, -1));
     }
-  };
-
-  var handleDownloadContract = /*#__PURE__*/function () {
-    var _ref2 = Chat_asyncToGenerator( /*#__PURE__*/Chat_regeneratorRuntime().mark(function _callee2() {
-      return Chat_regeneratorRuntime().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return generateContract(userAnswers);
-
-            case 2:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function handleDownloadContract() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  var handleStartChat = function handleStartChat() {
-    setShowWelcome(false);
-    setMessages([{
-      text: questions[0].text,
-      isUser: false,
-      questionId: questions[0].id
-    }]);
   };
 
   return /*#__PURE__*/react.createElement("div", {
@@ -19631,25 +19852,27 @@ var Chat = function Chat() {
     className: "W_WelcomeCreative"
   }, /*#__PURE__*/react.createElement("div", {
     className: "A_StyledH2"
-  }, /*#__PURE__*/react.createElement("h2", null, "\u0437\u0430\u0431\u0435\u0440\u0438 \u0448\u0430\u0431\u043B\u043E\u043D\u044B"), /*#__PURE__*/react.createElement("h2", null, "\u0434\u043E\u0433\u043E\u0432\u043E\u0440\u0430")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h2", null, "\u0434\u0430\u0432\u0430\u0439 \u0437\u0430\u043F\u043E\u043B\u043D\u0438\u043C"), /*#__PURE__*/react.createElement("h2", null, "\u0434\u043E\u0433\u043E\u0432\u043E\u0440")), /*#__PURE__*/react.createElement("div", {
     className: "M_WelcomeMessage"
   }, /*#__PURE__*/react.createElement("div", {
     className: "Q_Image"
   }), /*#__PURE__*/react.createElement("div", {
     className: "W_WelcomeMessage"
-  }, /*#__PURE__*/react.createElement("p", null, "\u0413\u0435\u043D\u0435\u0440\u0430\u0442\u043E\u0440 \u0434\u043E\u0433\u043E\u0432\u043E\u0440\u0430 \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u0432\xA0\u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435, \u043D\u043E\xA0\u0443\u0436\u0435 \u0441\u0435\u0439\u0447\u0430\u0441 \u043C\u043E\u0436\u043D\u043E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E \u0437\u0430\u0431\u0440\u0430\u0442\u044C \u0448\u0430\u0431\u043B\u043E\u043D\u044B \u0434\u043E\u0433\u043E\u0432\u043E\u0440\u043E\u0432, \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u043B \u044E\u0440\u0438\u0441\u0442\xA0\uD83D\uDC47"), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("p", null, "\u041F\u0440\u0438\u0432\u0435\u0442! \u042F \u043F\u043E\u043C\u043E\u0433\u0443 \u0442\u0435\u0431\u0435 \u0437\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440 \u0432 \u0444\u043E\u0440\u043C\u0430\u0442\u0435 \u043F\u0435\u0440\u0435\u043F\u0438\u0441\u043A\u0438"), /*#__PURE__*/react.createElement("div", {
     className: "C_Buttons"
   }, /*#__PURE__*/react.createElement("button", {
-    className: "A_Button primary download",
+    className: "A_Button primary",
+    onClick: handleStartChat
+  }, "\u041F\u043E\u0433\u043D\u0430\u043B\u0438"), /*#__PURE__*/react.createElement("button", {
+    className: "A_Button secondary download",
     onClick: handlePopupOpen
-  }, "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0448\u0430\u0431\u043B\u043E\u043D\u044B"))))), isPopupOpen && /*#__PURE__*/react.createElement("div", {
+  }, "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0448\u0430\u0431\u043B\u043E\u043D"))))), isPopupOpen && /*#__PURE__*/react.createElement("div", {
     className: "M_PopUp active"
   }, /*#__PURE__*/react.createElement("div", {
     className: "W_PopUpHead"
   }, /*#__PURE__*/react.createElement("h4", null, "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0443\u0441\u0442\u043E\u0439 \u0448\u0430\u0431\u043B\u043E\u043D\xA0\u0434\u043E\u0433\u043E\u0432\u043E\u0440\u0430"), /*#__PURE__*/react.createElement("button", {
     className: "A_CloseButton",
-    onClick: handlePopupClose // Закрываем попап
-
+    onClick: handlePopupClose
   })), /*#__PURE__*/react.createElement("div", {
     className: "C_Buttons"
   }, /*#__PURE__*/react.createElement("a", {
@@ -19660,7 +19883,11 @@ var Chat = function Chat() {
     href: "./share/contracts/dogovor_steps.doc",
     className: "A_Button secondary",
     download: true
-  }, "\u0417\u0430\u043A\u0430\u0437 \u0441 \u044D\u0442\u0430\u043F\u0430\u043C\u0438 \u0440\u0430\u0431\u043E\u0442"))), isPopupOpen && /*#__PURE__*/react.createElement("div", {
+  }, "\u0417\u0430\u043A\u0430\u0437 \u0441 \u044D\u0442\u0430\u043F\u0430\u043C\u0438 \u0440\u0430\u0431\u043E\u0442"), /*#__PURE__*/react.createElement("a", {
+    href: "./share/contracts/dogovor_sotrudnichestvo.docx",
+    className: "A_Button secondary",
+    download: true
+  }, "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0435\xA0\u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0435\u0441\u0442\u0432\u043E"))), isPopupOpen && /*#__PURE__*/react.createElement("div", {
     className: "Q_BackgroundBlur active"
   }), /*#__PURE__*/react.createElement("div", {
     className: "W_MessagesContainer"
@@ -19685,9 +19912,22 @@ var Chat = function Chat() {
       onBack: handleBack,
       selectedOption: selectedOptions[question === null || question === void 0 ? void 0 : question.id]
     });
-  }))));
+  }))), /*#__PURE__*/react.createElement("div", {
+    className: "W_ChatInput"
+  }, /*#__PURE__*/react.createElement(javascript_ProgressBar, {
+    progress: calculateProgress()
+  }), /*#__PURE__*/react.createElement(javascript_InputBox, {
+    type: (_questions$currentQue = questions[currentQuestionIndex]) === null || _questions$currentQue === void 0 ? void 0 : _questions$currentQue.type,
+    value: userInput,
+    onChange: function onChange(e) {
+      return setUserInput(e.target.value);
+    },
+    onSubmit: function onSubmit() {
+      return handleAnswer(userInput);
+    },
+    disabled: ['select'].includes((_questions$currentQue2 = questions[currentQuestionIndex]) === null || _questions$currentQue2 === void 0 ? void 0 : _questions$currentQue2.type)
+  })));
 };
-
 /* harmony default export */ const javascript_Chat = (Chat);
 ;// CONCATENATED MODULE: ./src/contract-generator.jsx
 
