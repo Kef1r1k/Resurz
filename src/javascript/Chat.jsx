@@ -15,72 +15,115 @@ const questions = [
   },
   {
     id: 2,
-    text: 'Отлично! Что разрабатываем?',
+    text: 'Отлично! Что разрабатываешь?',
     type: 'text',
     scenario: ['небольшой заказ', 'заказ с этапами работы'],
-    hint: 'Укажите, что именно вы разрабатываете, например, логотип, сайт или мобильное приложение.'
+    hint: 'Укажите, что именно ты разрабатываешь, например, логотип, сайт или мобильное приложение.',
+    key: 'проект'
   },
   {
     id: 3,
-    text: 'Какая будет предоплата?',
+    text: 'Каким будет тип оплаты?',
     type: 'select',
-    options: ['100%', '50%', 'фиксированная сумма', 'без предоплаты'],
+    options: ['предоплата', 'полная оплата', 'пост-оплата'],
     scenario: ['небольшой заказ', 'заказ с этапами работы'],
-    hint: 'Выберите размер предоплаты. Это поможет зафиксировать финансовые условия на этапе заключения договора.'
+    conditionKey: true
   },
   {
     id: 4,
-    text: 'Сколько рабочих дней тебе понадобится для выполнения работы? Напиши цифрой',
+    text: 'Каким будет процент предоплаты?',
     type: 'number',
-    scenario: 'небольшой заказ',
-    hint: 'Укажите реалистичный срок выполнения работы. Это поможет избежать недоразумений с заказчиком.'
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    key: 'процент',
+    condition: {
+      questionId: 3,
+      value: 'предоплата'
+    }
   },
   {
     id: 5,
-    text: 'Сколько вариантов ты обязуешься предоставить заказчику для выбора? Напиши цифрой',
+    text: 'Через сколько рабочих дней после подписания договора ты начнешь работу?',
     type: 'number',
-    scenario: ['небольшой заказ', 'заказ с этапами работы']
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    key: 'начало_работы'
   },
   {
     id: 6,
-    text: 'В течение скольких рабочих дней ты отправишь заказчику варианты? Напиши цифрой',
+    text: 'Сколько вариантов проекта ты подготовишь заказчику?',
     type: 'number',
     scenario: ['небольшой заказ', 'заказ с этапами работы'],
-    hint: 'Укажите срок, в течение которого вы предоставите заказчику варианты для выбора.'
+    key: 'варианты'
   },
   {
     id: 7,
+    text: 'Сколько рабочих дней тебе нужно для подготовки вариантов проекта?',
+    type: 'number',
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    key: 'срок'
+  },
+  {
+    id: 8,
+    text: 'Заказчик выбрал один из вариантов, но попросил доработать. Через сколько рабочих дней пришлешь финальный проект?',
+    type: 'number',
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    key: 'финал'
+  },
+  {
+    id: 9,
     text: 'Твой персональный договор готов! Осталось только скачать его в формате .doc и самостоятельно заполнить реквизиты сторон, техническое задание и смету. Я также могу помочь с расширенной настройкой договора, если тебе интересно.',
     type: 'select',
     options: ['скачать договор', 'перейти к расширенным настройкам'],
     scenario: ['небольшой заказ', 'заказ с этапами работы']
   },
   {
-    id: 8,
-    text: 'Хорошо! Давай настроим дополнительные условия. Какой срок действия договора?',
-    type: 'text',
-    scenario: ['небольшой заказ', 'заказ с этапами работы'],
-    extended: true // Вопрос для расширенных настроек
-  },
-  {
-    id: 9,
-    text: 'Будут ли предусмотрены штрафы за нарушение сроков?',
+    id: 10,
+    text: 'Нужно условие о конфиденциальности?',
     type: 'select',
     options: ['да', 'нет'],
     scenario: ['небольшой заказ', 'заказ с этапами работы'],
-    extended: true // Вопрос для расширенных настроек
+    extended: true,
+    key: 'конфиденциально'
   },
   {
-    id: 10,
+    id: 11,
+    text: 'Передать все авторские права на результат работы?',
+    type: 'select',
+    options: ['да', 'нет'],
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    extended: true,
+    key: 'неполная_передача'
+  },
+  {
+    id: 12,
+    text: 'Хочешь изменить максимальные пени?',
+    type: 'select',
+    options: ['да', 'нет'],
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    extended: true,
+    key: 'макс_пени'
+  },
+  {
+    id: 13,
+    text: 'Какой процент от стоимости работ будет максимальными пени?',
+    type: 'number',
+    scenario: ['небольшой заказ', 'заказ с этапами работы'],
+    key: 'пени',
+    condition: {
+      questionId: 12,
+      value: 'да'
+    }
+  },
+  {
+    id: 14,
     text: 'Спасибо за ответы! Теперь твой договор полностью готов к скачиванию.',
     type: 'select',
     options: ['скачать договор'],
     scenario: ['небольшой заказ', 'заказ с этапами работы'],
-    extended: true // Вопрос для расширенных настроек
+    extended: true
   }
 ]
 
-const Chat = () => {
+export const Chat = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [messages, setMessages] = useState([])
   const [userInput, setUserInput] = useState('')
@@ -92,71 +135,47 @@ const Chat = () => {
   const [showWelcome, setShowWelcome] = useState(true)
   const [isPopupOpen, setIsPopupOpen] = useState(false)
 
-  const handlePopupOpen = () => {
-    setIsPopupOpen(true)
-    document.body.classList.add('overflow-hidden') // Блокируем скролл страницы
-  }
-
-  // Функция для закрытия попапа
-  const handlePopupClose = () => {
-    setIsPopupOpen(false)
-    document.body.classList.remove('overflow-hidden') // Разблокируем скролл страницы
-  }
-
   const calculateProgress = () => {
-    if (isChatFinished) {
-      return 100
-    }
-
+    if (isChatFinished) return 100
     const scenarioQuestions = questions.filter(
       (q) =>
-        (q.scenario.includes(currentScenario) ||
-          q.scenario.includes('start')) &&
+        (q.scenario.includes(currentScenario) || q.scenario === 'start') &&
         (!q.extended || isExtendedMode)
     )
     const totalQuestions = scenarioQuestions.length
     const answeredQuestions = userAnswers.filter((answer) =>
       scenarioQuestions.some((q) => q.id === answer.questionId)
     ).length
-    const progress = (answeredQuestions / totalQuestions) * 100
-
-    return progress
+    return (answeredQuestions / totalQuestions) * 100
   }
 
   const scrollToBottom = () => {
     setTimeout(() => {
-      const messagesContainer = document.querySelector('.W_MessagesContainer')
-      if (messagesContainer) {
-        messagesContainer.scrollTo({
-          top: messagesContainer.scrollHeight,
-          behavior: 'smooth'
-        })
-      }
+      const container = document.querySelector('.W_MessagesContainer')
+      if (container)
+        container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' })
     }, 0)
   }
 
   const handleAnswer = async (answer) => {
     const currentQuestion = questions[currentQuestionIndex]
 
-    setUserAnswers([
-      ...userAnswers,
-      {
-        questionId: currentQuestion.id,
-        answer: answer
-      }
-    ])
+    const newAnswer = { questionId: currentQuestion.id, answer }
 
-    setSelectedOptions((prev) => ({
-      ...prev,
+    setUserAnswers([...userAnswers, newAnswer])
+
+    const tempAnswers = [...userAnswers, newAnswer]
+
+    setUserAnswers([...userAnswers, { questionId: currentQuestion.id, answer }])
+    setSelectedOptions({
+      ...selectedOptions,
       [currentQuestion.id]: answer
-    }))
-
+    })
     setMessages([...messages, { text: answer, isUser: true }])
-
     scrollToBottom()
 
     if (answer === 'скачать договор') {
-      await handleDownloadContract()
+      await generateContract(userAnswers)
       return
     }
 
@@ -165,11 +184,10 @@ const Chat = () => {
       const nextQuestion = questions.find(
         (q) => q.scenario.includes(currentScenario) && q.extended === true
       )
-
       if (nextQuestion) {
         setCurrentQuestionIndex(questions.indexOf(nextQuestion))
-        setMessages((prevMessages) => [
-          ...prevMessages,
+        setMessages((prev) => [
+          ...prev,
           {
             text: nextQuestion.text,
             isUser: false,
@@ -181,43 +199,70 @@ const Chat = () => {
     }
 
     let nextScenario = currentScenario
-    if (answer === 'небольшой заказ') {
-      nextScenario = 'небольшой заказ'
-    } else if (answer === 'заказ с этапами работы') {
-      nextScenario = 'заказ с этапами работы'
+    if (['небольшой заказ', 'заказ с этапами работы'].includes(answer)) {
+      nextScenario = answer
     }
 
-    const nextQuestion = questions.find(
-      (q, index) =>
-        index > currentQuestionIndex &&
-        q.scenario.includes(nextScenario) &&
-        (!q.extended || isExtendedMode)
-    )
+    const nextQuestion = questions.find((q, index) => {
+      if (index <= currentQuestionIndex) return false
+
+      if (q.condition) {
+        const parentAnswer = tempAnswers.find(
+          (a) => a.questionId === q.condition.questionId
+        )
+
+        if (!parentAnswer || parentAnswer.answer !== q.condition.value) {
+          return false
+        }
+      }
+
+      return (
+        q.scenario.includes(nextScenario) && (!q.extended || isExtendedMode)
+      )
+    })
 
     if (nextQuestion) {
       setCurrentQuestionIndex(questions.indexOf(nextQuestion))
       setCurrentScenario(nextScenario)
-
-      setMessages((prevMessages) => [
-        ...prevMessages,
+      setMessages((prev) => [
+        ...prev,
         { text: nextQuestion.text, isUser: false, questionId: nextQuestion.id }
       ])
 
-      const isLastQuestionInScenario = !questions.some(
+      const isLast = !questions.some(
         (q, index) =>
           index > questions.indexOf(nextQuestion) &&
           q.scenario.includes(nextScenario) &&
           (!q.extended || isExtendedMode)
       )
 
-      if (isLastQuestionInScenario) {
+      if (isLast) {
         setIsChatFinished(true)
       }
-    } else {
-      console.log('Ответы пользователя:', userAnswers)
     }
 
     setUserInput('')
+  }
+
+  const handleStartChat = () => {
+    setShowWelcome(false)
+    setMessages([
+      { text: questions[0].text, isUser: false, questionId: questions[0].id }
+    ])
+  }
+
+  const handlePopupOpen = () => {
+    setIsPopupOpen(true)
+    document.body.classList.add('overflow-hidden')
+  }
+
+  const handlePopupClose = () => {
+    setIsPopupOpen(false)
+    document.body.classList.remove('overflow-hidden')
+  }
+
+  const handleDownloadContract = async () => {
+    await generateContract(userAnswers)
   }
 
   const handleBack = () => {
@@ -226,6 +271,7 @@ const Chat = () => {
       setMessages(newMessages)
 
       const previousQuestionId = newMessages[newMessages.length - 1]?.questionId
+
       if (previousQuestionId) {
         const previousQuestionIndex = questions.findIndex(
           (q) => q.id === previousQuestionId
@@ -233,25 +279,16 @@ const Chat = () => {
         setCurrentQuestionIndex(previousQuestionIndex)
 
         setSelectedOptions((prev) => {
-          const updatedOptions = { ...prev }
-          delete updatedOptions[previousQuestionId]
-          return updatedOptions
+          const updated = { ...prev }
+          delete updated[previousQuestionId]
+          return updated
         })
+
+        setUserAnswers((prevAnswers) =>
+          prevAnswers.filter((a) => a.questionId !== previousQuestionId)
+        )
       }
-
-      setUserAnswers(userAnswers.slice(0, -1))
     }
-  }
-
-  const handleDownloadContract = async () => {
-    await generateContract(userAnswers)
-  }
-
-  const handleStartChat = () => {
-    setShowWelcome(false)
-    setMessages([
-      { text: questions[0].text, isUser: false, questionId: questions[0].id }
-    ])
   }
 
   return (
@@ -288,7 +325,7 @@ const Chat = () => {
             <h4>Скачать пустой шаблон договора</h4>
             <button
               className="A_CloseButton"
-              onClick={handlePopupClose} // Закрываем попап
+              onClick={handlePopupClose}
             ></button>
           </div>
           <div className="C_Buttons">
@@ -310,7 +347,6 @@ const Chat = () => {
         </div>
       )}
 
-      {/* Затемнение фона */}
       {isPopupOpen && <div className="Q_BackgroundBlur active"></div>}
 
       <div className="W_MessagesContainer">
@@ -345,10 +381,7 @@ const Chat = () => {
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           onSubmit={() => handleAnswer(userInput)}
-          disabled={
-            questions[currentQuestionIndex]?.type !== 'text' &&
-            questions[currentQuestionIndex]?.type !== 'number'
-          }
+          disabled={['select'].includes(questions[currentQuestionIndex]?.type)}
         />
       </div>
     </div>
