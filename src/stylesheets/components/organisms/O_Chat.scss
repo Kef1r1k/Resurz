@@ -4,7 +4,7 @@
   justify-content: flex-end;
   align-items: center;
   height: 100vh;
-  width: 940px;
+  width: 860px;
   padding: 160px 0 200px 0;
 
   .W_MessagesContainer {
@@ -18,10 +18,10 @@
   }
 
   .W_Messages {
-    width: 940px;
+    width: 860px;
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 24px;
 
     .A_Message.user {
       align-self: flex-end;
@@ -52,7 +52,7 @@
 
     .W_Messages {
       width: 674px;
-      gap: 64px;
+      gap: 24px;
     }
   }
 
@@ -69,7 +69,7 @@
 
     .W_Messages {
       width: 606px;
-      gap: 56px;
+      gap: 24px;
     }
   }
 
@@ -86,7 +86,7 @@
 
     .W_Messages {
       width: 328px;
-      gap: 48px;
+      gap: 24px;
     }
 
     .W_MessagesContainer {
