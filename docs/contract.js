@@ -19307,17 +19307,29 @@ var Message = function Message(_ref) {
   })))), (question === null || question === void 0 ? void 0 : question.type) === 'select' && /*#__PURE__*/react.createElement("div", {
     className: "C_MessageButtons"
   }, question.options.map(function (option, index) {
-    return /*#__PURE__*/react.createElement("button", {
-      className: "A_MessageButton ".concat(selectedOption === option ? 'selected' : '', " ").concat(isLastMessage ? '' : 'disabled') // Добавляем класс disabled для неактивных кнопок
-      ,
+    // Проверяем, является ли вариант "скачать договор"
+    var isDownloadButton = option === 'скачать договор';
+    return /*#__PURE__*/react.createElement(react.Fragment, {
+      key: index
+    }, isDownloadButton ?
+    /*#__PURE__*/
+    // Если это кнопка "скачать договор", делаем её ссылкой с onClick
+    react.createElement("a", {
+      href: "#",
+      className: "A_MessageButton",
+      onClick: function onClick(e) {
+        e.preventDefault(); // Предотвращаем переход по ссылке
+
+        onAnswer(option); // Вызываем вашу функцию generateContract
+      }
+    }, option) : /*#__PURE__*/react.createElement("button", {
+      className: "A_MessageButton ".concat(selectedOption === option ? 'selected' : '', " ").concat(isLastMessage ? '' : 'disabled'),
       key: index,
       onClick: isLastMessage ? function () {
         return onAnswer(option);
-      } : undefined // Блокируем клик для неактивных кнопок
-      ,
-      disabled: !isLastMessage // Отключаем кнопки, если это не последний вопрос
-
-    }, option);
+      } : undefined,
+      disabled: !isLastMessage
+    }, option));
   })));
 };
 
@@ -19619,6 +19631,11 @@ var Chat = function Chat() {
       isPopupOpen = _useState20[0],
       setIsPopupOpen = _useState20[1];
 
+  var _useState21 = (0,react.useState)(false),
+      _useState22 = Chat_slicedToArray(_useState21, 2),
+      isFinalStage = _useState22[0],
+      setIsFinalStage = _useState22[1];
+
   var calculateProgress = function calculateProgress() {
     if (isChatFinished) return 100;
     var scenarioQuestions = questions.filter(function (q) {
@@ -19670,18 +19687,20 @@ var Chat = function Chat() {
               scrollToBottom();
 
               if (!(answer === 'скачать договор')) {
-                _context.next = 11;
+                _context.next = 13;
                 break;
               }
 
-              setTimeout(function () {
-                generateContract(userAnswers, isExtendedMode);
-              }, 0);
+              setIsFinalStage(true);
+              _context.next = 12;
+              return generateContract(userAnswers, isExtendedMode);
+
+            case 12:
               return _context.abrupt("return");
 
-            case 11:
-              if (!(answer === 'перейти к расширенным настройкам')) {
-                _context.next = 16;
+            case 13:
+              if (!(answer === 'перейти к доп. настройкам')) {
+                _context.next = 18;
                 break;
               }
 
@@ -19703,7 +19722,7 @@ var Chat = function Chat() {
 
               return _context.abrupt("return");
 
-            case 16:
+            case 18:
               nextScenario = currentScenario;
 
               if (['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'].includes(answer)) {
@@ -19743,11 +19762,15 @@ var Chat = function Chat() {
                 if (isLast) {
                   setIsChatFinished(true);
                 }
+
+                if (nextQuestion.id === 18) {
+                  setIsFinalStage(true);
+                }
               }
 
               setUserInput('');
 
-            case 21:
+            case 23:
             case "end":
               return _context.stop();
           }
@@ -19785,8 +19808,10 @@ var Chat = function Chat() {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return generateContract(userAnswers, isExtendedMode);
+              setTimeout(function () {
+                generateContract(userAnswers, isExtendedMode);
+              }, 0);
+              return _context2.abrupt("return");
 
             case 2:
             case "end":
@@ -19895,7 +19920,18 @@ var Chat = function Chat() {
       onBack: handleBack,
       selectedOption: selectedOptions[question === null || question === void 0 ? void 0 : question.id]
     });
-  }))), /*#__PURE__*/react.createElement("div", {
+  })), (isChatFinished || isFinalStage) && /*#__PURE__*/react.createElement("div", {
+    className: "W_DownloadOnMobile"
+  }, /*#__PURE__*/react.createElement("a", {
+    href: "#",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "A_Button primary",
+    onClick: function onClick(e) {
+      e.preventDefault();
+      handleDownloadContract();
+    }
+  }, "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440"))), /*#__PURE__*/react.createElement("div", {
     className: "W_ChatInput"
   }, /*#__PURE__*/react.createElement(javascript_ProgressBar, {
     progress: calculateProgress()
