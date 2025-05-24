@@ -88,7 +88,7 @@ const questions = [
     id: 10,
     text: 'Твой договор готов! Cкачай его, проверь все выделенное желтым и самостоятельно заполни синие пропуски, реквизиты сторон, техническое задание и смету. Я также могу помочь с расширенной настройкой договора, если тебе интересно.',
     type: 'select',
-    options: ['скачать договор', 'перейти к расширенным настройкам'],
+    options: ['скачать договор', 'перейти к доп. настройкам'],
     scenario: [
       'небольшой заказ',
       'заказ с этапами работы',
@@ -248,7 +248,9 @@ export const Chat = () => {
     scrollToBottom()
 
     if (answer === 'скачать договор') {
-      await generateContract(userAnswers, isExtendedMode)
+      setTimeout(() => {
+        generateContract(userAnswers, isExtendedMode)
+      }, 0)
       return
     }
 
