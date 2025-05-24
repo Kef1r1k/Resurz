@@ -1,19 +1,17 @@
-import { saveAs } from 'file-saver'
 import Docxtemplater from 'docxtemplater'
 import PizZip from 'pizzip'
 
 export const generateContract = async (userAnswers, isExtendedMode) => {
   try {
+    // Определяем тип договора и загружаем шаблон
     const contractTypeAnswer = userAnswers.find(
       (ans) => ans.questionId === 1
     )?.answer
 
     let templateUrl = '/share/templates/small_order.docx'
-
     if (contractTypeAnswer === 'заказ с этапами работы') {
       templateUrl = '/share/templates/steps_order.docx'
     }
-
     if (contractTypeAnswer === 'продолжительное сотрудничество') {
       templateUrl = '/share/templates/sotrudnichestvo.docx'
     }
@@ -21,13 +19,15 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     const response = await fetch(templateUrl)
     if (!response.ok) throw new Error('Не удалось загрузить шаблон')
     const buffer = await response.arrayBuffer()
+
     const zip = new PizZip(buffer)
     const doc = new Docxtemplater(zip)
 
-    // prettier-ignore
+    // Подготовка данных для шаблона
     const data = {
-      доп_настройки: isExtendedMode,
+      доп_настройки: isExtendedMode
     }
+
     for (let ans of userAnswers) {
       switch (ans.questionId) {
         case 2:
@@ -88,12 +88,23 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     // Заполнение шаблона данными
     doc.setData(data)
     doc.render()
+
+    // Генерация файла
     const out = doc.getZip().generate({ type: 'blob' })
 
-    // Сохранение файла
-    saveAs(out, 'договор.docx')
+    // Создание ссылки и скачивание файла через <a>
+    const url = URL.createObjectURL(out)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'договор.docx' // Имя файла при скачивании
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url) // Очистка
   } catch (error) {
     console.error('Ошибка при генерации договора:', error)
-    alert('Не удалось сформировать договор. Проверьте консоль на ошибки.')
+    alert(
+      'Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.'
+    )
   }
 }
