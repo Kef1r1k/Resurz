@@ -346,8 +346,10 @@ export const Chat = () => {
     document.body.classList.remove('overflow-hidden')
   }
 
-  const handleDownloadContract = () =>
+  const handleDownloadContract = () => {
+    alert('кнопка нажалась')
     generateContract(userAnswers, isExtendedMode)
+  }
 
   const handleBack = () => {
     if (messages.length > 1) {
