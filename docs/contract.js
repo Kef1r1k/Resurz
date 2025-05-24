@@ -19309,14 +19309,12 @@ var Message = function Message(_ref) {
       key: index
     }, isDownloadButton ?
     /*#__PURE__*/
-    // Если это кнопка "скачать договор", делаем её ссылкой с onClick
-    react.createElement("a", {
-      href: "#",
+    // Используем кнопку вместо ссылки
+    react.createElement("button", {
+      type: "button",
       className: "A_MessageButton",
-      onClick: function onClick(e) {
-        e.preventDefault(); // Предотвращаем переход по ссылке
-
-        onAnswer(option); // Вызываем вашу функцию generateContract
+      onClick: function onClick() {
+        return onAnswer(option);
       }
     }, option) : /*#__PURE__*/react.createElement("button", {
       className: "A_MessageButton ".concat(selectedOption === option ? 'selected' : '', " ").concat(isLastMessage ? '' : 'disabled'),
@@ -19799,7 +19797,8 @@ var Chat = function Chat() {
   };
 
   var handleDownloadContract = function handleDownloadContract() {
-    return generateContract(userAnswers, isExtendedMode);
+    alert('кнопка нажалась');
+    generateContract(userAnswers, isExtendedMode);
   };
 
   var handleBack = function handleBack() {
