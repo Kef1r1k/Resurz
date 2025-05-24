@@ -15507,18 +15507,6 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 3162:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
-		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {}})(this,function(){"use strict";function b(a,b){return"undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(a,b,c){var d=new XMLHttpRequest;d.open("GET",a),d.responseType="blob",d.onload=function(){g(d.response,b,c)},d.onerror=function(){console.error("could not download file")},d.send()}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send()}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"))}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b)}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof __webpack_require__.g&&__webpack_require__.g.global===__webpack_require__.g?__webpack_require__.g:void 0,a=f.navigator&&/Macintosh/.test(navigator.userAgent)&&/AppleWebKit/.test(navigator.userAgent)&&!/Safari/.test(navigator.userAgent),g=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype&&!a?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href)},4E4),setTimeout(function(){e(j)},0))}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i)})}}:function(b,d,e,g){if(g=g||open("","_blank"),g&&(g.document.title=g.document.body.innerText="downloading..."),"string"==typeof b)return c(b,d,e);var h="application/octet-stream"===b.type,i=/constructor/i.test(f.HTMLElement)||f.safari,j=/CriOS\/[\d]+/.test(navigator.userAgent);if((j||h&&i||a)&&"undefined"!=typeof FileReader){var k=new FileReader;k.onloadend=function(){var a=k.result;a=j?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),g?g.location.href=a:location=a,g=null},k.readAsDataURL(b)}else{var l=f.URL||f.webkitURL,m=l.createObjectURL(b);g?g.location=m:location.href=m,g=null,setTimeout(function(){l.revokeObjectURL(m)},4E4)}});f.saveAs=g.saveAs=g, true&&(module.exports=g)});
-
-//# sourceMappingURL=FileSaver.min.js.map
-
-/***/ }),
-
 /***/ 645:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -18990,18 +18978,6 @@ if (true) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -19017,8 +18993,6 @@ var __webpack_exports__ = {};
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./node_modules/react-dom/client.js
 var client = __webpack_require__(745);
-// EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
-var FileSaver_min = __webpack_require__(3162);
 // EXTERNAL MODULE: ./node_modules/docxtemplater/js/docxtemplater.js
 var docxtemplater = __webpack_require__(4522);
 var docxtemplater_default = /*#__PURE__*/__webpack_require__.n(docxtemplater);
@@ -19042,16 +19016,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
 var generateContract = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(userAnswers, isExtendedMode) {
-    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out;
+    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out, url, link;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
+            // Определяем тип договора и загружаем шаблон
             contractTypeAnswer = (_userAnswers$find = userAnswers.find(function (ans) {
               return ans.questionId === 1;
             })) === null || _userAnswers$find === void 0 ? void 0 : _userAnswers$find.answer;
@@ -19085,7 +19059,7 @@ var generateContract = /*#__PURE__*/function () {
           case 12:
             buffer = _context.sent;
             zip = new (js_default())(buffer);
-            doc = new (docxtemplater_default())(zip); // prettier-ignore
+            doc = new (docxtemplater_default())(zip); // Подготовка данных для шаблона
 
             data = {
               доп_настройки: isExtendedMode
@@ -19200,27 +19174,37 @@ var generateContract = /*#__PURE__*/function () {
           case 68:
             // Заполнение шаблона данными
             doc.setData(data);
-            doc.render();
+            doc.render(); // Генерация файла
+
             out = doc.getZip().generate({
               type: 'blob'
-            }); // Сохранение файла
+            }); // Создание ссылки и скачивание файла через <a>
 
-            (0,FileSaver_min.saveAs)(out, 'договор.docx');
-            _context.next = 78;
+            url = URL.createObjectURL(out);
+            link = document.createElement('a');
+            link.href = url;
+            link.download = 'договор.docx'; // Имя файла при скачивании
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url); // Очистка
+
+            _context.next = 85;
             break;
 
-          case 74:
-            _context.prev = 74;
+          case 81:
+            _context.prev = 81;
             _context.t2 = _context["catch"](0);
             console.error('Ошибка при генерации договора:', _context.t2);
-            alert('Не удалось сформировать договор. Проверьте консоль на ошибки.');
+            alert('Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.');
 
-          case 78:
+          case 85:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 74], [17, 62, 65, 68]]);
+    }, _callee, null, [[0, 81], [17, 62, 65, 68]]);
   }));
 
   return function generateContract(_x, _x2) {
@@ -19508,7 +19492,7 @@ var questions = [{
   id: 10,
   text: 'Твой договор готов! Cкачай его, проверь все выделенное желтым и самостоятельно заполни синие пропуски, реквизиты сторон, техническое задание и смету. Я также могу помочь с расширенной настройкой договора, если тебе интересно.',
   type: 'select',
-  options: ['скачать договор', 'перейти к расширенным настройкам'],
+  options: ['скачать договор', 'перейти к доп. настройкам'],
   scenario: ['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество']
 }, {
   id: 11,
@@ -19686,19 +19670,18 @@ var Chat = function Chat() {
               scrollToBottom();
 
               if (!(answer === 'скачать договор')) {
-                _context.next = 12;
+                _context.next = 11;
                 break;
               }
 
-              _context.next = 11;
-              return generateContract(userAnswers, isExtendedMode);
-
-            case 11:
+              setTimeout(function () {
+                generateContract(userAnswers, isExtendedMode);
+              }, 0);
               return _context.abrupt("return");
 
-            case 12:
+            case 11:
               if (!(answer === 'перейти к расширенным настройкам')) {
-                _context.next = 17;
+                _context.next = 16;
                 break;
               }
 
@@ -19720,7 +19703,7 @@ var Chat = function Chat() {
 
               return _context.abrupt("return");
 
-            case 17:
+            case 16:
               nextScenario = currentScenario;
 
               if (['небольшой заказ', 'заказ с этапами работы', 'продолжительное сотрудничество'].includes(answer)) {
@@ -19764,7 +19747,7 @@ var Chat = function Chat() {
 
               setUserInput('');
 
-            case 22:
+            case 21:
             case "end":
               return _context.stop();
           }
