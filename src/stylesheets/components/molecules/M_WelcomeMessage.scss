@@ -91,11 +91,11 @@
   .M_WelcomeMessage {
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
 
     .Q_Image {
-      width: 144px;
-      height: 144px;
+      width: 140px;
+      height: 100px;
       position: relative;
       left: 0px;
     }
@@ -103,7 +103,7 @@
     .W_WelcomeMessage {
       width: 328px;
       padding: 16px;
-      gap: 24px;
+      gap: 16px;
       border-radius: 16px;
     }
 
