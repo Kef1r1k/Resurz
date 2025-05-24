@@ -19174,22 +19174,18 @@ var generateContract = /*#__PURE__*/function () {
           case 68:
             // Заполнение шаблона данными
             doc.setData(data);
-            doc.render(); // Генерация файла
-
+            doc.render();
             out = doc.getZip().generate({
               type: 'blob'
-            }); // Создание ссылки и скачивание файла через <a>
-
+            });
             url = URL.createObjectURL(out);
             link = document.createElement('a');
             link.href = url;
-            link.download = 'договор.docx'; // Имя файла при скачивании
-
+            link.download = 'договор.docx';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            URL.revokeObjectURL(url); // Очистка
-
+            URL.revokeObjectURL(url);
             _context.next = 85;
             break;
 
@@ -19802,29 +19798,9 @@ var Chat = function Chat() {
     document.body.classList.remove('overflow-hidden');
   };
 
-  var handleDownloadContract = /*#__PURE__*/function () {
-    var _ref2 = Chat_asyncToGenerator( /*#__PURE__*/Chat_regeneratorRuntime().mark(function _callee2() {
-      return Chat_regeneratorRuntime().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              setTimeout(function () {
-                generateContract(userAnswers, isExtendedMode);
-              }, 0);
-              return _context2.abrupt("return");
-
-            case 2:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function handleDownloadContract() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+  var handleDownloadContract = function handleDownloadContract() {
+    return generateContract(userAnswers, isExtendedMode);
+  };
 
   var handleBack = function handleBack() {
     if (messages.length > 1) {
@@ -19922,15 +19898,10 @@ var Chat = function Chat() {
     });
   })), (isChatFinished || isFinalStage) && /*#__PURE__*/react.createElement("div", {
     className: "W_DownloadOnMobile"
-  }, /*#__PURE__*/react.createElement("a", {
-    href: "#",
-    target: "_blank",
-    rel: "noopener noreferrer",
+  }, /*#__PURE__*/react.createElement("button", {
+    type: "button",
     className: "A_Button primary",
-    onClick: function onClick(e) {
-      e.preventDefault();
-      handleDownloadContract();
-    }
+    onClick: handleDownloadContract
   }, "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440"))), /*#__PURE__*/react.createElement("div", {
     className: "W_ChatInput"
   }, /*#__PURE__*/react.createElement(javascript_ProgressBar, {
