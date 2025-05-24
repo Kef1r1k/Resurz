@@ -14,6 +14,10 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
       templateUrl = '/share/templates/steps_order.docx'
     }
 
+    if (contractTypeAnswer === 'продолжительное сотрудничество') {
+      templateUrl = '/share/templates/sotrudnichestvo.docx'
+    }
+
     const response = await fetch(templateUrl)
     if (!response.ok) throw new Error('Не удалось загрузить шаблон')
     const buffer = await response.arrayBuffer()
