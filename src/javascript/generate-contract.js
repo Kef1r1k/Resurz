@@ -1,5 +1,6 @@
 import Docxtemplater from 'docxtemplater'
 import PizZip from 'pizzip'
+import { saveAs } from 'file-saver'
 
 export const generateContract = async (userAnswers, isExtendedMode) => {
   try {
@@ -17,12 +18,14 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     const response = await fetch(templateUrl)
     if (!response.ok) throw new Error('Не удалось загрузить шаблон')
     const buffer = await response.arrayBuffer()
-
     const zip = new PizZip(buffer)
     const doc = new Docxtemplater(zip)
 
     // Подготовка данных
-    const data = { доп_настройки: isExtendedMode }
+    const data = {
+      доп_настройки: isExtendedMode
+    }
+
     for (let ans of userAnswers) {
       switch (ans.questionId) {
         case 2:
@@ -35,7 +38,7 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
           break
         case 4:
           data.процент = ans.answer
-          data.остаток = 100 - parseInt(ans.answer)
+          data.остаток = 100 - parseInt(ans.answer || '0')
           break
         case 5:
           data.начало_работы = ans.answer
@@ -76,34 +79,28 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
       }
     }
 
-    // Заполнение шаблона
+    // Логируем данные
+    console.log('Подставляемые данные:', data)
     doc.setData(data)
-    doc.render()
 
-    const out = doc.getZip().generate({ type: 'blob' })
-
-    // Работает на всех устройствах, кроме iOS
-    const url = URL.createObjectURL(out)
-
-    // Для iOS — открываем в новом окне
-    if (
-      typeof safari !== 'undefined' ||
-      /iPad|iPhone|iPod/.test(navigator.userAgent)
-    ) {
-      window.open(url, '_blank')
-    } else {
-      // Для десктопов и Android
-      const link = document.createElement('a')
-      link.href = url
-      link.download = 'договор.docx'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+    // Проверяем, есть ли ошибки в данных
+    try {
+      doc.render()
+    } catch (err) {
+      console.error('Ошибка рендера:', err)
+      alert('Ошибка заполнения договора. Проверьте введённые данные.')
+      return
     }
 
-    URL.revokeObjectURL(url)
+    // Генерация файла
+    const out = doc.getZip().generate({ type: 'blob' })
+
+    // Для iOS Safari используем saveAs напрямую
+    saveAs(out, 'договор.docx')
   } catch (error) {
     console.error('Ошибка при генерации договора:', error)
-    alert('Не удалось сформировать договор. Попробуйте с компьютера.')
+    alert(
+      'Не удалось сформировать договор. Проверьте интернет или попробуйте на компьютере.'
+    )
   }
 }
