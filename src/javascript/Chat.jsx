@@ -79,7 +79,7 @@ const questions = [
   },
   {
     id: 9,
-    text: 'Сколько рабочих дней есть у заказчика, чтобы принять готовую работу либо направить мотивированный отказ?',
+    text: 'Сколько рабочих дней есть у заказчика, чтобы принять готовую работу либо направить мотивированный отказ?',
     type: 'number',
     scenario: ['заказ с этапами работы', 'продолжительное сотрудничество'],
     key: 'приемка'
@@ -346,8 +346,9 @@ export const Chat = () => {
     document.body.classList.remove('overflow-hidden')
   }
 
-  const handleDownloadContract = () =>
+  const handleDownloadContract = () => {
     generateContract(userAnswers, isExtendedMode)
+  }
 
   const handleBack = () => {
     if (messages.length > 1) {

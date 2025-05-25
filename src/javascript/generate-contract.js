@@ -1,13 +1,12 @@
 import Docxtemplater from 'docxtemplater'
 import PizZip from 'pizzip'
+import { saveAs } from 'file-saver'
 
 export const generateContract = async (userAnswers, isExtendedMode) => {
   try {
-    // Определяем тип договора и загружаем шаблон
     const contractTypeAnswer = userAnswers.find(
       (ans) => ans.questionId === 1
     )?.answer
-
     let templateUrl = '/share/templates/small_order.docx'
     if (contractTypeAnswer === 'заказ с этапами работы') {
       templateUrl = '/share/templates/steps_order.docx'
@@ -19,11 +18,10 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     const response = await fetch(templateUrl)
     if (!response.ok) throw new Error('Не удалось загрузить шаблон')
     const buffer = await response.arrayBuffer()
-
     const zip = new PizZip(buffer)
     const doc = new Docxtemplater(zip)
 
-    // Подготовка данных для шаблона
+    // Подготовка данных
     const data = {
       доп_настройки: isExtendedMode
     }
@@ -40,9 +38,7 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
           break
         case 4:
           data.процент = ans.answer
-          if (!isNaN(parseInt(ans.answer))) {
-            data.остаток = 100 - parseInt(ans.answer)
-          }
+          data.остаток = 100 - parseInt(ans.answer || '0')
           break
         case 5:
           data.начало_работы = ans.answer
@@ -80,28 +76,31 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
         case 17:
           data.пени = ans.answer
           break
-        default:
-          break
       }
     }
 
-    // Заполнение шаблона данными
+    // Логируем данные
+    console.log('Подставляемые данные:', data)
     doc.setData(data)
-    doc.render()
 
+    // Проверяем, есть ли ошибки в данных
+    try {
+      doc.render()
+    } catch (err) {
+      console.error('Ошибка рендера:', err)
+      alert('Ошибка заполнения договора. Проверьте введённые данные.')
+      return
+    }
+
+    // Генерация файла
     const out = doc.getZip().generate({ type: 'blob' })
-    const url = URL.createObjectURL(out)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'договор.docx'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
+
+    // Для iOS Safari используем saveAs напрямую
+    saveAs(out, 'договор.docx')
   } catch (error) {
     console.error('Ошибка при генерации договора:', error)
     alert(
-      'Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.'
+      'Не удалось сформировать договор. Проверьте интернет или попробуйте на компьютере.'
     )
   }
 }

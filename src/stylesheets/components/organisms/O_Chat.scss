@@ -11,8 +11,12 @@
     width: 130%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     overflow-y: scroll;
+
+    .W_DownloadOnMobile {
+      display: none;
+    }
   }
   .W_MessagesContainer::-webkit-scrollbar {
     display: none;
@@ -23,10 +27,6 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-
-    .W_DownloadOnMobile {
-      display: none;
-    }
 
     .A_Message.user {
       align-self: flex-end;
