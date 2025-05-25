@@ -3,6 +3,7 @@ import PizZip from 'pizzip'
 
 export const generateContract = async (userAnswers, isExtendedMode) => {
   try {
+    // Определение типа договора
     const contractTypeAnswer = userAnswers.find(
       (ans) => ans.questionId === 1
     )?.answer
@@ -14,14 +15,16 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
       templateUrl = '/share/templates/sotrudnichestvo.docx'
     }
 
+    // Загрузка шаблона
     const response = await fetch(templateUrl)
     if (!response.ok) throw new Error('Не удалось загрузить шаблон')
     const buffer = await response.arrayBuffer()
 
+    // Генерация документа
     const zip = new PizZip(buffer)
     const doc = new Docxtemplater(zip)
 
-    // Подготовка данных
+    // Сбор данных из ответов
     const data = { доп_настройки: isExtendedMode }
     for (let ans of userAnswers) {
       switch (ans.questionId) {
@@ -80,30 +83,57 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     doc.setData(data)
     doc.render()
 
+    // Создание Blob
     const out = doc.getZip().generate({ type: 'blob' })
 
-    // Работает на всех устройствах, кроме iOS
-    const url = URL.createObjectURL(out)
+    // Поддержка iOS Safari
+    const fileName = 'договор.docx'
 
-    // Для iOS — открываем в новом окне
-    if (
-      typeof safari !== 'undefined' ||
-      /iPad|iPhone|iPod/.test(navigator.userAgent)
-    ) {
-      window.open(url, '_blank')
+    // Для мобильных устройств — открываем в новом окне
+    const isIOS =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+    const fileURL = URL.createObjectURL(out)
+
+    if (isIOS) {
+      // Открытие в новом окне для iOS
+      const win = window.open(fileURL, '_blank')
+
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        alert(
+          'Браузер заблокировал всплывающее окно. Разрешите всплывающие окна и попробуйте снова.'
+        )
+        URL.revokeObjectURL(fileURL)
+        return
+      }
+
+      // Через 1 секунду пытаемся показать сообщение
+      setTimeout(() => {
+        win.document.write(`
+          <html>
+            <body style="text-align:center;padding:40px;">
+              <h2>Нажмите на ⋮ → "Открыть в ...", чтобы сохранить файл</h2>
+              <p><a href="${fileURL}" download="${fileName}">Скачать договор</a></p>
+            </body>
+          </html>
+        `)
+      }, 1000)
     } else {
       // Для десктопов и Android
       const link = document.createElement('a')
-      link.href = url
-      link.download = 'договор.docx'
+      link.href = fileURL
+      link.download = fileName
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
     }
 
-    URL.revokeObjectURL(url)
+    URL.revokeObjectURL(fileURL)
   } catch (error) {
     console.error('Ошибка при генерации договора:', error)
-    alert('Не удалось сформировать договор. Попробуйте с компьютера.')
+    alert(
+      'Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.'
+    )
   }
 }

@@ -19018,13 +19018,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var generateContract = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(userAnswers, isExtendedMode) {
-    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out, url, link;
+    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out, fileName, isIOS, fileURL, win, link;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
+            // Определение типа договора
             contractTypeAnswer = (_userAnswers$find = userAnswers.find(function (ans) {
               return ans.questionId === 1;
             })) === null || _userAnswers$find === void 0 ? void 0 : _userAnswers$find.answer;
@@ -19036,7 +19037,8 @@ var generateContract = /*#__PURE__*/function () {
 
             if (contractTypeAnswer === 'продолжительное сотрудничество') {
               templateUrl = '/share/templates/sotrudnichestvo.docx';
-            }
+            } // Загрузка шаблона
+
 
             _context.next = 7;
             return fetch(templateUrl);
@@ -19057,8 +19059,9 @@ var generateContract = /*#__PURE__*/function () {
 
           case 12:
             buffer = _context.sent;
+            // Генерация документа
             zip = new (js_default())(buffer);
-            doc = new (docxtemplater_default())(zip); // Подготовка данных
+            doc = new (docxtemplater_default())(zip); // Сбор данных из ответов
 
             data = {
               доп_настройки: isExtendedMode
@@ -19166,41 +19169,68 @@ var generateContract = /*#__PURE__*/function () {
           case 67:
             // Заполнение шаблона
             doc.setData(data);
-            doc.render();
+            doc.render(); // Создание Blob
+
             out = doc.getZip().generate({
               type: 'blob'
-            }); // Работает на всех устройствах, кроме iOS
+            }); // Поддержка iOS Safari
 
-            url = URL.createObjectURL(out); // Для iOS — открываем в новом окне
+            fileName = 'договор.docx'; // Для мобильных устройств — открываем в новом окне
 
-            if (typeof safari !== 'undefined' || /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-              window.open(url, '_blank');
-            } else {
-              // Для десктопов и Android
-              link = document.createElement('a');
-              link.href = url;
-              link.download = 'договор.docx';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
+            isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+            fileURL = URL.createObjectURL(out);
+
+            if (!isIOS) {
+              _context.next = 82;
+              break;
             }
 
-            URL.revokeObjectURL(url);
-            _context.next = 79;
-            break;
+            // Открытие в новом окне для iOS
+            win = window.open(fileURL, '_blank');
 
-          case 75:
-            _context.prev = 75;
-            _context.t2 = _context["catch"](0);
-            console.error('Ошибка при генерации договора:', _context.t2);
-            alert('Не удалось сформировать договор. Попробуйте с компьютера.');
+            if (!(!win || win.closed || typeof win.closed === 'undefined')) {
+              _context.next = 79;
+              break;
+            }
+
+            alert('Браузер заблокировал всплывающее окно. Разрешите всплывающие окна и попробуйте снова.');
+            URL.revokeObjectURL(fileURL);
+            return _context.abrupt("return");
 
           case 79:
+            // Через 1 секунду пытаемся показать сообщение
+            setTimeout(function () {
+              win.document.write("\n          <html>\n            <body style=\"text-align:center;padding:40px;\">\n              <h2>\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u22EE \u2192 \"\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0432 ...\", \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0444\u0430\u0439\u043B</h2>\n              <p><a href=\"".concat(fileURL, "\" download=\"").concat(fileName, "\">\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440</a></p>\n            </body>\n          </html>\n        "));
+            }, 1000);
+            _context.next = 88;
+            break;
+
+          case 82:
+            // Для десктопов и Android
+            link = document.createElement('a');
+            link.href = fileURL;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+          case 88:
+            URL.revokeObjectURL(fileURL);
+            _context.next = 95;
+            break;
+
+          case 91:
+            _context.prev = 91;
+            _context.t2 = _context["catch"](0);
+            console.error('Ошибка при генерации договора:', _context.t2);
+            alert('Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.');
+
+          case 95:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 75], [17, 61, 64, 67]]);
+    }, _callee, null, [[0, 91], [17, 61, 64, 67]]);
   }));
 
   return function generateContract(_x, _x2) {
