@@ -347,7 +347,6 @@ export const Chat = () => {
   }
 
   const handleDownloadContract = () => {
-    alert('кнопка нажалась')
     generateContract(userAnswers, isExtendedMode)
   }
 

@@ -3,11 +3,9 @@ import PizZip from 'pizzip'
 
 export const generateContract = async (userAnswers, isExtendedMode) => {
   try {
-    // Определяем тип договора и загружаем шаблон
     const contractTypeAnswer = userAnswers.find(
       (ans) => ans.questionId === 1
     )?.answer
-
     let templateUrl = '/share/templates/small_order.docx'
     if (contractTypeAnswer === 'заказ с этапами работы') {
       templateUrl = '/share/templates/steps_order.docx'
@@ -23,11 +21,8 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
     const zip = new PizZip(buffer)
     const doc = new Docxtemplater(zip)
 
-    // Подготовка данных для шаблона
-    const data = {
-      доп_настройки: isExtendedMode
-    }
-
+    // Подготовка данных
+    const data = { доп_настройки: isExtendedMode }
     for (let ans of userAnswers) {
       switch (ans.questionId) {
         case 2:
@@ -40,9 +35,7 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
           break
         case 4:
           data.процент = ans.answer
-          if (!isNaN(parseInt(ans.answer))) {
-            data.остаток = 100 - parseInt(ans.answer)
-          }
+          data.остаток = 100 - parseInt(ans.answer)
           break
         case 5:
           data.начало_работы = ans.answer
@@ -80,28 +73,37 @@ export const generateContract = async (userAnswers, isExtendedMode) => {
         case 17:
           data.пени = ans.answer
           break
-        default:
-          break
       }
     }
 
-    // Заполнение шаблона данными
+    // Заполнение шаблона
     doc.setData(data)
     doc.render()
 
     const out = doc.getZip().generate({ type: 'blob' })
+
+    // Работает на всех устройствах, кроме iOS
     const url = URL.createObjectURL(out)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'договор.docx'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+
+    // Для iOS — открываем в новом окне
+    if (
+      typeof safari !== 'undefined' ||
+      /iPad|iPhone|iPod/.test(navigator.userAgent)
+    ) {
+      window.open(url, '_blank')
+    } else {
+      // Для десктопов и Android
+      const link = document.createElement('a')
+      link.href = url
+      link.download = 'договор.docx'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+
     URL.revokeObjectURL(url)
   } catch (error) {
     console.error('Ошибка при генерации договора:', error)
-    alert(
-      'Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.'
-    )
+    alert('Не удалось сформировать договор. Попробуйте с компьютера.')
   }
 }
