@@ -15507,6 +15507,18 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ 3162:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {}})(this,function(){"use strict";function b(a,b){return"undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(a,b,c){var d=new XMLHttpRequest;d.open("GET",a),d.responseType="blob",d.onload=function(){g(d.response,b,c)},d.onerror=function(){console.error("could not download file")},d.send()}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send()}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"))}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b)}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof __webpack_require__.g&&__webpack_require__.g.global===__webpack_require__.g?__webpack_require__.g:void 0,a=f.navigator&&/Macintosh/.test(navigator.userAgent)&&/AppleWebKit/.test(navigator.userAgent)&&!/Safari/.test(navigator.userAgent),g=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype&&!a?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href)},4E4),setTimeout(function(){e(j)},0))}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i)})}}:function(b,d,e,g){if(g=g||open("","_blank"),g&&(g.document.title=g.document.body.innerText="downloading..."),"string"==typeof b)return c(b,d,e);var h="application/octet-stream"===b.type,i=/constructor/i.test(f.HTMLElement)||f.safari,j=/CriOS\/[\d]+/.test(navigator.userAgent);if((j||h&&i||a)&&"undefined"!=typeof FileReader){var k=new FileReader;k.onloadend=function(){var a=k.result;a=j?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),g?g.location.href=a:location=a,g=null},k.readAsDataURL(b)}else{var l=f.URL||f.webkitURL,m=l.createObjectURL(b);g?g.location=m:location.href=m,g=null,setTimeout(function(){l.revokeObjectURL(m)},4E4)}});f.saveAs=g.saveAs=g, true&&(module.exports=g)});
+
+//# sourceMappingURL=FileSaver.min.js.map
+
+/***/ }),
+
 /***/ 645:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -18978,6 +18990,18 @@ if (true) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -18999,6 +19023,8 @@ var docxtemplater_default = /*#__PURE__*/__webpack_require__.n(docxtemplater);
 // EXTERNAL MODULE: ./node_modules/pizzip/js/index.js
 var js = __webpack_require__(1344);
 var js_default = /*#__PURE__*/__webpack_require__.n(js);
+// EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
+var FileSaver_min = __webpack_require__(3162);
 ;// CONCATENATED MODULE: ./src/javascript/generate-contract.js
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -19016,16 +19042,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 var generateContract = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(userAnswers, isExtendedMode) {
-    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out, fileName, isIOS, fileURL, win, link;
+    var _userAnswers$find, contractTypeAnswer, templateUrl, response, buffer, zip, doc, data, _iterator, _step, ans, out;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            // Определение типа договора
             contractTypeAnswer = (_userAnswers$find = userAnswers.find(function (ans) {
               return ans.questionId === 1;
             })) === null || _userAnswers$find === void 0 ? void 0 : _userAnswers$find.answer;
@@ -19037,8 +19063,7 @@ var generateContract = /*#__PURE__*/function () {
 
             if (contractTypeAnswer === 'продолжительное сотрудничество') {
               templateUrl = '/share/templates/sotrudnichestvo.docx';
-            } // Загрузка шаблона
-
+            }
 
             _context.next = 7;
             return fetch(templateUrl);
@@ -19059,9 +19084,8 @@ var generateContract = /*#__PURE__*/function () {
 
           case 12:
             buffer = _context.sent;
-            // Генерация документа
             zip = new (js_default())(buffer);
-            doc = new (docxtemplater_default())(zip); // Сбор данных из ответов
+            doc = new (docxtemplater_default())(zip); // Подготовка данных
 
             data = {
               доп_настройки: isExtendedMode
@@ -19094,7 +19118,7 @@ var generateContract = /*#__PURE__*/function () {
 
           case 30:
             data.процент = ans.answer;
-            data.остаток = 100 - parseInt(ans.answer);
+            data.остаток = 100 - parseInt(ans.answer || '0');
             return _context.abrupt("break", 57);
 
           case 33:
@@ -19167,70 +19191,44 @@ var generateContract = /*#__PURE__*/function () {
             return _context.finish(64);
 
           case 67:
-            // Заполнение шаблона
-            doc.setData(data);
-            doc.render(); // Создание Blob
+            // Логируем данные
+            console.log('Подставляемые данные:', data);
+            doc.setData(data); // Проверяем, есть ли ошибки в данных
 
-            out = doc.getZip().generate({
-              type: 'blob'
-            }); // Поддержка iOS Safari
+            _context.prev = 69;
+            doc.render();
+            _context.next = 78;
+            break;
 
-            fileName = 'договор.docx'; // Для мобильных устройств — открываем в новом окне
-
-            isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-            fileURL = URL.createObjectURL(out);
-
-            if (!isIOS) {
-              _context.next = 82;
-              break;
-            }
-
-            // Открытие в новом окне для iOS
-            win = window.open(fileURL, '_blank');
-
-            if (!(!win || win.closed || typeof win.closed === 'undefined')) {
-              _context.next = 79;
-              break;
-            }
-
-            alert('Браузер заблокировал всплывающее окно. Разрешите всплывающие окна и попробуйте снова.');
-            URL.revokeObjectURL(fileURL);
+          case 73:
+            _context.prev = 73;
+            _context.t2 = _context["catch"](69);
+            console.error('Ошибка рендера:', _context.t2);
+            alert('Ошибка заполнения договора. Проверьте введённые данные.');
             return _context.abrupt("return");
 
-          case 79:
-            // Через 1 секунду пытаемся показать сообщение
-            setTimeout(function () {
-              win.document.write("\n          <html>\n            <body style=\"text-align:center;padding:40px;\">\n              <h2>\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u22EE \u2192 \"\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0432 ...\", \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0444\u0430\u0439\u043B</h2>\n              <p><a href=\"".concat(fileURL, "\" download=\"").concat(fileName, "\">\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440</a></p>\n            </body>\n          </html>\n        "));
-            }, 1000);
-            _context.next = 88;
+          case 78:
+            // Генерация файла
+            out = doc.getZip().generate({
+              type: 'blob'
+            }); // Для iOS Safari используем saveAs напрямую
+
+            (0,FileSaver_min.saveAs)(out, 'договор.docx');
+            _context.next = 86;
             break;
 
           case 82:
-            // Для десктопов и Android
-            link = document.createElement('a');
-            link.href = fileURL;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            _context.prev = 82;
+            _context.t3 = _context["catch"](0);
+            console.error('Ошибка при генерации договора:', _context.t3);
+            alert('Не удалось сформировать договор. Проверьте интернет или попробуйте на компьютере.');
 
-          case 88:
-            URL.revokeObjectURL(fileURL);
-            _context.next = 95;
-            break;
-
-          case 91:
-            _context.prev = 91;
-            _context.t2 = _context["catch"](0);
-            console.error('Ошибка при генерации договора:', _context.t2);
-            alert('Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.');
-
-          case 95:
+          case 86:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 91], [17, 61, 64, 67]]);
+    }, _callee, null, [[0, 82], [17, 61, 64, 67], [69, 73]]);
   }));
 
   return function generateContract(_x, _x2) {
