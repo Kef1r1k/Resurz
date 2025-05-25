@@ -19025,7 +19025,6 @@ var generateContract = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            // Определяем тип договора и загружаем шаблон
             contractTypeAnswer = (_userAnswers$find = userAnswers.find(function (ans) {
               return ans.questionId === 1;
             })) === null || _userAnswers$find === void 0 ? void 0 : _userAnswers$find.answer;
@@ -19059,7 +19058,7 @@ var generateContract = /*#__PURE__*/function () {
           case 12:
             buffer = _context.sent;
             zip = new (js_default())(buffer);
-            doc = new (docxtemplater_default())(zip); // Подготовка данных для шаблона
+            doc = new (docxtemplater_default())(zip); // Подготовка данных
 
             data = {
               доп_настройки: isExtendedMode
@@ -19071,7 +19070,7 @@ var generateContract = /*#__PURE__*/function () {
 
           case 19:
             if ((_step = _iterator.n()).done) {
-              _context.next = 60;
+              _context.next = 59;
               break;
             }
 
@@ -19082,125 +19081,126 @@ var generateContract = /*#__PURE__*/function () {
 
           case 24:
             data.проект = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 26:
             data.предоплата = ans.answer === 'предоплата';
             data.полная_оплата = ans.answer === 'полная оплата';
             data.пост_оплата = ans.answer === 'пост-оплата';
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 30:
             data.процент = ans.answer;
-
-            if (!isNaN(parseInt(ans.answer))) {
-              data.остаток = 100 - parseInt(ans.answer);
-            }
-
-            return _context.abrupt("break", 58);
+            data.остаток = 100 - parseInt(ans.answer);
+            return _context.abrupt("break", 57);
 
           case 33:
             data.начало_работы = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 35:
             data.варианты = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 37:
             data.срок = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 39:
             data.финал = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 41:
             data.приемка = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 43:
             data.мин_стоимость = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 45:
             data.конфиденциально = ans.answer === 'да';
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 47:
             data.гарантийное_обслуживание = ans.answer === 'да';
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 49:
             data.срок_обслуживания = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 51:
             data.неполная_передача = ans.answer === 'нет';
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 53:
             data.макс_пени = ans.answer === 'да';
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 55:
             data.пени = ans.answer;
-            return _context.abrupt("break", 58);
+            return _context.abrupt("break", 57);
 
           case 57:
-            return _context.abrupt("break", 58);
-
-          case 58:
             _context.next = 19;
             break;
 
-          case 60:
-            _context.next = 65;
+          case 59:
+            _context.next = 64;
             break;
 
-          case 62:
-            _context.prev = 62;
+          case 61:
+            _context.prev = 61;
             _context.t1 = _context["catch"](17);
 
             _iterator.e(_context.t1);
 
-          case 65:
-            _context.prev = 65;
+          case 64:
+            _context.prev = 64;
 
             _iterator.f();
 
-            return _context.finish(65);
+            return _context.finish(64);
 
-          case 68:
-            // Заполнение шаблона данными
+          case 67:
+            // Заполнение шаблона
             doc.setData(data);
             doc.render();
             out = doc.getZip().generate({
               type: 'blob'
-            });
-            url = URL.createObjectURL(out);
-            link = document.createElement('a');
-            link.href = url;
-            link.download = 'договор.docx';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            }); // Работает на всех устройствах, кроме iOS
+
+            url = URL.createObjectURL(out); // Для iOS — открываем в новом окне
+
+            if (typeof safari !== 'undefined' || /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+              window.open(url, '_blank');
+            } else {
+              // Для десктопов и Android
+              link = document.createElement('a');
+              link.href = url;
+              link.download = 'договор.docx';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }
+
             URL.revokeObjectURL(url);
-            _context.next = 85;
+            _context.next = 79;
             break;
 
-          case 81:
-            _context.prev = 81;
+          case 75:
+            _context.prev = 75;
             _context.t2 = _context["catch"](0);
             console.error('Ошибка при генерации договора:', _context.t2);
-            alert('Не удалось сформировать договор. Проверьте данные или попробуйте на компьютере.');
+            alert('Не удалось сформировать договор. Попробуйте с компьютера.');
 
-          case 85:
+          case 79:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 81], [17, 62, 65, 68]]);
+    }, _callee, null, [[0, 75], [17, 61, 64, 67]]);
   }));
 
   return function generateContract(_x, _x2) {
@@ -19797,7 +19797,6 @@ var Chat = function Chat() {
   };
 
   var handleDownloadContract = function handleDownloadContract() {
-    alert('кнопка нажалась');
     generateContract(userAnswers, isExtendedMode);
   };
 
